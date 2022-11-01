@@ -1,32 +1,32 @@
-.page .site-content .ast-container {
+.page-id-1303 .site-content .ast-container {
   max-width: 100vw;
 }
 
-.page .ast-container #primary {
+.page-id-1303 .ast-container #primary {
   margin: 0;
 }
 
-.page .ast-article-single {
+.post-1303.ast-article-single {
   padding: 0;
 }
 
-#main .page {
+#post-1303.page {
   background-color: #1e1810;
 }
 
-.page .entry-header {
+.page-id-1303 .entry-header {
   margin-bottom: 0;
 }
 
-.page .navicon-close {
+.page-id-1303 .navicon-close {
   display: none;
 }
 
-.page .entry-content {
+.page-id-1303 .entry-content {
   min-height: 100vh;
 }
 
-.page .entry-content h1 {
+.page-id-1303 .entry-content h1 {
   padding: 40px 10px 20px 10px;
   margin-bottom: 0;
   line-height: 1.2em;
@@ -36,60 +36,60 @@
   position: relative;
 }
 
-.page .search_bar {
+.page-id-1303 .search_bar {
   display: none;
 }
 
-.page .input_search {
+.page-id-1303 .input_search {
   font-size: 15px;
   max-width: 500px;
   min-width: 320px;
   width: 80%;
 }
 
-.page .search_result li {
+.page-id-1303 .search_result li {
   list-style-type: none;
 }
 
 /*WYSIWYG Bug*/
-.page #my_map + p {
+.page-id-1303 #my_map + p {
   margin: 0;
   padding: 0;
 }
 
-.page #my_map ~ br {
+.page-id-1303 #my_map ~ br {
   display: none;
 }
 
-.page .entry-content .wrapper-liste {
+.page-id-1303 .entry-content .wrapper-liste {
   padding-bottom: 45vh;
   z-index: 9;
   background-color: #1e1810;
   position: relative;
 }
 
-.page .abschaltung.filter {
+.page-id-1303 .abschaltung.filter {
   padding-left: 5px;
   padding-bottom: 5px;
 }
 
-.page .abschaltung.filter p {
+.page-id-1303 .abschaltung.filter p {
   margin-bottom: 5px;
 }
 
-.page .unternehmen {
+.page-id-1303 .unternehmen {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-.page .unternehmenseintrag {
+.page-id-1303 .unternehmenseintrag {
   padding: 10px;
   width: 320px;
   display: flex;
 }
 
-.page .unternehmen .logo-wrapper {
+.page-id-1303 .unternehmen .logo-wrapper {
   max-width: 100px;
   min-width: 100px;
   background-color: #fff;
@@ -99,56 +99,56 @@
   justify-content: center;
 }
 
-.page .unternehmen .logo-wrapper img {
+.page-id-1303 .unternehmen .logo-wrapper img {
   padding: 5px;
   max-height: 50px;
   width: auto;
 }
 
-.page .unternehmen .logo-wrapper img:hover,
-.page .unternehmen .logo-wrapper img:active {
+.page-id-1303 .unternehmen .logo-wrapper img:hover,
+.page-id-1303 .unternehmen .logo-wrapper img:active {
   opacity: 0.5;
 }
 
-.page .unternehmenseintrag .text {
+.page-id-1303 .unternehmenseintrag .text {
   padding-left: 10px;
   align-self: center;
 }
 
-.page .unternehmen .unternehmenseintrag h3 {
+.page-id-1303 .unternehmen .unternehmenseintrag h3 {
   margin-bottom: 0;
   line-height: 18px;
 }
 
-.page .unternehmen .unternehmenseintrag h3 a {
+.page-id-1303 .unternehmen .unternehmenseintrag h3 a {
   font-size: 18px;
 }
 
-.page .unternehmen .unternehmenseintrag h3 a:hover,
-.page .unternehmen .unternehmenseintrag h3 a:active {
+.page-id-1303 .unternehmen .unternehmenseintrag h3 a:hover,
+.page-id-1303 .unternehmen .unternehmenseintrag h3 a:active {
   color: #f9c349;
 }
 
-.page .map_link_point {
+.page-id-1303 .map_link_point {
   font-size: 14px;
   cursor: pointer;
   padding: 5px 0;
   display: inline-block;
 }
 
-.page .map_link_point::before {
+.page-id-1303 .map_link_point::before {
   font-family: "Font Awesome 5 Free";
   padding: 5px;
   font-size: 18px;
   content: "\f279";
 }
 
-.page .map_link_point:hover,
-.page .map_link_point:active {
+.page-id-1303 .map_link_point:hover,
+.page-id-1303 .map_link_point:active {
   opacity: 0.5;
 }
 
-.page .adresse {
+.page-id-1303 .adresse {
   font-size: 14px;
   position: relative;
 }
@@ -181,7 +181,7 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   opacity: 0.5;
 }
 
-.page #my_map {
+.page-id-1303 #my_map {
   width: 100vw;
   /* position: fixed; 
     bottom: 0px;
@@ -192,42 +192,42 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 	*/
 }
 
-.page #my_map {
+.page-id-1303 #my_map {
   height: 50vh;
   min-height: 100px;
 }
 
-.page .leaflet-touch .leaflet-control-layers,
-.page .leaflet-touch .leaflet-bar {
+.page-id-1303 .leaflet-touch .leaflet-control-layers,
+.page-id-1303 .leaflet-touch .leaflet-bar {
   box-shadow: none;
   border: none;
 }
 
 /*Suchfunktion*/
 
-.page .leaflet-control-container .leaflet-control-geocoder-form {
+.page-id-1303 .leaflet-control-container .leaflet-control-geocoder-form {
   display: block;
   max-width: 250px;
   width: 250px;
 }
 
-.page .leaflet-control-container .leaflet-control-geocoder-form input {
+.page-id-1303 .leaflet-control-container .leaflet-control-geocoder-form input {
   text-align: center;
 }
 
-.page .leaflet-control-geocoder .leaflet-control-geocoder-icon {
+.page-id-1303 .leaflet-control-geocoder .leaflet-control-geocoder-icon {
   display: none;
 }
 
-.page .leaflet-control-zoom-in,
-.page .leaflet-control-zoom-out,
-.page .leaflet-control-geocoder-form,
-.page .leaflet-control-geocoder-form:focus,
-.page .leaflet-control-geocoder-form input[type="text"],
-.page .leaflet-control-geocoder-form input::placeholder,
-.page .leaflet-control-geocoder-form-no-error,
-.page .leaflet-control-geocoder-error,
-.page .leaflet-control-geocoder-alternatives {
+.page-id-1303 .leaflet-control-zoom-in,
+.page-id-1303 .leaflet-control-zoom-out,
+.page-id-1303 .leaflet-control-geocoder-form,
+.page-id-1303 .leaflet-control-geocoder-form:focus,
+.page-id-1303 .leaflet-control-geocoder-form input[type="text"],
+.page-id-1303 .leaflet-control-geocoder-form input::placeholder,
+.page-id-1303 .leaflet-control-geocoder-form-no-error,
+.page-id-1303 .leaflet-control-geocoder-error,
+.page-id-1303 .leaflet-control-geocoder-alternatives {
   background-color: rgba(30, 24, 16, 0.9);
   color: #fff;
   border: none;
@@ -235,62 +235,62 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   box-shadow: none;
 }
 
-.page .leaflet-control-geocoder-form input,
-.page .leaflet-control-geocoder-alternatives {
+.page-id-1303 .leaflet-control-geocoder-form input,
+.page-id-1303 .leaflet-control-geocoder-alternatives {
   width: 100%;
 }
 
-.page .leaflet-control-geocoder-alternatives li:hover,
-.page .leaflet-control-geocoder-alternatives li:active,
-.page .leaflet-control-geocoder-selected {
+.page-id-1303 .leaflet-control-geocoder-alternatives li:hover,
+.page-id-1303 .leaflet-control-geocoder-alternatives li:active,
+.page-id-1303 .leaflet-control-geocoder-selected {
   background-color: rgba(30, 24, 16, 0.9);
 }
 
-.page .leaflet-control-geocoder-alternatives a,
-.page .leaflet-control-geocoder-alternatives span {
+.page-id-1303 .leaflet-control-geocoder-alternatives a,
+.page-id-1303 .leaflet-control-geocoder-alternatives span {
   color: #fff;
   width: 100%;
 }
 
-.page .leaflet-marker-icon div {
+.page-id-1303 .leaflet-marker-icon div {
   background-color: rgba(1, 3, 85, 0.8);
   box-shadow: 0 0 30px 30px rgba(1, 3, 85, 0.5);
   border: 1px solid #abb8c3;
 }
 
-.page #my_map .leaflet-popup-content-wrapper,
-.page #my_map .leaflet-popup-tip {
+.page-id-1303 #my_map .leaflet-popup-content-wrapper,
+.page-id-1303 #my_map .leaflet-popup-tip {
   background-color: rgba(30, 24, 16, 0.9);
   border-radius: 0;
 }
 
-.page #my_map .leaflet-popup-content > p:nth-child(2) {
+.page-id-1303 #my_map .leaflet-popup-content > p:nth-child(2) {
   color: #fff;
   font-size: 90%;
 }
 
-.page #my_map .leaflet-popup span {
+.page-id-1303 #my_map .leaflet-popup span {
   color: #fff;
 }
 
-.page #my_map .leaflet-popup a {
+.page-id-1303 #my_map .leaflet-popup a {
   color: #f9c349;
 }
 
-.page #my_map .leaflet-popup a:hover,
-.page #my_map .leaflet-popup a:active {
+.page-id-1303 #my_map .leaflet-popup a:hover,
+.page-id-1303 #my_map .leaflet-popup a:active {
   opacity: 0.5;
 }
 
-.page #my_map .leaflet-popup a::after {
+.page-id-1303 #my_map .leaflet-popup a::after {
   content: "";
 }
 
-.page #my_map .leaflet-popup .leaflet-popup-close-button::after {
+.page-id-1303 #my_map .leaflet-popup .leaflet-popup-close-button::after {
   content: "";
 }
 
-.page .firmen-toggle {
+.page-id-1303 .firmen-toggle {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -306,12 +306,12 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   box-shadow: 0 0 10px 3px #666;
 }
 
-.page .firmen-toggle .firmen-show {
+.page-id-1303 .firmen-toggle .firmen-show {
   display: none;
 }
 
-.page .firmen-toggle .firmen-hide::after,
-.page .firmen-toggle .firmen-show::after {
+.page-id-1303 .firmen-toggle .firmen-hide::after,
+.page-id-1303 .firmen-toggle .firmen-show::after {
   font-family: "Font Awesome 5 Free";
   background-color: #f9c349;
   color: #000;
@@ -322,31 +322,31 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   cursor: pointer;
 }
 
-.page .firmen-toggle .firmen-hide::after {
+.page-id-1303 .firmen-toggle .firmen-hide::after {
   content: "\f060";
 }
 
-.page .firmen-toggle .firmen-show::after {
+.page-id-1303 .firmen-toggle .firmen-show::after {
   content: "\f061";
 }
 
-.page .firmen-toggle:hover,
-.page .firmen-toggle:acttive {
+.page-id-1303 .firmen-toggle:hover,
+.page-id-1303 .firmen-toggle:acttive {
   opacity: 0.5;
 }
 
 /* Firmenliste Show/Hide */
-.page.firmen-hide .entry-content h1,
-.page.firmen-hide .wrapper-liste,
-.page.firmen-hide .firmen-toggle .firmen-hide {
+.page-id-1303.firmen-hide .entry-content h1,
+.page-id-1303.firmen-hide .wrapper-liste,
+.page-id-1303.firmen-hide .firmen-toggle .firmen-hide {
   display: none;
 }
 
-.page.firmen-hide .firmen-toggle .firmen-show {
+.page-id-1303.firmen-hide .firmen-toggle .firmen-show {
   display: flex;
 }
 
-.page.firmen-hide #my_map {
+.page-id-1303.firmen-hide #my_map {
   width: 100vw;
 }
 
@@ -357,7 +357,7 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   left: auto;
 }
 
-.page .site-footer {
+.page-id-1303 .site-footer {
   z-index: 9;
   position: relative;
 }
@@ -371,24 +371,24 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   .ast-primary-header-bar .site-primary-header-wrap {
     min-height: 55px;
   }
-  .page .main-header-bar {
+  .page-id-1303 .main-header-bar {
     padding: 0;
   }
 
-  .page .custom-logo {
+  .page-id-1303 .custom-logo {
     max-width: 100px;
   }
 
-  .page .ast-button-wrap .menu-toggle.main-header-menu-toggle {
+  .page-id-1303 .ast-button-wrap .menu-toggle.main-header-menu-toggle {
     padding: 10px;
   }
 
-  .page .entry-content {
+  .page-id-1303 .entry-content {
     display: flex;
     flex-direction: column;
   }
 
-  .page .entry-content h1 {
+  .page-id-1303 .entry-content h1 {
     font-size: 25px;
     order: 2;
     display: flex;
@@ -398,33 +398,33 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     padding-bottom: 0;
   }
 
-  .page .firmen-toggle {
+  .page-id-1303 .firmen-toggle {
     height: 75px;
     width: 75px;
     order: 4;
   }
 
-  .page .firmen-toggle .firmen-hide::after,
-  .page .firmen-toggle .firmen-show::after {
+  .page-id-1303 .firmen-toggle .firmen-hide::after,
+  .page-id-1303 .firmen-toggle .firmen-show::after {
     font-size: 15px;
     line-height: 15px;
   }
 
-  body.page .entry-content .wrapper-liste {
+  body.page-id-1303 .entry-content .wrapper-liste {
     padding-top: 20px;
     order: 3;
     margin-top: 0;
   }
 
-  .page .entry-content h3 {
+  .page-id-1303 .entry-content h3 {
     font-size: 15px;
   }
-  .page .map_link_point::before {
+  .page-id-1303 .map_link_point::before {
     font-size: 12px;
     padding-top: 0;
   }
 
-  .page #my_map {
+  .page-id-1303 #my_map {
     order: 1;
     display: flex;
     /*   top: 36px; */
@@ -437,7 +437,7 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     right: auto;
   }
 
-  .page .leaflet-control-attribution.leaflet-control {
+  .page-id-1303 .leaflet-control-attribution.leaflet-control {
     font-size: 12px;
   }
 
@@ -453,23 +453,23 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 
   /* Fullscreen */
 
-  .page.firmen-hide #my_map {
+  .page-id-1303.firmen-hide #my_map {
     height: 85vh;
   }
 }
 
 @media only screen and (min-width: 1081px) {
-  .page .site-header-primary-section-left,
-  .page .site-header-above-section-right,
-  .page .ast-above-header-wrap {
+  .page-id-1303 .site-header-primary-section-left,
+  .page-id-1303 .site-header-above-section-right,
+  .page-id-1303 .ast-above-header-wrap {
     display: none;
   }
 
-  .page .site-header-primary-section-right {
+  .page-id-1303 .site-header-primary-section-right {
     justify-content: flex-start;
   }
 
-  .page .site-header-primary-section-right::before {
+  .page-id-1303 .site-header-primary-section-right::before {
     content: "\f0c9";
     font-family: "Font Awesome 5 Free";
     font-size: 30px;
@@ -483,26 +483,26 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   }
 
   /* Show/Hide Navi */
-  .page.nav-show-22 .site-header-primary-section-left,
-  .page.nav-show-22 .site-header-above-section-right,
-  .page.nav-show-22 .ast-above-header-wrap {
+  .page-id-1303.nav-show-22 .site-header-primary-section-left,
+  .page-id-1303.nav-show-22 .site-header-above-section-right,
+  .page-id-1303.nav-show-22 .ast-above-header-wrap {
     display: block;
   }
 
-  .page.nav-show-22 .site-header {
+  .page-id-1303.nav-show-22 .site-header {
     width: 100vw;
   }
 
-  .page.nav-show-22 #ast-desktop-header {
+  .page-id-1303.nav-show-22 #ast-desktop-header {
     width: 100vw;
     display: block;
   }
 
-  .page.nav-show-22 .site-header-primary-section-right::before {
+  .page-id-1303.nav-show-22 .site-header-primary-section-right::before {
     display: none;
   }
 
-  .page.nav-show-22 .navicon-close {
+  .page-id-1303.nav-show-22 .navicon-close {
     display: block;
     visibility: hidden;
     position: absolute;
@@ -513,7 +513,7 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     z-index: 99999999;
   }
 
-  .page.nav-show-22 .navicon-close::before {
+  .page-id-1303.nav-show-22 .navicon-close::before {
     content: "\f0c9";
     font-family: "Font Awesome 5 Free";
     font-size: 30px;
@@ -530,13 +530,13 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     margin-top: 1.2em;
   }
 
-  .page.nav-show-22 #ast-hf-menu-1 a {
+  .page-id-1303.nav-show-22 #ast-hf-menu-1 a {
     font-size: 18px;
   }
 
   /*Suchfunktion*/
 
-  .page .leaflet-control-container .leaflet-control-geocoder-form {
+  .page-id-1303 .leaflet-control-container .leaflet-control-geocoder-form {
     display: block;
     max-width: 300px;
     width: 300px;
@@ -545,18 +545,18 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 
 /* Landscape mode */
 @media only screen and (min-aspect-ratio: 1/1) {
-  .page .entry-content {
+  .page-id-1303 .entry-content {
     display: grid;
     grid-template-columns: 50vw 50vw;
   }
 
-  body.page .entry-content h1 {
+  body.page-id-1303 .entry-content h1 {
     grid-column: 1/2;
     grid-row: 1/2;
     margin-top: 0;
   }
 
-  .page .wrapper-liste {
+  .page-id-1303 .wrapper-liste {
     grid-column: 1/2;
     grid-row: 2/3;
     left: 0;
@@ -568,24 +568,24 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     min-height: 100vh;
   }
 
-  .page .abschaltung.filter {
+  .page-id-1303 .abschaltung.filter {
     padding-left: 0;
   }
 
-  .page .unternehmenseintrag {
+  .page-id-1303 .unternehmenseintrag {
     width: 100%;
     padding-left: 0;
   }
 
-  .page .unternehmenseintrag .text {
+  .page-id-1303 .unternehmenseintrag .text {
     padding-left: 10px;
   }
 
-  .page .BorlabsCookie ._brlbs-content-blocker {
+  .page-id-1303 .BorlabsCookie ._brlbs-content-blocker {
     grid-column: 2/3;
   }
 
-  .page #my_map {
+  .page-id-1303 #my_map {
     height: 85vh;
     width: 50vw;
     display: block;
@@ -597,23 +597,23 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 
   /* Fullscreen */
 
-  .page.firmen-hide #my_map {
+  .page-id-1303.firmen-hide #my_map {
     height: 85vh;
     grid-column: 1/3;
   }
 }
 
 @media only screen and (min-aspect-ratio: 1/1) and (min-width: 1081px) {
-  .page .section-header-mobile-trigger {
+  .page-id-1303 .section-header-mobile-trigger {
     display: none;
   }
 
-  .page .site-header {
+  .page-id-1303 .site-header {
     width: 50vw;
     background-color: #1e1810;
   }
 
-  .page #ast-desktop-header {
+  .page-id-1303 #ast-desktop-header {
     width: 280px;
     text-align: center;
     display: flex;
@@ -624,24 +624,24 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     padding-right: 15px;
   }
 
-  .page .site-header-primary-section-right::before {
+  .page-id-1303 .site-header-primary-section-right::before {
     margin-left: 30px;
   }
 
-  .page .site-header .site-primary-header-wrap {
+  .page-id-1303 .site-header .site-primary-header-wrap {
     padding: 0;
   }
 
-  .page .site-header .custom-logo {
+  .page-id-1303 .site-header .custom-logo {
     margin: 0;
   }
 
-  .page .entry-content h1,
-  .page .wrapper-liste {
+  .page-id-1303 .entry-content h1,
+  .page-id-1303 .wrapper-liste {
     width: 50vw;
   }
 
-  .page #my_map {
+  .page-id-1303 #my_map {
     position: fixed;
     right: 0;
     left: auto;
@@ -652,46 +652,46 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 
   /*Fullscreen */
 
-  .page.firmen-hide #my_map {
+  .page-id-1303.firmen-hide #my_map {
     height: 100vh;
     grid-column: 1/3;
   }
 }
 
 @media only screen and (min-aspect-ratio: 1/1) and (min-width: 1350px) {
-  .page.nav-show-22 #ast-hf-menu-1 a {
+  .page-id-1303.nav-show-22 #ast-hf-menu-1 a {
     font-size: 1.04545454545rem;
   }
 
-  .page .site-header,
-  .page .entry-content h1,
-  .page .wrapper-liste {
+  .page-id-1303 .site-header,
+  .page-id-1303 .entry-content h1,
+  .page-id-1303 .wrapper-liste {
     width: 35vw;
   }
 
-  .page .entry-content h1 {
+  .page-id-1303 .entry-content h1 {
     padding-top: 30px;
     font-size: 40px;
   }
 
-  .page .unternehmenseintrag {
+  .page-id-1303 .unternehmenseintrag {
     padding: 20px 0;
   }
 
-  .page .unternehmenseintrag .text {
+  .page-id-1303 .unternehmenseintrag .text {
     padding-left: 20px;
   }
 
-  .page .unternehmen .unternehmenseintrag h3 a {
+  .page-id-1303 .unternehmen .unternehmenseintrag h3 a {
     font-size: 1.21739130435rem;
     line-height: 1.2em;
   }
 
-  .page .adresse {
+  .page-id-1303 .adresse {
     font-size: 16px;
   }
 
-  .page .werbebeleuchtung_j .adresse::after {
+  .page-id-1303 .werbebeleuchtung_j .adresse::after {
     content: "\f005";
     font-family: "Font Awesome 5 Free";
     font-size: 20px;
@@ -702,8 +702,8 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     margin-bottom: 10px;
   }
 
-  .page .werbebeleuchtung_j .adresse:hover::after,
-  .page .werbebeleuchtung_j .adresse:active::after {
+  .page-id-1303 .werbebeleuchtung_j .adresse:hover::after,
+  .page-id-1303 .werbebeleuchtung_j .adresse:active::after {
     content: "Werbelicht im Zuge der Teilnahme optimiert";
     background: #000;
     color: #fff;
@@ -719,30 +719,34 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     line-height: 1em;
   }
 
-  .page .unternehmen .logo-wrapper {
+  .page-id-1303 .unternehmen .logo-wrapper {
     max-width: 160px;
     min-width: 160px;
     height: 120px;
   }
 
-  .page .unternehmen .logo-wrapper img {
+  .page-id-1303 .unternehmen .logo-wrapper img {
     padding: 20px;
     max-height: 120px;
   }
 
-  .page #my_map {
+  .page-id-1303 #my_map {
     position: fixed;
     width: 65vw;
   }
 
-  .page .leaflet-top.leaflet-right {
+  .page-id-1303 .leaflet-top.leaflet-right {
     top: 0;
   }
 }
 
 /* Smartphone Hochkant*/
 @media only screen and (max-aspect-ratio: 1/1) and (max-width: 650px) {
-  .page .entry-content ._brlbs-content-blocker ._brlbs-embed ._brlbs-caption {
+  .page-id-1303
+    .entry-content
+    ._brlbs-content-blocker
+    ._brlbs-embed
+    ._brlbs-caption {
     transform: none;
     position: static;
   }
@@ -750,7 +754,11 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 
 /* Landscape kleinere screens*/
 @media only screen and (min-aspect-ratio: 1/1) and (max-width: 1280px) {
-  .page .entry-content ._brlbs-content-blocker ._brlbs-embed ._brlbs-caption {
+  .page-id-1303
+    .entry-content
+    ._brlbs-content-blocker
+    ._brlbs-embed
+    ._brlbs-caption {
     transform: none;
     position: static;
   }
