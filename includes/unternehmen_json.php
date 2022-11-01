@@ -1,8 +1,8 @@
 <?php defined('ABSPATH') or die();
 
-add_action( 'rest_api_init', 'geojson_generate_api');
+  add_action( 'rest_api_init', 'geojson_generate_api');
 
-function geojson_generate_api() {
+  function geojson_generate_api() {
   register_rest_route( '22uhr-plugin/v1', '/unternehmen/', array(
   'methods' => WP_REST_SERVER::READABLE,
   'callback' => 'unternehmen_geojson_generator'
@@ -53,7 +53,7 @@ function unternehmen_geojson_generator() {
   'abschaltung' => $uhrzeit
   ),
   'firmengruppen' => get_post_meta(get_the_ID(), 'firmengruppen',true),
-  'firmengruppen-hierarchie' =>get_post_meta(get_the_ID(), 'firmengruppen-hierarchie', true)
+  'firmengruppen_hierarchie' =>get_post_meta(get_the_ID(), 'firmengruppen-hierarchie', true)
   ));
   }
 

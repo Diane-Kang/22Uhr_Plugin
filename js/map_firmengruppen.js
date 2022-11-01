@@ -1,3 +1,35 @@
+// // @string : id from html where the map appears 
+// // 
+// // return leaflet map object 
+// function map_initialize(html_id = 'my_map'){
+
+//     let map = L.map(html_id, scrollWheelZoom = false, keyboard = false, zoomControl = false)
+//                     .setView([49.79020826982288, 9.93560301310107], 6.3);
+
+//     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//         maxZoom: 18,
+//         minZoom: 5,
+//         attribution: 'Map data and Imagery &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+//     }).addTo(map);
+
+//     // Get Geocoder für Umkreissuche
+//     L.Control.geocoder({
+//         collapsed: false,
+//         placeholder: 'Umkreissuche (Ort oder PLZ)',
+//         defaultMarkGeocode: false
+//     }).on('markgeocode', function(e) {
+//         map.setView(e.geocode.center, 12); // zoom 10
+//     }).addTo(map);
+
+//     L.control.scale().addTo(map);
+
+//     return map;
+// }
+
+// const map_html_id = 'my_map';
+// const map = map_initialize(map_html_id);
+
+
 const map = L.map('my_map', scrollWheelZoom = false, keyboard = false, zoomControl = false)
     .setView([49.79020826982288, 9.93560301310107], 6.3);
 
@@ -24,7 +56,7 @@ L.control.scale().addTo(map);
 
 
 async function geojson() {
-    let url = '/wp-json/22uhr-plugin/v1/unternehmen';
+    let url = '/wp-json/22uhr-plugin/v1/unternehmen/g-u-t';
     const response = await fetch(url)
     const unternehmen = await response.json();
     //console.log(unternehmen);
@@ -70,6 +102,7 @@ function save_layerId_in_html(markers, option_name='post_id'){
     markers.eachLayer(marker => {
         var post_id = marker['options'][option_name];
         var map_id = markers.getLayerId(marker);
+        console.log(post_id);
         document.getElementById('map_id_'+post_id).setAttribute('value',map_id)
     })
 }
@@ -93,7 +126,7 @@ async function main() {
     //generate marker groups from geojson data
     json.features.forEach(feature => {
 
-        if(!feature.firmengruppen){ 
+        if(feature.firmengruppen_hierarchie != 0){ 
             let popuptext = "<a href = '" + feature.properties.url + "' target=\"_blank\">" + feature.properties.name + "</a>";
             if (feature.filter.abschaltung.slug == "nicht-vorhanden") {
                 popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Seit jeher kein Werbelicht vorhanden</span></p>";
@@ -102,7 +135,7 @@ async function main() {
                 popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Späteste Abschaltung</span> "+feature.filter.abschaltung.name +"!</p>";
             }
 
-            
+            console.log(feature.properties.name);
             let marker = L.marker([
                 feature.geometry.coordinates[1],
                 feature.geometry.coordinates[0],
@@ -110,7 +143,7 @@ async function main() {
                 name: feature.properties.name,
                 post_id: feature.properties.post_id
             });
-
+            console.log(marker);
 
             marker.bindPopup(popuptext);
 
@@ -181,3 +214,4 @@ jQuery('.firmen-show').click(function() {
 document.getElementById("change").onclick = function(){
     map.invalidateSize();    
 };
+

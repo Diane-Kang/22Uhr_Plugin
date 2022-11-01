@@ -29,6 +29,14 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/ctp_unternehmen.php';
 
 ////////////// Register own Endpoint for API - /wp-json/22uhr-plugin/v1/unternehmen
 require_once  PE_22Uhr_Plugin_Path . 'includes/unternehmen_json.php';
+////////////// Register own Endpoint for API - /wp-json/22uhr-plugin/v1/unternehmen/{firmengruppe}
+require_once  PE_22Uhr_Plugin_Path . 'includes/geojson_generate.php';
+$data = array(
+  "firmengruppe" => "G.U.T.",
+  "firmengruppe_slug" => "g-u-t"
+);
+
+$hello = new geojson_generate_Class($data);
 
 
 ////////////// Show ALL List of "Unternehmen"  and filter in front end
