@@ -98,7 +98,7 @@ function show_unternehmen() {
           $firmengruppen = get_post_meta(get_the_ID(),  'firmengruppen', true);
           $firmengruppen_hierarchie = get_post_meta(get_the_ID(),  'firmengruppen-hierarchie', true);
 
-          if(empty($firmengruppen)){ // Einzel Beitrag
+          
               $filter_value = get_post_meta(get_the_ID(),  'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true);
 
 
@@ -113,9 +113,7 @@ function show_unternehmen() {
                   $zeit = "empty";
               }
 
-
-
-
+        if(empty($firmengruppen)){ // Einzel Beitrag
               $string .= '<div class="unternehmenseintrag werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">
                       <div class="logo-wrapper"><a target="_blank" rel="noopener" href="' . get_the_permalink() . '">'
                   . get_the_post_thumbnail() .
@@ -130,14 +128,24 @@ function show_unternehmen() {
           }
           else if ($firmengruppen_hierarchie == 0){
               $firmengruppen_seite_url = get_post_meta( get_the_ID(),  'firmengruppen-seite', true );
-              $string .=  '<div class="unternehmenseintrag firmengruppen">
+              $string .=  ' <div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">
                               <div class="logo-wrapper"><a target="_blank" rel="noopener" href="' . $firmengruppen_seite_url . '">'. get_the_post_thumbnail() . '</a></div>' .
-                          '<div class="text">
+                          '     <div class="text">
+                                <p>Firmengruppe Hauptverwaltung</p>
                               <h3><a target="_blank" rel="noopener" href="' . $firmengruppen_seite_url . '">' . get_the_title() . '</a></h3>
-                              <a href="'.$firmengruppen_seite_url . '">Hier alle 270 Standorte anzeigen</a>
+                              <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' ' . get_post_meta( get_the_ID(),  'Ort', true ) .'</div>
+                              <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
+                              <div> <a href="'.$firmengruppen_seite_url . '">Hier alle 270 Standorte anzeigen</a> </div>
                           </div>
                           </div>';
 
+          }
+          else if ($firmengruppen_hierarchie == 1 || $firmengruppen_hierarchie == 2){
+            $firmengruppen_seite_url = get_post_meta( get_the_ID(),  'firmengruppen-seite', true );
+            $string .=  '<div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . ' display-none">
+                            <h3><a target="_blank" rel="noopener" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
+                            <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
+                        </div>';            
           }
       }
       $string .='</div>';

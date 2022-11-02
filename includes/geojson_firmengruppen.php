@@ -16,17 +16,34 @@ class geojson_generate_Class{
   }
 
   function unternehmen_geojson_generator() {
-    $unternehmen = new WP_Query(array(
-    'post_type' => 'unternehmen'
-    ));
+
+    $arg = array( 
+      'post_type' => 'unternehmen', 
+      'posts_per_page' => -1,
+      'meta_query' => array(
+        'relation' => 'and',
+        array(
+            'key'       => 'firmengruppen',
+            'value'        => $this->firmengruppe,
+            'compare' => '='
+        ),
+        array(
+          'key'       => 'firmengruppen-hierarchie',
+          'value'        => 0,
+          'compare' => '!='
+          )
+      ),
+    );
+  
+    $unternehmen = new WP_Query($arg);
 
     $unternehmen_geojson = array();
 
     while ($unternehmen->have_posts()) {
     $unternehmen->the_post();
-    $firmgruppe = get_post_meta(get_the_ID(), 'firmengruppen',true);
 
-      if($firmgruppe == 	$this->firmengruppe ){
+      if(1){
+      //if($firmgruppe == $this->firmengruppe && $firmengruppen_hierarchie ){
         $longi = get_post_meta( get_the_ID(), $key = "2-Laengengrad", true);
         settype ($longi, "float");
 

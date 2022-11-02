@@ -77,10 +77,21 @@
   margin-bottom: 5px;
 }
 
+.firmengruppen {
+  border-top: solid #f9c349;
+  border-bottom: solid #f9c349;
+}
+.page .display-none {
+  display: none !important;
+}
 .page .unternehmen {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+.page .unternehmen a {
+  text-decoration: none;
 }
 
 .page .unternehmenseintrag {

@@ -1,35 +1,3 @@
-// // @string : id from html where the map appears 
-// // 
-// // return leaflet map object 
-// function map_initialize(html_id = 'my_map'){
-
-//     let map = L.map(html_id, scrollWheelZoom = false, keyboard = false, zoomControl = false)
-//                     .setView([49.79020826982288, 9.93560301310107], 6.3);
-
-//     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//         maxZoom: 18,
-//         minZoom: 5,
-//         attribution: 'Map data and Imagery &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-//     }).addTo(map);
-
-//     // Get Geocoder für Umkreissuche
-//     L.Control.geocoder({
-//         collapsed: false,
-//         placeholder: 'Umkreissuche (Ort oder PLZ)',
-//         defaultMarkGeocode: false
-//     }).on('markgeocode', function(e) {
-//         map.setView(e.geocode.center, 12); // zoom 10
-//     }).addTo(map);
-
-//     L.control.scale().addTo(map);
-
-//     return map;
-// }
-
-// const map_html_id = 'my_map';
-// const map = map_initialize(map_html_id);
-
-
 const map = L.map('my_map', scrollWheelZoom = false, keyboard = false, zoomControl = false)
     .setView([49.79020826982288, 9.93560301310107], 6.3);
 
@@ -66,10 +34,16 @@ async function geojson() {
 
 
 function centerLeafletMapOnMarker(map, marker) {
+    if (marker.__parent){
+        
+    }
     var latLngs = [ marker.getLatLng() ];
     var markerBounds = L.latLngBounds(latLngs);
     map.fitBounds(markerBounds);
     map.setZoom(13.5);
+    // if (marker.__parent){
+    //     marker.__parent.spiderfy();
+    // }
     marker.openPopup();
 }
 
