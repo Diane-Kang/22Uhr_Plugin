@@ -27,11 +27,11 @@ class geojson_generate_Class{
             'value'        => $this->firmengruppe,
             'compare' => '='
         ),
-        array(
-          'key'       => 'firmengruppen-hierarchie',
-          'value'        => 0,
-          'compare' => '!='
-          )
+        // array(
+        //   'key'       => 'firmengruppen-hierarchie',
+        //   'value'        => 0,
+        //   'compare' => '!='
+        //   )
       ),
     );
   

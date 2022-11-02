@@ -5,27 +5,28 @@
 add_shortcode('liste_firmengruppen', 'show_firmengruppen');
 
 function show_firmengruppen() {
+    // find Hauptverantwwortung
+
+    $firmengruppen_name = 'G.U.T.';
 
 
-        $args = array(
-            'post_type' => 'unternehmen',
-            'post_parent' => 3724,
-            'posts_per_page' => -1,
-            // 'meta_query'  => array(
-            //        array(
-            //            'key' => 'firmengruppen',
-            //            'meta_compare' => '=', // see documentation for compare options
-            //            'value' => 'G.U.T.'
-            //        )
-            //    )
-       
-       );
-
+    $arg = array( 
+        'post_type' => 'unternehmen', 
+        'posts_per_page' => -1,
+        'meta_query' => array(
+          'relation' => 'and',
+          array(
+              'key'       => 'firmengruppen',
+              'value'        => $firmengruppen_name,
+              'compare' => '='
+          ),
+        ),
+      );
     
-       $the_query = new WP_Query($args);
+    $the_query = new WP_Query($arg);
 
 
-  $string =
+    $string =
       '<div class="wrapper-liste">
       <div class="search_bar">
           <form action="/" method="get" autocomplete="off">
@@ -119,36 +120,54 @@ function show_firmengruppen() {
 
     }
 
+
   // Unternehmen List section: 
   if ( $the_query->have_posts() ) {
     
 
       // Unternehmen List 
       $string .= '<div class="unternehmen">';
-      while ( $the_query->have_posts() ) {
-          $the_query->the_post();
-          $firmengruppen = get_post_meta(get_the_ID(),  'firmengruppen', true);
-          $firmengruppen_hierarchie = get_post_meta(get_the_ID(),  'firmengruppen-hierarchie', true);
-          
-          $string .= '<div class="unternehme">';
-          $string .= generate_list_entry(get_the_ID());
-          $args = array(
-            'post_type' => 'unternehmen',
-            'post_parent' => get_the_ID(),
-            'posts_per_page' => -1,
-            );  
-          $child_query = new WP_Query($args);
-          if ($child_query->have_posts()){
-            $string.= '<div class="child-unternehmen-block">';
-            while ($child_query->have_posts()){
-                $child_query->the_post();
-                $string .= generate_list_entry(get_the_ID(),1);
+      $list_content = "";
+      $i = 0 ;
+        while ( $the_query->have_posts() ) {
+            $the_query->the_post();
+            $firmengruppen = get_post_meta(get_the_ID(),  'firmengruppen', true);
+            $firmengruppen_hierarchie = get_post_meta(get_the_ID(),  'firmengruppen-hierarchie', true);
+            $haupt = "";
+
+            if ($firmengruppen_hierarchie == 0){
+
+                $haupt = '<div class="unternehme">' . generate_list_entry(get_the_ID()) .'</div>';
+
+            }else if ($firmengruppen_hierarchie == 1){
+                $i = $i +1;
+                $neben = "";
+                $neben .= '<div class="unternehme ' . $i . '">';
+                $neben .= generate_list_entry(get_the_ID());
+                $args = array(
+                  'post_type' => 'unternehmen',
+                  'post_parent' => get_the_ID(),
+                  'posts_per_page' => -1,
+                  );  
+                $child_query = new WP_Query($args);
+                if ($child_query->have_posts()){
+                  $neben.= '<div class="child-unternehmen-block">';
+                  while ($child_query->have_posts()){
+                      $child_query->the_post();
+                      $neben .= generate_list_entry(get_the_ID(),1);
+                  }
+                  $neben .= '</div>' ;
+                }
+                $neben.='</div>'; // '<div class="unternehme">'
+            }else{
+                $neben = "";
             }
-            $string .= '</div>' ;
-          }
-          $string.='</div>';
-      }
-      $string .='</div>';
+
+            $list_content .= $neben;
+            
+        }
+
+        $string .= $haupt . $list_content . '</div>'; //<div class="unternehmen">
 
   }
   else {

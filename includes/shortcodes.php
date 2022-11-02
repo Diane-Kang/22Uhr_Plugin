@@ -23,11 +23,6 @@ function show_child_unternehmen_nummer($atts) {
           'value'        => $atts['firmenname'],
           'compare' => '='
       ),
-      array(
-        'key'       => 'firmengruppen-hierarchie',
-        'value'        => 0,
-        'compare' => '!='
-        )
     ),
   );
 

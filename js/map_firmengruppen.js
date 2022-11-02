@@ -34,16 +34,11 @@ async function geojson() {
 
 
 function centerLeafletMapOnMarker(map, marker) {
-    if (marker.__parent){
-        
-    }
+
     var latLngs = [ marker.getLatLng() ];
     var markerBounds = L.latLngBounds(latLngs);
     map.fitBounds(markerBounds);
     map.setZoom(13.5);
-    // if (marker.__parent){
-    //     marker.__parent.spiderfy();
-    // }
     marker.openPopup();
 }
 
@@ -100,7 +95,7 @@ async function main() {
     //generate marker groups from geojson data
     json.features.forEach(feature => {
 
-        if(feature.firmengruppen_hierarchie != 0){ 
+        if(1){ 
             let popuptext = "<a href = '" + feature.properties.url + "' target=\"_blank\">" + feature.properties.name + "</a>";
             if (feature.filter.abschaltung.slug == "nicht-vorhanden") {
                 popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Seit jeher kein Werbelicht vorhanden</span></p>";

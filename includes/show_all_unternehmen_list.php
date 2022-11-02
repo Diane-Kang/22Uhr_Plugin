@@ -135,7 +135,7 @@ function show_unternehmen() {
                               <h3><a target="_blank" rel="noopener" href="' . $firmengruppen_seite_url . '">' . get_the_title() . '</a></h3>
                               <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' ' . get_post_meta( get_the_ID(),  'Ort', true ) .'</div>
                               <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                              <div> <a href="'.$firmengruppen_seite_url . '">Hier alle 270 Standorte anzeigen</a> </div>
+                              <div> <a href="'. $firmengruppen_seite_url . '">Hier alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte anzeigen</a> </div>
                           </div>
                           </div>';
 
