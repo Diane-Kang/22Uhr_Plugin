@@ -93,41 +93,37 @@ async function main() {
     //generate marker groups from geojson data
     json.features.forEach(feature => {
 
-            let popuptext = "<a href = '" + feature.properties.url + "' target=\"_blank\">" + feature.properties.name + "</a>";
-            if (feature.filter.abschaltung.slug == "nicht-vorhanden") {
-                popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Seit jeher kein Werbelicht vorhanden</span></p>";
-            }
-            else{
-                popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Späteste Abschaltung</span> "+feature.filter.abschaltung.name +"!</p>";
-            }
+        let popuptext = "<a href = '" + feature.properties.url + "' target=\"_blank\">" + feature.properties.name + "</a>";
+        if (feature.filter.abschaltung.slug == "nicht-vorhanden") {
+            popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Seit jeher kein Werbelicht vorhanden</span></p>";
+        }
+        else{
+            popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Späteste Abschaltung</span> "+feature.filter.abschaltung.name +"!</p>";
+        }
 
-            
-            let marker = L.marker([
-                feature.geometry.coordinates[1],
-                feature.geometry.coordinates[0],
-            ], {
-                name: feature.properties.name,
-                post_id: feature.properties.post_id
-            });
-
-
-            marker.bindPopup(popuptext);
-
-            //dynamic
-            let abschaltung_slug = feature.filter.abschaltung.slug;
-            let abschaltung_slug_unter = 'abschaltung_' + abschaltung_slug.replace(/\-/g, "_");
-            let temp_string = 'group_' + abschaltung_slug_unter;
-            let group_abschaltung_uhrzeit = window[temp_string];
-
-            //console.log('marker.addTo(group_' +  abschaltung_slug_unter + ');');
-            //eval('marker.addTo(group_' +  abschaltung_slug_unter + ');');
-            marker.addTo(group_abschaltung_uhrzeit);
-            marker.addTo(group_abschaltung_all);
+        
+        let marker = L.marker([
+            feature.geometry.coordinates[1],
+            feature.geometry.coordinates[0],
+        ], {
+            name: feature.properties.name,
+            post_id: feature.properties.post_id
+        });
 
 
+        marker.bindPopup(popuptext);
 
+        //dynamic
+        let abschaltung_slug = feature.filter.abschaltung.slug;
+        let abschaltung_slug_unter = 'abschaltung_' + abschaltung_slug.replace(/\-/g, "_");
+        let temp_string = 'group_' + abschaltung_slug_unter;
+        let group_abschaltung_uhrzeit = window[temp_string];
 
-
+        //console.log('marker.addTo(group_' +  abschaltung_slug_unter + ');');
+        //eval('marker.addTo(group_' +  abschaltung_slug_unter + ');');
+        marker.addTo(group_abschaltung_uhrzeit);
+        marker.addTo(group_abschaltung_all);
+        
     })
 
 

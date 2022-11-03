@@ -129,9 +129,9 @@ function show_unternehmen() {
           else if ($firmengruppen_hierarchie == 0){
               $firmengruppen_seite_url = get_post_meta( get_the_ID(),  'firmengruppen-seite', true );
               $string .=  ' <div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">
+                                <p>Firmengruppe Hauptverwaltung</p>
                               <div class="logo-wrapper"><a target="_blank" rel="noopener" href="' . $firmengruppen_seite_url . '">'. get_the_post_thumbnail() . '</a></div>' .
                           '     <div class="text">
-                                <p>Firmengruppe Hauptverwaltung</p>
                               <h3><a target="_blank" rel="noopener" href="' . $firmengruppen_seite_url . '">' . get_the_title() . '</a></h3>
                               <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' ' . get_post_meta( get_the_ID(),  'Ort', true ) .'</div>
                               <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>

@@ -95,9 +95,24 @@
 }
 
 .page .unternehmenseintrag {
-  padding: 10px;
+  margin: 10px 0;
+  /* padding: 10px; */
   width: 320px;
   display: flex;
+}
+.page .unternehmenseintrag:hover,
+.page .unternehmenseintrag:active {
+  transition-duration: 0.3s;
+  transform: translateX(10px);
+}
+
+.page .firmengruppen {
+  display: grid;
+  grid-template-columns: min-content auto;
+}
+
+.page .firmengruppen p {
+  grid-column: 1/-1;
 }
 
 .page .unternehmen .logo-wrapper {
@@ -105,9 +120,7 @@
   min-width: 100px;
   background-color: #fff;
   height: 60px;
-  display: grid;
-  align-items: center;
-  justify-content: center;
+  align-self: center;
 }
 
 .page .unternehmen .logo-wrapper img {
@@ -585,7 +598,7 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 
   .page .unternehmenseintrag {
     width: 100%;
-    padding-left: 0;
+    /* padding-left: 0; */
   }
 
   .page .unternehmenseintrag .text {
@@ -686,7 +699,8 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   }
 
   .page .unternehmenseintrag {
-    padding: 20px 0;
+    margin: 20px 0;
+    /* padding: 20px 0; */
   }
 
   .page .unternehmenseintrag .text {
