@@ -39,6 +39,8 @@ function centerLeafletMapOnMarker(map, marker) {
     map.fitBounds(markerBounds);
     map.setZoom(13.5);
     marker.openPopup();
+
+    
 }
 
 
@@ -93,7 +95,7 @@ async function main() {
     //generate marker groups from geojson data
     json.features.forEach(feature => {
 
-        let popuptext = "<a href = '" + feature.properties.url + "' target=\"_blank\">" + feature.properties.name + "</a>";
+        let popuptext = "<a href = '" + feature.properties.url + "' target=\"_blank\">" + feature.properties.name +"</a>";
         if (feature.filter.abschaltung.slug == "nicht-vorhanden") {
             popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Seit jeher kein Werbelicht vorhanden</span></p>";
         }
@@ -123,7 +125,7 @@ async function main() {
         //eval('marker.addTo(group_' +  abschaltung_slug_unter + ');');
         marker.addTo(group_abschaltung_uhrzeit);
         marker.addTo(group_abschaltung_all);
-        
+
     })
 
 

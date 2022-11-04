@@ -100,9 +100,20 @@ function show_firmengruppen() {
     
     
 
-    function generate_list_entry($post_id, $child=0){
-        $string = '
-        <div class="'. ($child == 1 ? 'child-unternehmen' : 'parent-unternehmen') . ' unternehmenseintrag werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">
+    function generate_list_entry($post_id, $identity='haupt', $n_child =0 ){
+
+        switch ($identity) {
+            case 'haupt':
+                $string = '<div class=" unternehmenseintrag werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">';
+                break;
+            case 'parent':
+                $string = '<div class=" parent-unternehmen unternehmenseintrag werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">';
+                break;
+            case 'child' : 
+                $string = '<div class="child-unternehmen unternehmenseintrag werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">';
+                break;
+        }
+        $string .= '      
             <div class="logo-wrapper">
                 <a target="_blank" rel="noopener" href="' . get_the_permalink($post_id) . '">
                 '. get_the_post_thumbnail($post_id) . '
@@ -112,9 +123,15 @@ function show_firmengruppen() {
                 <h3><a target="_blank" rel="noopener" href="' . get_the_permalink($post_id) . '">' . get_the_title($post_id) . '</a></h3>
                 <div class="adresse">('. get_post_meta($post_id, 'Land', true ) . ')&nbsp;' . get_post_meta($post_id,  'Postleitzahl', true ) . ' '. get_post_meta($post_id,  'Ort', true ) . '
                 </div>
-                <div class="map_link_point" id="map_id_'. $post_id . '">Auf Karte zeigen </div>
-            </div>
-        </div>';
+                <div class="map_link_point" id="map_id_'. $post_id . '">Auf Karte zeigen </div>';
+
+        if ($n_child){
+            $string .= '<svg class="ionicon-chevron-down" viewBox="0 0 512 512"><title>Chevron Down</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/></svg>';
+        }
+
+        $string .= 
+            '</div> 
+        </div>';// close unternehmenseintrag
 
         return $string;
 
@@ -141,20 +158,24 @@ function show_firmengruppen() {
 
             }else if ($firmengruppen_hierarchie == 1){
                 $i = $i +1;
+                $args = array(
+                    'post_type' => 'unternehmen',
+                    'post_parent' => get_the_ID(),
+                    'posts_per_page' => -1,
+                    ); 
+                $child_query = new WP_Query($args);
+
                 $neben = "";
                 $neben .= '<div class="unternehme ' . $i . '">';
-                $neben .= generate_list_entry(get_the_ID());
-                $args = array(
-                  'post_type' => 'unternehmen',
-                  'post_parent' => get_the_ID(),
-                  'posts_per_page' => -1,
-                  );  
-                $child_query = new WP_Query($args);
+                
+                $child_n = $child_query->found_posts;
+                $neben .= generate_list_entry(get_the_ID(), "parent", $child_n);
+ 
                 if ($child_query->have_posts()){
                   $neben.= '<div class="child-unternehmen-block">';
                   while ($child_query->have_posts()){
                       $child_query->the_post();
-                      $neben .= generate_list_entry(get_the_ID(),1);
+                      $neben .= generate_list_entry(get_the_ID(),"child", 0);
                   }
                   $neben .= '</div>' ;
                 }

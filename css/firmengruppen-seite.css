@@ -1,0 +1,32 @@
+.child-unternehmen-block {
+  margin: 40px;
+}
+
+.ionicon-chevron-down {
+  height: 30px;
+}
+
+.unternehme .child-unternehmen-block {
+  display: none;
+}
+
+.unternehme.child-block-open .child-unternehmen-block {
+  display: block;
+}
+
+.unternehmen .unternehmenseintrag .text {
+  display: grid;
+  grid-template-columns: auto min-content;
+}
+
+.unternehmen .unternehmenseintrag .text h3 {
+  grid-column: 1/-1;
+}
+.unternehmen .unternehmenseintrag .text .map_link_point {
+  grid-row: 3;
+}
+.unternehmen .unternehmenseintrag .text .ionicon-chevron-down {
+  grid-row: 2/4;
+  grid-column: 2;
+  align-self: center;
+}

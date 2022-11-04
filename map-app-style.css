@@ -100,11 +100,6 @@
   width: 320px;
   display: flex;
 }
-.page .unternehmenseintrag:hover,
-.page .unternehmenseintrag:active {
-  transition-duration: 0.3s;
-  transform: translateX(10px);
-}
 
 .page .firmengruppen {
   display: grid;
@@ -146,6 +141,10 @@
 
 .page .unternehmen .unternehmenseintrag h3 a {
   font-size: 18px;
+}
+
+.page .unternehmen .child-unternehmen h3 a {
+  font-size: 15px;
 }
 
 .page .unternehmen .unternehmenseintrag h3 a:hover,
@@ -710,6 +709,11 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   .page .unternehmen .unternehmenseintrag h3 a {
     font-size: 1.21739130435rem;
     line-height: 1.2em;
+  }
+
+  .page .unternehmen .child-unternehmen h3 a {
+    font-size: 1rem;
+    line-height: 1;
   }
 
   .page .adresse {

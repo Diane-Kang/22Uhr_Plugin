@@ -46,7 +46,7 @@ function unternehmen_geojson_generator() {
       'properties'=>array(
       'name' => get_the_title(),
       'post_id' => get_the_ID(),
-      'url' => get_permalink()
+      'url' => get_post_meta(get_the_ID(), 'firmengruppen-hierarchie', true) == '0' ? get_post_meta(get_the_ID(), 'firmengruppen-seite', true) : get_permalink()
       ),
       'filter'=> array(
       'werbebeleuchtung' => $werbebeleuchtung_jn,

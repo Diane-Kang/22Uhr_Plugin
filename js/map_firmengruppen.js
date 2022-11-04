@@ -33,20 +33,79 @@ async function geojson() {
 
 
 
-function centerLeafletMapOnMarker(map, marker) {
+function centerLeafletMapOnMarker(map, marker, layergroup) {
 
-    var latLngs = [ marker.getLatLng() ];
-    var markerBounds = L.latLngBounds(latLngs);
+    let latLngs = [ marker.getLatLng() ];
+    let markerBounds = L.latLngBounds(latLngs);
+    
     map.fitBounds(markerBounds);
-    map.setZoom(13.5);
-    marker.openPopup();
+    map.setZoom(13);
+    //map.setView(marker.getLatLng(),13);
+    setTimeout(function(){ 
+        var parent = getParentAtCurrentZoom(marker);
+        //console.log(marker__parent.spiderfy);
+        if(parent instanceof L.MarkerCluster){
+
+            parent.spiderfy();        //
+            //parent.fire('click');        //
+            
+            //marker.__parent.spiderfy();
+            
+        }else{
+           // map.setZoom(13);
+        }
+        marker.openPopup();
+        console.log(map.getZoom());
+     }, 500);
+        
+
+    // markers.on('clusterclick', function (a) {
+    //     if (a.layer._childCount>0) {
+    //         clusterMarkers = a.layer.getAllChildMarkers();
+    //         clickedMarker=clusterMarkers[0];
+    //     }
+
+    // console.log('Number of markers: ' + e.layer.getAllChildMarkers().length);
+   // map.setZoom(13);
+        
+
+    
+    //
+    //
+    //
+
+    // var visibleLayer = mcgLayerSupportGroup_auto.getVisibleParent(marker);
+    // visibleLayer.fire('click');
+    // mcgLayerSupportGroup_auto.once('spiderfied', function() {
+    //     marker.openPopup();
+    //   });
+    // marker.fire('click');
+    // console.log(marker.__parent);
+    // marker.__parent.fire('click');
+
+
+        // map.fitBounds(markerBounds);
+        // map.setZoom(13);
+        // if(marker.__parent) marker.__parent.spiderfy();
+        // marker.openPopup();
+        
+
 }
 
 
+function getParentAtCurrentZoom(marker) {
+	var currentZoom = map.getZoom();
+	while (marker.__parent && marker.__parent._zoom >= currentZoom) {
+  	marker = marker.__parent;
+  }
+  console.log(marker);
+  return marker;
+}
+
 //Defing Layer groups for Filtering
 
-var mcgLayerSupportGroup_auto = L.markerClusterGroup.layerSupport(),
-    group_abschaltung_all = L.layerGroup();
+var mcgLayerSupportGroup_auto = new L.markerClusterGroup.layerSupport();
+var group_abschaltung_all = L.layerGroup();
 
 //Set group names with data-group in filter select options 
 var options = document.getElementById('abschaltung_uhrzeit').options;
@@ -84,7 +143,7 @@ function build_link (markers){
 
         let map_id = parseInt(event.target.getAttribute("value"));
         var marker = markers.getLayer(map_id);
-        centerLeafletMapOnMarker(map, marker);
+        centerLeafletMapOnMarker(map, marker, mcgLayerSupportGroup_auto);
     }))
 }
 
@@ -165,6 +224,13 @@ async function main() {
         });
     }
 
+
+    var open_childblock_bnt = document.querySelector('.ionicon-chevron-down');
+    jQuery('.ionicon-chevron-down').click(function(e){
+        console.log(e);
+        console.log(e.target.parentNode.parentNode);
+            e.target.parentNode.parentNode.parentNode.classList.toggle('child-block-open');
+    })
 
 
 }
