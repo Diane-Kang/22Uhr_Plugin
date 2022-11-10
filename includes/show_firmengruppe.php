@@ -113,6 +113,9 @@ function show_firmengruppen() {
                 $string = '<div class="child-unternehmen unternehmenseintrag werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">';
                 break;
         }
+
+        //<img src="http://localhost:10008/wp-content/uploads/2022/10/GUT-Logo.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" srcset="http://localhost:10008/wp-content/uploads/2022/10/GUT-Logo.jpg 580w, http://localhost:10008/wp-content/uploads/2022/10/GUT-Logo-300x200.jpg 300w" sizes="(max-width: 580px) 100vw, 580px" width="580" height="387">
+        
         $string .= '      
             <div class="logo-wrapper">
                 <a target="_blank" rel="noopener" href="' . get_the_permalink($post_id) . '">
@@ -151,12 +154,14 @@ function show_firmengruppen() {
             $firmengruppen = get_post_meta(get_the_ID(),  'firmengruppen', true);
             $firmengruppen_hierarchie = get_post_meta(get_the_ID(),  'firmengruppen-hierarchie', true);
             $haupt = "";
+            $neben = "";
 
             if ($firmengruppen_hierarchie == 0){
 
                 $haupt = '<div class="unternehme">' . generate_list_entry(get_the_ID()) .'</div>';
 
             }else if ($firmengruppen_hierarchie == 1){
+                print_r(get_the_title(get_the_ID()));
                 $i = $i +1;
                 $args = array(
                     'post_type' => 'unternehmen',

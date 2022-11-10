@@ -17,11 +17,14 @@
   npm 8.12.1
 */
 
-defined( 'ABSPATH' ) or die( 'Are you ok?' );
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 
 if ( ! defined( 'PE_22Uhr_Plugin_Path' ) ) {
 	define( 'PE_22Uhr_Plugin_Path', plugin_dir_path( __FILE__ ) );
 }
+
+require_once PE_22Uhr_Plugin_Path . 'includes/PE-22uhr-import-Firmengruppe.php';
 
 
 ///////////// Setting Custom type Post, taxonomy  ///////////////////
