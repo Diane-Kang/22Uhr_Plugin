@@ -97,45 +97,49 @@ function show_unternehmen() {
           $the_query->the_post();
           $firmengruppen = get_post_meta(get_the_ID(),  'firmengruppen', true);
           $firmengruppen_hierarchie = get_post_meta(get_the_ID(),  'firmengruppen-hierarchie', true);
+          $filter_value = get_post_meta(get_the_ID(),  'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true);
+          $filter_uhr = get_the_terms(get_the_ID(), 'abschaltung');
 
-          
-              $filter_value = get_post_meta(get_the_ID(),  'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true);
-
-
-              $filter_uhr = get_the_terms(get_the_ID(), 'abschaltung');
-
-              if (! empty($filter_uhr)) {
-                  foreach($filter_uhr as $tag) {
-                      $zeit = str_replace("-", "_", $tag->slug);
-                  }
-              }
-              else {
-                  $zeit = "empty";
-              }
+            if (! empty($filter_uhr)) {
+                foreach($filter_uhr as $tag) {
+                    $zeit = str_replace("-", "_", $tag->slug);
+                }
+            }
+            else {
+                $zeit = "empty";
+            }
 
         if(empty($firmengruppen)){ // Einzel Beitrag
-              $string .= '<div class="unternehmenseintrag werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">
-                      <div class="logo-wrapper"><a target="_blank" rel="noopener" href="' . get_the_permalink() . '">'
-                  . get_the_post_thumbnail() .
-                  '</a></div>' .
-                  '<div class="text">
-                      <h3><a target="_blank" rel="noopener" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
-                      <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' '
-                  . 	get_post_meta( get_the_ID(),  'Ort', true ) .
-                  '</div>
-                      <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                      </div></div>';
+              $string .= '  <div class="unternehmenseintrag-filter abschaltung_' . $zeit . '">
+                                <div class="unternehmenseintrag werbebeleuchtung_'. $filter_value .'">
+                                    <div class="logo-wrapper">
+                                        <a target="_blank" rel="noopener" href="' . get_the_permalink() . '">'
+                                    .   get_the_post_thumbnail() .
+                                        '</a>
+                                    </div>' .
+                                    '<div class="text">
+                                        <h3><a target="_blank" rel="noopener" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
+                                        <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' '
+                                            . 	get_post_meta( get_the_ID(),  'Ort', true ) .
+                                        '</div>
+                                        <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
+                                    </div>
+                                </div>
+                            </div>';
           }
           else if ($firmengruppen_hierarchie == 0){
               $firmengruppen_seite_url = get_post_meta( get_the_ID(),  'firmengruppen-seite', true );
-              $string .=  ' <div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . '">
-                                <p>Firmengruppe Hauptverwaltung</p>
+              $string .=  ' <div class="unternehmenseintrag-filter abschaltung_' . $zeit . '">
+              <div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .'">'
+                               // <p>Firmengruppe Hauptverwaltung</p>
+                              .'
                               <div class="logo-wrapper"><a target="_blank" rel="noopener" href="' . $firmengruppen_seite_url . '">'. get_the_post_thumbnail() . '</a></div>' .
                           '     <div class="text">
                               <h3><a target="_blank" rel="noopener" href="' . $firmengruppen_seite_url . '">' . get_the_title() . '</a></h3>
                               <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' ' . get_post_meta( get_the_ID(),  'Ort', true ) .'</div>
                               <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                              <div> <a href="'. $firmengruppen_seite_url . '">Hier alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte anzeigen</a> </div>
+                              <div> <a target="_blank" href="'. $firmengruppen_seite_url . '">Hier alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte anzeigen</a> </div>
+                          </div>
                           </div>
                           </div>';
 

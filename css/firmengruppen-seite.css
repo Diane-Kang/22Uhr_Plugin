@@ -1,3 +1,27 @@
+
+.entry-title{
+  font-weight:bold;
+  text-decoration: underline solid #f9c349;
+  padding-left:2vw;
+  
+}
+
+.entry-title > span{
+  font-style: italic;
+  }
+
+.description-company-page{
+  font-size:30px;  
+  padding-left:2vw;
+}
+
+
+
+
+.page-child .entry-header{
+  margin-top:16px;
+}
+
 .child-unternehmen-block {
   margin: 40px;
 }

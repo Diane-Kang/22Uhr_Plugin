@@ -33,16 +33,6 @@ async function geojson() {
 
 
 
-function centerLeafletMapOnMarker(map, marker) {
-    var latLngs = [ marker.getLatLng() ];
-    var markerBounds = L.latLngBounds(latLngs);
-    map.fitBounds(markerBounds);
-    map.setZoom(13.5);
-    marker.openPopup();
-
-    
-}
-
 
 //Defing Layer groups for Filtering
 
@@ -67,26 +57,6 @@ mcgLayerSupportGroup_auto.addTo(map);
 
 var control = L.control.layers(null, null, { collapsed: false });
 
-//save markerLayer_id as a value with tag 'map_id_'+post_id
-function save_layerId_in_html(markers, option_name='post_id'){
-    markers.eachLayer(marker => {
-        var post_id = marker['options'][option_name];
-        var map_id = markers.getLayerId(marker);
-        document.getElementById('map_id_'+post_id).setAttribute('value',map_id)
-    })
-}
-
-// Note Pondo: Make map Link Point Clickable
-function build_link (markers){
-    const divs = document.querySelectorAll('.map_link_point');
-
-    divs.forEach(el => el.addEventListener('click', event => {
-
-        let map_id = parseInt(event.target.getAttribute("value"));
-        var marker = markers.getLayer(map_id);
-        centerLeafletMapOnMarker(map, marker);
-    }))
-}
 
 async function main() {
 
@@ -95,24 +65,8 @@ async function main() {
     //generate marker groups from geojson data
     json.features.forEach(feature => {
 
-        let popuptext = "<a href = '" + feature.properties.url + "' target=\"_blank\">" + feature.properties.name +"</a>";
-        if (feature.filter.abschaltung.slug == "nicht-vorhanden") {
-            popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Seit jeher kein Werbelicht vorhanden</span></p>";
-        }
-        else{
-            popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Späteste Abschaltung</span> "+feature.filter.abschaltung.name +"!</p>";
-        }
-
-        
-        let marker = L.marker([
-            feature.geometry.coordinates[1],
-            feature.geometry.coordinates[0],
-        ], {
-            name: feature.properties.name,
-            post_id: feature.properties.post_id
-        });
-
-
+        let popuptext = build_marker_popup_content(feature);
+        let marker = build_marker_object(feature);
         marker.bindPopup(popuptext);
 
         //dynamic

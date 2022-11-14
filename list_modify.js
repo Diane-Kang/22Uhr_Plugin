@@ -8,14 +8,13 @@ var options = document.getElementById('abschaltung_uhrzeit').options;
 for (let i = 1; i < options.length; i++) { 
     // <option data-group="abschaltung_19_uhr" value="38"> Spätestens 19 Uhr</option>
     let abschaltung_data_group = options[i].getAttribute("data-group"); 
-    // set variable for colletion of html by Name
     // data-group  = target class name
     eval('var ' +  abschaltung_data_group + '= document.getElementsByClassName("' +  abschaltung_data_group  + '");');
     //ex) var abschaltung_22_uhr = document.getElementsByClassName("abschaltung_22_uhr");
 }
 
 // set variable for colletion of html by Name for all Unternehmen
-var all_unternehmen = document.getElementsByClassName("unternehmenseintrag");
+var all_unternehmen = document.getElementsByClassName("unternehmenseintrag-filter");
 
 
 
@@ -28,11 +27,11 @@ document.getElementById('abschaltung_uhrzeit').addEventListener('change', functi
     let uhr_group = this.options[this.selectedIndex].getAttribute("data-group");
     console.log((this.options.length - 1) - this.selectedIndex)
     if (uhr_group !="abschaltung_all"){
-        console.log('for (i = 0; i < '+ uhr_group +'.length; i++) ' + uhr_group + '[i].style.display = "flex";');
-        eval('for (i = 0; i < '+ uhr_group +'.length; i++) ' + uhr_group + '[i].style.display = "flex";');
+        console.log('for (i = 0; i < '+ uhr_group +'.length; i++) ' + uhr_group + '[i].style.display = "block";');
+        eval('for (i = 0; i < '+ uhr_group +'.length; i++) ' + uhr_group + '[i].style.display = "block";');
     }
     else{
-        for (i = 0; i < all_unternehmen.length; i++) all_unternehmen[i].style.display = 'flex';
+        for (i = 0; i < all_unternehmen.length; i++) all_unternehmen[i].style.display = 'block';
     }
   });
 

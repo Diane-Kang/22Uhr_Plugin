@@ -33,74 +33,7 @@ async function geojson() {
 
 
 
-function centerLeafletMapOnMarker(map, marker, layergroup) {
 
-    let latLngs = [ marker.getLatLng() ];
-    let markerBounds = L.latLngBounds(latLngs);
-    
-    map.fitBounds(markerBounds);
-    map.setZoom(13);
-    //map.setView(marker.getLatLng(),13);
-    setTimeout(function(){ 
-        var parent = getParentAtCurrentZoom(marker);
-        //console.log(marker__parent.spiderfy);
-        if(parent instanceof L.MarkerCluster){
-
-            parent.spiderfy();        //
-            //parent.fire('click');        //
-            
-            //marker.__parent.spiderfy();
-            
-        }else{
-           // map.setZoom(13);
-        }
-        marker.openPopup();
-        console.log(map.getZoom());
-     }, 500);
-        
-
-    // markers.on('clusterclick', function (a) {
-    //     if (a.layer._childCount>0) {
-    //         clusterMarkers = a.layer.getAllChildMarkers();
-    //         clickedMarker=clusterMarkers[0];
-    //     }
-
-    // console.log('Number of markers: ' + e.layer.getAllChildMarkers().length);
-   // map.setZoom(13);
-        
-
-    
-    //
-    //
-    //
-
-    // var visibleLayer = mcgLayerSupportGroup_auto.getVisibleParent(marker);
-    // visibleLayer.fire('click');
-    // mcgLayerSupportGroup_auto.once('spiderfied', function() {
-    //     marker.openPopup();
-    //   });
-    // marker.fire('click');
-    // console.log(marker.__parent);
-    // marker.__parent.fire('click');
-
-
-        // map.fitBounds(markerBounds);
-        // map.setZoom(13);
-        // if(marker.__parent) marker.__parent.spiderfy();
-        // marker.openPopup();
-        
-
-}
-
-
-function getParentAtCurrentZoom(marker) {
-	var currentZoom = map.getZoom();
-	while (marker.__parent && marker.__parent._zoom >= currentZoom) {
-  	marker = marker.__parent;
-  }
-  console.log(marker);
-  return marker;
-}
 
 //Defing Layer groups for Filtering
 
@@ -125,27 +58,9 @@ mcgLayerSupportGroup_auto.addTo(map);
 
 var control = L.control.layers(null, null, { collapsed: false });
 
-//save markerLayer_id as a value with tag 'map_id_'+post_id
-function save_layerId_in_html(markers, option_name='post_id'){
-    markers.eachLayer(marker => {
-        var post_id = marker['options'][option_name];
-        var map_id = markers.getLayerId(marker);
-        console.log(post_id);
-        document.getElementById('map_id_'+post_id).setAttribute('value',map_id)
-    })
-}
 
-// Note Pondo: Make map Link Point Clickable
-function build_link (markers){
-    const divs = document.querySelectorAll('.map_link_point');
 
-    divs.forEach(el => el.addEventListener('click', event => {
 
-        let map_id = parseInt(event.target.getAttribute("value"));
-        var marker = markers.getLayer(map_id);
-        centerLeafletMapOnMarker(map, marker, mcgLayerSupportGroup_auto);
-    }))
-}
 
 async function main() {
 
@@ -154,41 +69,21 @@ async function main() {
     //generate marker groups from geojson data
     json.features.forEach(feature => {
 
-        if(1){ 
-            let popuptext = "<a href = '" + feature.properties.url + "' target=\"_blank\">" + feature.properties.name + "</a>";
-            if (feature.filter.abschaltung.slug == "nicht-vorhanden") {
-                popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Seit jeher kein Werbelicht vorhanden</span></p>";
-            }
-            else{
-                popuptext = popuptext+ "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Späteste Abschaltung</span> "+feature.filter.abschaltung.name +"!</p>";
-            }
+        let popuptext = build_marker_popup_content(feature);
+        let marker = build_marker_object(feature);
+        
+        marker.bindPopup(popuptext);
 
-            console.log(feature.properties.name);
-            let marker = L.marker([
-                feature.geometry.coordinates[1],
-                feature.geometry.coordinates[0],
-            ], {
-                name: feature.properties.name,
-                post_id: feature.properties.post_id
-            });
-            console.log(marker);
+        //dynamic
+        let abschaltung_slug = feature.filter.abschaltung.slug;
+        let abschaltung_slug_unter = 'abschaltung_' + abschaltung_slug.replace(/\-/g, "_");
+        let temp_string = 'group_' + abschaltung_slug_unter;
+        let group_abschaltung_uhrzeit = window[temp_string];
 
-            marker.bindPopup(popuptext);
-
-            //dynamic
-            let abschaltung_slug = feature.filter.abschaltung.slug;
-            let abschaltung_slug_unter = 'abschaltung_' + abschaltung_slug.replace(/\-/g, "_");
-            let temp_string = 'group_' + abschaltung_slug_unter;
-            let group_abschaltung_uhrzeit = window[temp_string];
-
-            //console.log('marker.addTo(group_' +  abschaltung_slug_unter + ');');
-            //eval('marker.addTo(group_' +  abschaltung_slug_unter + ');');
-            marker.addTo(group_abschaltung_uhrzeit);
-            marker.addTo(group_abschaltung_all);
-        }
-
-
-
+        //console.log('marker.addTo(group_' +  abschaltung_slug_unter + ');');
+        //eval('marker.addTo(group_' +  abschaltung_slug_unter + ');');
+        marker.addTo(group_abschaltung_uhrzeit);
+        marker.addTo(group_abschaltung_all);
 
     })
 
@@ -228,8 +123,8 @@ async function main() {
     var open_childblock_bnt = document.querySelector('.ionicon-chevron-down');
     jQuery('.ionicon-chevron-down').click(function(e){
         console.log(e);
-        console.log(e.target.parentNode.parentNode);
-            e.target.parentNode.parentNode.parentNode.classList.toggle('child-block-open');
+        console.log(e.target.parentNode.parentNode.parentNode.parentNode);
+        e.target.parentNode.parentNode.parentNode.parentNode.classList.toggle('child-block-open');
     })
 
 

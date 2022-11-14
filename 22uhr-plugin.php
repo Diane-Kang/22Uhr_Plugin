@@ -4,7 +4,7 @@
   Plugin Name: 22Uhr Plugin 
   Plugin URI: https://github.com/Diane-Kang/22Uhr_Plugin
   Description: Customized plugin for 22Uhr.net. 
-  Version: 1.0.0
+  Version: 1.1.0
   Author: Page-effect
   Author URI: Page-effect.com
 
@@ -23,8 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( ! defined( 'PE_22Uhr_Plugin_Path' ) ) {
 	define( 'PE_22Uhr_Plugin_Path', plugin_dir_path( __FILE__ ) );
 }
-
-require_once PE_22Uhr_Plugin_Path . 'includes/PE-22uhr-import-Firmengruppe.php';
 
 
 ///////////// Setting Custom type Post, taxonomy  ///////////////////
@@ -104,15 +102,19 @@ function map_related_dependency(){
 
 
     // map-app-style.css, controled by .page-id-1303!!!!!
-    wp_enqueue_style( 'map-app-style-css',                  plugin_dir_url( __FILE__ ) . 'map-app-style.css', array(), '3.2', false);
+    wp_enqueue_style( 'map-app-style-css',                  plugin_dir_url( __FILE__ ) . 'css/map-app-style.css', array(), '3.2', false);
     
   }
+
+  wp_enqueue_script( 'map_init_js',              plugin_dir_url( __FILE__ ) . '/js/map_intiialize.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
+  wp_enqueue_script( 'map_custom_fn_js',              plugin_dir_url( __FILE__ ) . '/js/map_custom_fn.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
+  
   if (is_page($target_page_name)){
-    wp_enqueue_script( 'map_modify-js',                     plugin_dir_url( __FILE__ ) . '/map_modify.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
+    wp_enqueue_script( 'map_modify-js',                     plugin_dir_url( __FILE__ ) . 'js/map_modify.js', array('map_custom_fn_js', 'leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
 
   }
   if ($post->post_parent == url_to_postid( site_url('firmenverzeichnis'))){
-    wp_enqueue_script( 'map_firmengruppen_js',              plugin_dir_url( __FILE__ ) . '/js/map_firmengruppen.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
+    wp_enqueue_script( 'map_firmengruppen_js',              plugin_dir_url( __FILE__ ) . '/js/map_firmengruppen.js', array('map_custom_fn_js','leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
     wp_enqueue_style( 'firmengruppen-style-css',            plugin_dir_url( __FILE__ ) . 'css/firmengruppen-seite.css', array(), '3.2', false);
   }
 }

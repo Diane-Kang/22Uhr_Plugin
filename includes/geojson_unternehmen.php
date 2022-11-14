@@ -31,10 +31,8 @@ function unternehmen_geojson_generator() {
 
     $abschaltung = get_the_terms( get_the_ID(), 'abschaltung' );
     if (!empty($abschaltung)) {
-    foreach ($abschaltung as $tag) {
-    $uhrzeit = $tag;
-    }
-    }
+      $uhrzeit = $abschaltung[0];
+    }else $uhrzeit = 'nicht-vorhanden';
 
     array_push($unternehmen_geojson, array(
       'type'=> 'Feature',
@@ -53,7 +51,7 @@ function unternehmen_geojson_generator() {
       'abschaltung' => $uhrzeit
       ),
       'firmengruppen' => get_post_meta(get_the_ID(), 'firmengruppen',true),
-      'firmengruppen_hierarchie' =>get_post_meta(get_the_ID(), 'firmengruppen-hierarchie', true)
+      'firmengruppen_hierarchie' =>get_post_meta(get_the_ID(), 'firmengruppen-hierarchie', true), 
       ));
   }
 
