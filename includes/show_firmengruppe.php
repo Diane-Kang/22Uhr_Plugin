@@ -183,7 +183,16 @@ function generate_list_entry($post_id, $identity='haupt', $n_child =0){
         $zeit = "empty";
     }
 
-    $string = '<div class=" unternehmenseintrag-filter abschaltung_' . $zeit . '">';
+    $string ="";
+
+
+
+    $string .= '<div class=" unternehmenseintrag-filter abschaltung_' . $zeit . '">';
+
+    if ($n_child){
+        $string .= '<svg class="ionicon-chevron-down" viewBox="0 0 512 512"><title>Chevron Down</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/></svg>';
+    }
+    
 
     switch ($identity) {
         case 'haupt':
@@ -212,9 +221,7 @@ function generate_list_entry($post_id, $identity='haupt', $n_child =0){
             <div class="map_link_point" id="map_id_'. $post_id . '">Auf Karte zeigen </div>
             <div class="abschaltung_zeit">'. str_replace("-", " ", $filter_uhr[0]->slug)  . '</div>';
 
-    if ($n_child){
-        $string .= '<svg class="ionicon-chevron-down" viewBox="0 0 512 512"><title>Chevron Down</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/></svg>';
-    }
+
 
     $string .= 
         '</div> 

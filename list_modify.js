@@ -24,11 +24,24 @@ document.getElementById('abschaltung_uhrzeit').addEventListener('change', functi
         all_unternehmen[i].style.display = 'none';
     }
 
-    let uhr_group = this.options[this.selectedIndex].getAttribute("data-group");
-    console.log((this.options.length - 1) - this.selectedIndex)
-    if (uhr_group !="abschaltung_all"){
-        console.log('for (i = 0; i < '+ uhr_group +'.length; i++) ' + uhr_group + '[i].style.display = "block";');
-        eval('for (i = 0; i < '+ uhr_group +'.length; i++) ' + uhr_group + '[i].style.display = "block";');
+    let uhr_group_text = this.options[this.selectedIndex].getAttribute("data-group");
+    let filter_uhr_value = this.options[this.selectedIndex].getAttribute("uhr_value");
+
+    console.log(uhr_group_text);
+
+    if (uhr_group_text !="abschaltung_all"){
+        let elements = document.getElementsByClassName("unternehmenseintrag-filter");
+        for (i = 0; i < elements.length; i++) {
+            let uhr_value = elements[i].getAttribute("value");
+            console.log(filter_uhr_value);
+            if( parseFloat(uhr_value) < parseFloat(filter_uhr_value)){
+                elements[i].style.display = "block";
+                console.log(elements[i].getAttribute("value"));
+            }
+        }
+        
+        // uhr_group = window[uhr_group_text];
+        // for (i = 0; i < uhr_group.length; i++)  uhr_group[i].style.display = "block";
     }
     else{
         for (i = 0; i < all_unternehmen.length; i++) all_unternehmen[i].style.display = 'block';

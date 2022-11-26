@@ -103,6 +103,7 @@ function show_unternehmen() {
             if (! empty($filter_uhr)) {
                 foreach($filter_uhr as $tag) {
                     $zeit = str_replace("-", "_", $tag->slug);
+                    $zeit_num = is_numeric(str_replace(" Uhr", "", $tag->name))?str_replace(" Uhr", "", $tag->name):"";
                 }
             }
             else {
@@ -110,7 +111,7 @@ function show_unternehmen() {
             }
 
         if(empty($firmengruppen)){ // Einzel Beitrag
-              $string .= '  <div class="unternehmenseintrag-filter abschaltung_' . $zeit . '">
+              $string .= '  <div class="unternehmenseintrag-filter abschaltung_' . $zeit . '" value="'.$zeit_num.'">
                                 <div class="unternehmenseintrag werbebeleuchtung_'. $filter_value .'">
                                     <div class="logo-wrapper">
                                         <a target="_blank" rel="noopener" href="' . get_the_permalink() . '">'

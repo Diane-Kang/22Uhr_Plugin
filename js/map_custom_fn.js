@@ -66,9 +66,6 @@ function build_link (markers){
 
 function build_marker_popup_content(feature){
 
-  
-
-  
   let popup_title_text = "<a href = '" + feature.properties.url + "' target=\"_blank\">" + feature.properties.name + "</a>";
 
   let popup_mittel_text;
@@ -85,8 +82,6 @@ function build_marker_popup_content(feature){
     popup_title_text = "<a href = '" + url.substring(0, url.lastIndexOf('/')) + "' target=\"_blank\">" + feature.properties.name + "</a>";
     popup_ending_text = "<a href = '" + url.substring(0, url.lastIndexOf('/')) + "' target=\"_blank\"> zur Hauptseite</a>";
   }
-
-
 
   return popup_title_text + popup_mittel_text + popup_ending_text;
 }

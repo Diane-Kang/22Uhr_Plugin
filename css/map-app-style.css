@@ -84,9 +84,9 @@
   display: none !important;
 }
 .page .unternehmen {
-  display: flex;
+  /* display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 }
 
 .page .unternehmen a {

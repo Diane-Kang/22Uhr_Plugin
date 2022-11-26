@@ -123,8 +123,8 @@ async function main() {
     var open_childblock_bnt = document.querySelector('.ionicon-chevron-down');
     jQuery('.ionicon-chevron-down').click(function(e){
         console.log(e);
-        console.log(e.target.parentNode.parentNode.parentNode.parentNode);
-        e.target.parentNode.parentNode.parentNode.parentNode.classList.toggle('child-block-open');
+        console.log(e.target.parentNode);
+        e.target.parentNode.parentNode.classList.toggle('child-block-open');
     })
 
 
