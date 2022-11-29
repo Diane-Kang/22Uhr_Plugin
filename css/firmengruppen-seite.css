@@ -15,19 +15,29 @@
   padding-left:2vw;
 }
 
-
-
-
 .page-child .entry-header{
   margin-top:16px;
 }
 
-.child-unternehmen-block {
-  margin: 40px;
+
+.unternehmenseintrag-filter{
+  position: relative;
 }
 
 .ionicon-chevron-down {
   height: 30px;
+  position: absolute;
+  right: 0;
+  bottom: 20%;
+  background-color:#f9c44981;
+  cursor: pointer;
+}
+
+
+
+
+.child-unternehmen-block {
+  margin: 40px;
 }
 
 .unternehme .child-unternehmen-block {
@@ -39,11 +49,12 @@
 }
 
 .unternehmen .unternehmenseintrag .text {
-  display: grid;
-  grid-template-columns: auto min-content;
+  /* display: grid;
+  /* grid-template-columns: auto min-content; */
+  /* grid-template-columns: 1fr; */
 }
 
-.unternehmen .unternehmenseintrag .text h3 {
+/* .unternehmen .unternehmenseintrag .text h3 {
   grid-column: 1/-1;
 }
 .unternehmen .unternehmenseintrag .text .map_link_point {
@@ -53,4 +64,4 @@
   grid-row: 2/4;
   grid-column: 2;
   align-self: center;
-}
+} */
