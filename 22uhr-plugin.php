@@ -88,7 +88,7 @@ function map_related_dependency(){
     wp_enqueue_script( 'leaflet-js',                        plugin_dir_url( __FILE__ ) . 'node_modules/leaflet/dist/leaflet.js', array(), false, false );
     wp_enqueue_script( 'leaflet-marker-cluster-js',         plugin_dir_url( __FILE__ ) . 'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js', array(), false, true);
     wp_enqueue_script( 'leaflet-marker-cluster-group-js',   plugin_dir_url( __FILE__ ) . 'node_modules/leaflet.markercluster.layersupport/dist/leaflet.markercluster.layersupport.js', array(), false, true);
-    wp_enqueue_script( 'list_modify-js',                    plugin_dir_url( __FILE__ ) . 'list_modify.js', array('jquery'), false, true );
+    wp_enqueue_script( 'list_modify-js',                    plugin_dir_url( __FILE__ ) . 'js/list_modify.js', array('jquery'), false, true );
     wp_enqueue_script( 'pon-js-v2',                         plugin_dir_url( __FILE__ ) . 'pon.js', array('jquery'), '1.1', true);    
     wp_enqueue_script( 'geocoder-js',                       plugin_dir_url( __FILE__ ) . 'node_modules/leaflet-control-geocoder/dist/Control.Geocoder.js', array('leaflet-js'), false, true);
     //wp_enqueue_script( 'map_firmengruppen_js',              plugin_dir_url( __FILE__ ) . 'js/map_firmengruppen.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);

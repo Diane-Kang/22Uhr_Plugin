@@ -1,3 +1,17 @@
+# Seite Namen
+
+- Hauptkarteseite: /firmenverzeichnis
+  - Alle beigetragende Firmen
+  -   
+- Firmenkarteseite: ex) /firmenverzeichnis/g-u-t
+  
+- Unternehmenseite: ex) /unternehmen/karl-goepfert-gmbh-2/
+
+# Firma Gruppe
+- 0: 
+
+
+
 ## Seite Firmenverzeichnis
 ```
 <h1>Wir sind dabei: All([unternehmen_nummer])</h1>
