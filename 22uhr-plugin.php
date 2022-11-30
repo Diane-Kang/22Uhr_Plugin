@@ -57,7 +57,7 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/shortcodes.php';
 
 function unternehmen_css() {
     if ( is_singular( 'unternehmen' )) {
-        wp_enqueue_style( 'unternehmen_detail', plugin_dir_url( __FILE__ ) . '/unternehmen-detailseite.css', array(), '1.9', false);
+        wp_enqueue_style( 'unternehmen_detail', plugin_dir_url( __FILE__ ) . 'unternehmen-detailseite.css', array(), '1.9', false);
     }
   }
   add_action( 'wp_enqueue_scripts', 'unternehmen_css', 20, 1 );
@@ -106,15 +106,15 @@ function map_related_dependency(){
     
   }
 
-  wp_enqueue_script( 'map_init_js',              plugin_dir_url( __FILE__ ) . '/js/map_intiialize.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
-  wp_enqueue_script( 'map_custom_fn_js',              plugin_dir_url( __FILE__ ) . '/js/map_custom_fn.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
+  wp_enqueue_script( 'map_init_js',              plugin_dir_url( __FILE__ ) . 'js/map_intiialize.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
+  wp_enqueue_script( 'map_custom_fn_js',              plugin_dir_url( __FILE__ ) . 'js/map_custom_fn.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
   
   if (is_page($target_page_name)){
     wp_enqueue_script( 'map_modify-js',                     plugin_dir_url( __FILE__ ) . 'js/map_modify.js', array('map_custom_fn_js', 'leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
 
   }
   if ($post->post_parent == url_to_postid( site_url('firmenverzeichnis'))){
-    wp_enqueue_script( 'map_firmengruppen_js',              plugin_dir_url( __FILE__ ) . '/js/map_firmengruppen.js', array('map_custom_fn_js','leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
+    wp_enqueue_script( 'map_firmengruppen_js',              plugin_dir_url( __FILE__ ) . 'js/map_firmengruppen.js', array('map_custom_fn_js','leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
     wp_enqueue_style( 'firmengruppen-style-css',            plugin_dir_url( __FILE__ ) . 'css/firmengruppen-seite.css', array(), '3.2', false);
   }
 }
