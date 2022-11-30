@@ -124,6 +124,9 @@
   background-color: #fff;
   height: 60px;
   align-self: center;
+  align-items: center;
+  justify-content: center;
+display: flex;
 }
 
 .page .unternehmen .logo-wrapper img {
