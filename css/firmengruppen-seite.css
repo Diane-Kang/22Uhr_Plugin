@@ -37,14 +37,15 @@
 
 
 .child-unternehmen-block {
-  margin: 40px;
+  margin: 10px 20px 40px 20px;
 }
 
 .unternehme .child-unternehmen-block {
   display: none;
 }
 
-.unternehme.child-block-open .child-unternehmen-block {
+.unternehme.child-block-open .child-unternehmen-block,
+.unternehme  .show_children ~ .child-unternehmen-block {
   display: block;
 }
 
@@ -65,3 +66,24 @@
   grid-column: 2;
   align-self: center;
 } */
+
+.page .unternehmen .child-unternehmen .logo-wrapper {
+  display: none;
+}
+
+.page  .child-unternehmen.unternehmenseintrag .text {
+  padding-left: 0;
+  }
+
+
+.page  .child-unternehmen.unternehmenseintrag .text h3 {
+font-size: 20px;
+line-height: 1.2em;
+}
+
+
+.child-unternehmen h3 a {
+  pointer-events: none;
+  }
+
+

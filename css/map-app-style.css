@@ -101,7 +101,8 @@
 }
 
 .unternehmenseintrag span {
-  font-style: italic;
+ /* font-style: italic; */
+ text-transform: uppercase;
 }
 
 .firmengruppen {
@@ -124,6 +125,9 @@
   background-color: #fff;
   height: 60px;
   align-self: center;
+  align-items: center;
+  justify-content: center;
+display: flex;
 }
 
 .page .unternehmen .logo-wrapper img {
@@ -183,6 +187,20 @@
 .page .adresse {
   font-size: 14px;
   position: relative;
+}
+
+.abschaltung_zeit {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+
+.abschaltung_zeit::before {
+  content: "Abschaltung: ";
+}
+
+.alle a {
+  font-size: 14px;
 }
 
 /* Borlabs */
