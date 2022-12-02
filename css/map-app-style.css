@@ -28,14 +28,16 @@
   min-height: 100vh;
 }
 
-.page .entry-content h1 {
+.page .content-area h1 {
   padding: 40px 10px 20px 10px;
+  margin-top: 0;
   margin-bottom: 0;
   line-height: 1.2em;
   font-size: 35px;
   z-index: 999;
   background-color: #1e1810;
   position: relative;
+  padding-left: 2vw;
 }
 
 .page .search_bar {
@@ -59,8 +61,20 @@
   padding: 0;
 }
 
-.page #my_map ~ br {
+.post-1303 .entry-content br,
+.post-3990 .entry-content br {
   display: none;
+}
+
+.post-1303 .entry-content p,
+.post-3990 .entry-content p {
+  margin: 0;
+}
+
+.page-description.number {
+  font-size: 20px;
+  padding-left: 2vw;
+  padding-bottom: 15px;
 }
 
 .page .entry-content .wrapper-liste {
@@ -72,7 +86,7 @@
 
 .page .abschaltung.filter {
   padding-left: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 
 .page .abschaltung.filter p {
@@ -724,10 +738,6 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     font-size: 40px;
   }
 
-  .page-description.number{
-    font-size:30px;  
-    padding-left:2vw;
-  }
   .page .unternehmenseintrag {
     padding: 10px 0;
   }
