@@ -132,11 +132,10 @@ function show_firmengruppen() {
                 $child_query = new WP_Query($args);
 
                 $neben = "";
-                $neben .= '<div class="unternehme ' . $i . '">';
+                $neben .= '<div class="here unternehme ' . $i . '">';
                 
                 $child_n = $child_query->found_posts;
                 $neben .= generate_list_entry(get_the_ID(), "parent", $child_n);
- 
                 if ($child_query->have_posts()){
                   $neben.= '<div class="child-unternehmen-block">';
                   while ($child_query->have_posts()){
