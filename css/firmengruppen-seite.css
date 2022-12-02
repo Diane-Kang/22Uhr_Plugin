@@ -44,7 +44,8 @@
   display: none;
 }
 
-.unternehme.child-block-open .child-unternehmen-block {
+.unternehme.child-block-open .child-unternehmen-block,
+.unternehme  .show_children ~ .child-unternehmen-block {
   display: block;
 }
 
@@ -66,7 +67,7 @@
   align-self: center;
 } */
 
-.child-unternehmen .logo-wrapper {
+.page .unternehmen .child-unternehmen .logo-wrapper {
   display: none;
 }
 

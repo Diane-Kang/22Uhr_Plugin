@@ -110,7 +110,7 @@ function map_related_dependency(){
   wp_enqueue_script( 'map_custom_fn_js',              plugin_dir_url( __FILE__ ) . 'js/map_custom_fn.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
   
   if (is_page($target_page_name)){
-    wp_enqueue_script( 'map_modify-js',                     plugin_dir_url( __FILE__ ) . 'js/map_modify.js', array('map_custom_fn_js', 'leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
+    wp_enqueue_script( 'map_modify-js',                     plugin_dir_url( __FILE__ ) . 'js/map_modify.js', array('map_custom_fn_js', 'leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.4', true);
 
   }
   if ($post->post_parent == url_to_postid( site_url('firmenverzeichnis'))){

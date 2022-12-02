@@ -145,3 +145,9 @@ document.getElementById("change").onclick = function(){
     map.invalidateSize();    
 };
 
+/*children toggle */
+jQuery('.ionicon-chevron-down').click(function() {
+    jQuery(this).parent().addClass('show_children');
+});
+
+
