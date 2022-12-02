@@ -60,8 +60,6 @@ var control = L.control.layers(null, null, { collapsed: false });
 
 
 
-
-
 async function main() {
 
     const json = await geojson();
@@ -93,9 +91,9 @@ async function main() {
 
     group_abschaltung_all.addTo(map);
 
+
     save_layerId_in_html(group_abschaltung_all);
     build_link(group_abschaltung_all);
-
 
     for (i = 0; i < selection.length; i++) {
         selection[i].addEventListener('change', toggleGroup_dynamic);
