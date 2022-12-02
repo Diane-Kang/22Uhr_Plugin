@@ -25,7 +25,6 @@ document.getElementById('abschaltung_uhrzeit').addEventListener('change', functi
     }
 
     let uhr_group_text = this.options[this.selectedIndex].getAttribute("data-group");
-    let filter_uhr_value = this.options[this.selectedIndex].getAttribute("uhr_value");
 
     console.log(uhr_group_text);
 

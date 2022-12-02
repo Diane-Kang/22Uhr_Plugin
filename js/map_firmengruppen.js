@@ -118,11 +118,11 @@ async function main() {
     }
 
 
-    var open_childblock_bnt = document.querySelector('.ionicon-chevron-down');
-    jQuery('.ionicon-chevron-down').click(function(e){
+    // var open_childblock_bnt = document.querySelector('.ionicon-chevron-down');
+    jQuery('.icon-click-area').click(function(e){
         console.log(e);
         console.log(e.target.parentNode);
-        e.target.parentNode.parentNode.classList.toggle('child-block-open');
+        e.target.parentNode.parentNode.parentNode.classList.toggle('child-block-open');
     })
 
 
@@ -143,9 +143,9 @@ document.getElementById("change").onclick = function(){
     map.invalidateSize();    
 };
 
-/*children toggle */
-jQuery('.ionicon-chevron-down').click(function() {
-    jQuery(this).parent().addClass('show_children');
-});
+// /*children toggle */
+// jQuery('.ionicon-chevron-down').click(function() {
+//     jQuery(this).parent().addClass('show_children');
+// });
 
 
