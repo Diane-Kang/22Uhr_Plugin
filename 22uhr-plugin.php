@@ -4,7 +4,7 @@
   Plugin Name: 22Uhr Plugin 
   Plugin URI: https://github.com/Diane-Kang/22Uhr_Plugin
   Description: Customized plugin for 22Uhr.net. 
-  Version: 1.1.0
+  Version: 1.2.0
   Author: Page-effect
   Author URI: Page-effect.com
 
@@ -102,7 +102,7 @@ function map_related_dependency(){
 
 
     // map-app-style.css, controled by .page-id-1303!!!!!
-    wp_enqueue_style( 'map-app-style-css',                  plugin_dir_url( __FILE__ ) . 'css/map-app-style.css', array(), '3.2', false);
+    wp_enqueue_style( 'map-app-style-css',                  plugin_dir_url( __FILE__ ) . 'css/map-app-style.css', array(), '3.3', false);
     
   }
 
