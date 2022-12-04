@@ -53,7 +53,7 @@ function show_firmengruppen() {
     <div class="abschaltung filter">
         <p>Filtern nach Abschaltzeit:</p>
         <select  name="uhrzeit" id="abschaltung_uhrzeit">
-            <option data-group="abschaltung_all" value="0" selected >Alle Firmen zeigen</option>';
+            <option data-group="abschaltung_all" value="25.0" selected >Alle Firmen zeigen</option>';
 
     // make a list of option with abschaltung_tags
     $options_array = [];
@@ -189,7 +189,12 @@ function generate_list_entry($post_id, $identity='haupt', $n_child =0){
     $string .= '<div class=" unternehmenseintrag-filter abschaltung_' . $zeit . '">';
 
     if ($n_child){
-        $string .= '<svg class="ionicon-chevron-down" viewBox="0 0 512 512"><title>Chevron Down</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/></svg>';
+        $string .= '<div class = icon-click-area>
+                        <svg class="ionicon-chevron-down" viewBox="0 0 512 512">
+                            <title>Chevron Down</title>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/>
+                        </svg>
+                    </div>';
     }
     
 

@@ -101,14 +101,45 @@ async function main() {
     function toggleGroup_dynamic(event) {
 
         let group_name = this.options[this.selectedIndex].getAttribute('data-group');
-        console.log(group_name);
-        eval('let group = group_' + group_name + ';');
-        //console.log(group);
-        let temp_string = 'group_' + group_name;
-        let group = window[temp_string];
-        mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
-        mcgLayerSupportGroup_auto["addLayer"](group);
 
+        console.log(group_name);
+
+
+
+        if (group_name == "abschaltung_all"){
+
+            eval('let group = group_' + group_name + ';');
+            let temp_string = 'group_' + group_name;
+            let group = window[temp_string];
+            mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
+            mcgLayerSupportGroup_auto["addLayer"](group);
+
+        }else if (group_name == "abschaltung_nicht_vorhanden"){
+            
+            eval('let group = group_' + group_name + ';');
+            let temp_string = 'group_' + group_name;
+            let group = window[temp_string];
+            mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
+            mcgLayerSupportGroup_auto["addLayer"](group);
+    
+        }else{
+
+            console.log("hier");
+            mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
+            for (let j = 1; j < this.options.length-1; ++j) {
+
+                console.log(this.options[j].getAttribute("uhr_value"));
+                if (this.options[j].getAttribute("uhr_value") <= this.options[this.selectedIndex].getAttribute("uhr_value")){
+                    let group_name = this.options[j].getAttribute('data-group');
+                    console.log(group_name);
+                    eval('let group = group_' + group_name + ';');
+                    let temp_string = 'group_' + group_name;
+                    let group = window[temp_string];
+                    mcgLayerSupportGroup_auto["addLayer"](group);
+                }
+            }
+
+        }
         map.fitBounds(mcgLayerSupportGroup_auto.getBounds(),{
             padding: [50, 50]
         });
