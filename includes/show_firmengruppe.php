@@ -120,7 +120,7 @@ function show_firmengruppen() {
 
             if ($firmengruppen_hierarchie == 0){
 
-                $haupt = '<div class="unternehme">' . generate_list_entry(get_the_ID()) .'</div>';
+                $haupt = '<div class="unternehme hauptverwaltung">' . generate_list_entry(get_the_ID()) .'</div>';
 
             }else if ($firmengruppen_hierarchie == 1){
                 $i = $i +1;

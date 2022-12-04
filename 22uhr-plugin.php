@@ -4,7 +4,7 @@
   Plugin Name: 22Uhr Plugin 
   Plugin URI: https://github.com/Diane-Kang/22Uhr_Plugin
   Description: Customized plugin for 22Uhr.net. 
-  Version: 1.2.0
+  Version: 1.4.0
   Author: Page-effect
   Author URI: Page-effect.com
 
@@ -57,7 +57,7 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/shortcodes.php';
 
 function unternehmen_css() {
     if ( is_singular( 'unternehmen' )) {
-        wp_enqueue_style( 'unternehmen_detail', plugin_dir_url( __FILE__ ) . 'unternehmen-detailseite.css', array(), '1.9', false);
+        wp_enqueue_style( 'unternehmen_detail', plugin_dir_url( __FILE__ ) . 'css/unternehmen-detailseite.css', array(), '1.9', false);
     }
   }
   add_action( 'wp_enqueue_scripts', 'unternehmen_css', 20, 1 );

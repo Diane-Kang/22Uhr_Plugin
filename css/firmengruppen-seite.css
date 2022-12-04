@@ -19,18 +19,37 @@
   margin-top:16px;
 }
 
+.hauptverwaltung .unternehmenseintrag {
+  border-top: solid #f9c349;
+  border-bottom: solid #f9c349;
+}
 
 .unternehmenseintrag-filter{
   position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.parent-unternehmen h3 a {
+  padding-right: 15px;
+  display: block;
 }
 
 .ionicon-chevron-down {
   height: 30px;
-  position: absolute;
+/*   position: absolute;
   right: 0;
-  bottom: 20%;
+  bottom: 20%; */
   background-color:#f9c44981;
   cursor: pointer;
+  order: 2;
+  align-self: center;
+}
+
+.ionicon-chevron-down:hover,
+.ionicon-chevron-down:active {
+ opacity: 0.7;
 }
 
 

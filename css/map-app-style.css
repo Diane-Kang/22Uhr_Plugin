@@ -179,6 +179,13 @@ display: flex;
   color: #f9c349;
 }
 
+.page .unternehmen .unternehmenseintrag h3 span {
+  font-size: 14px;
+  width: 100%;
+  display: block;
+  font-weight: 300;
+}
+
 .page .map_link_point {
   font-size: 14px;
   cursor: pointer;
@@ -749,6 +756,10 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   .page .unternehmen .unternehmenseintrag h3 a {
     font-size: 1.21739130435rem;
     line-height: 1.2em;
+  }
+
+  .page .unternehmen .unternehmenseintrag h3 span {
+    font-size: 16px;
   }
 
   .page .unternehmen .child-unternehmen h3 a {
