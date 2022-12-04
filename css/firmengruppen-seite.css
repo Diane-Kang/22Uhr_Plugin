@@ -19,6 +19,10 @@
   margin-top:16px;
 }
 
+body.page .entry-content .wrapper-liste {
+  max-width: 720px;
+}
+
 .hauptverwaltung .unternehmenseintrag {
   border-top: solid #f9c349;
   border-bottom: solid #f9c349;
@@ -38,13 +42,11 @@
 
 .ionicon-chevron-down {
   height: 30px;
-/*   position: absolute;
+  position: absolute;
   right: 0;
-  bottom: 20%; */
+  bottom: 20%;
   background-color:#f9c44981;
   cursor: pointer;
-  order: 2;
-  align-self: center;
 }
 
 .ionicon-chevron-down:hover,
@@ -106,3 +108,13 @@ line-height: 1.2em;
   }
 
 
+  @media only screen and (max-aspect-ratio: 1/1) { /*für hochkant*/
+    
+    body.page .entry-content .wrapper-liste {
+      max-width: 400px;
+    }
+
+    .hauptverwaltung .unternehmenseintrag {
+      padding: 10px 0;
+    }
+  }
