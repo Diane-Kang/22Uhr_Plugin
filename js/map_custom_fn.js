@@ -78,8 +78,8 @@ function build_marker_popup_content(feature){
   let popup_ending_text="";
   let url = feature.properties.url.slice(0,-1);
   if(feature.firmengruppen_hierarchie==2){
-    popup_title_text = "<a href = '" + url.substring(0, url.lastIndexOf('/')) + "' target=\"_blank\">" + feature.properties.name + "</a>";
-    popup_ending_text = "<a href = '" + url.substring(0, url.lastIndexOf('/')) + "' target=\"_blank\"> zur Hauptseite</a>";
+    popup_title_text = feature.properties.name;
+    popup_ending_text = "<a href = '" + url.substring(0, url.lastIndexOf('/')) + "' target=\"_blank\"> zum Hauphaus</a>";
   }
 
   return popup_title_text + popup_mittel_text + popup_ending_text;

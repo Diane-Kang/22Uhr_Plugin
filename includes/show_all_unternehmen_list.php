@@ -139,7 +139,7 @@ function show_unternehmen() {
                               <h3><a target="_blank" rel="noopener" href="/firmenverzeichnis/g-u-t-gruppe/">' . get_the_title() . '</a></h3>
                               <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' ' . get_post_meta( get_the_ID(),  'Ort', true ) .'</div>
                               <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                              <div class="alle"> <a target="_blank" href="/firmenverzeichnis/g-u-t-gruppe/">Hier alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte anzeigen</a> </div>
+                              <div class="alle"> <a target="_blank" href="/firmenverzeichnis/g-u-t-gruppe/">Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' unserer Standorte anzeigen</a> </div>
                           </div>
                           </div>
                           </div>';
