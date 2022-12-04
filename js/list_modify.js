@@ -20,24 +20,38 @@ var all_unternehmen = document.getElementsByClassName("unternehmenseintrag-filte
 
 document.getElementById('abschaltung_uhrzeit').addEventListener('change', function() {
 
+
     for (i = 0; i < all_unternehmen.length; i++) {
         all_unternehmen[i].style.display = 'none';
     }
 
+    
     let uhr_group_text = this.options[this.selectedIndex].getAttribute("data-group");
 
-    console.log(uhr_group_text);
+    if (uhr_group_text =="abschaltung_all"){
+        for (i = 0; i < all_unternehmen.length; i++) all_unternehmen[i].style.display = 'block';
+    }else if (uhr_group_text =="abschaltung_nicht_vorhanden"){
 
-    if (uhr_group_text !="abschaltung_all"){
-        
+
         let elements = document.getElementsByClassName(uhr_group_text);
         
         for (i = 0; i < elements.length; i++) {
-                elements[i].style.display = "block";
-             }
-    }
-    else{
-        for (i = 0; i < all_unternehmen.length; i++) all_unternehmen[i].style.display = 'block';
+            elements[i].style.display = "block";
+        }
+    }else{
+        
+        for (let j = 1; j < this.options.length-1; ++j) {
+            if (this.options[j].getAttribute("uhr_value") <= this.options[this.selectedIndex].getAttribute("uhr_value")){
+                
+                let target_group = this.options[j].getAttribute("data-group");
+                let elements = document.getElementsByClassName(target_group);
+        
+                for (i = 0; i < elements.length; i++) {
+                    elements[i].style.display = "block";
+                }
+            }
+          }
+        
     }
   });
 
