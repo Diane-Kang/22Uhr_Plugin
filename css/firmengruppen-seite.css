@@ -107,6 +107,9 @@ line-height: 1.2em;
   pointer-events: none;
   }
 
+  .page .leaflet-popup-content {
+    color: #fff;
+  }
 
   @media only screen and (max-aspect-ratio: 1/1) { /*für hochkant*/
     
