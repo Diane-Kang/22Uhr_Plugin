@@ -6,9 +6,18 @@
   
 }
 
-.entry-title > span{
-  font-style: italic;
-  }
+.page .site-content .content-area h1 {
+  padding-bottom: 5px;
+}
+
+.zurueck_alle a {
+  display: block;
+  color: #f9c349;
+  font-size: 16px;
+  padding-left: 2vw;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
 
 .description-company-page{
   font-size:30px;  
