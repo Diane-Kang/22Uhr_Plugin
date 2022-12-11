@@ -172,6 +172,7 @@ function show_firmengruppen() {
 function generate_list_entry($post_id, $identity='haupt', $n_child =0){
 
     $filter_uhr = get_the_terms($post_id, 'abschaltung');
+    $filter_value = get_post_meta(get_the_ID(),  'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true);
 
     if (! empty($filter_uhr)) {
         foreach($filter_uhr as $tag) {
