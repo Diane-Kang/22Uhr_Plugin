@@ -333,6 +333,7 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 .page #my_map .leaflet-popup-tip {
   background-color: rgba(30, 24, 16, 0.9);
   border-radius: 0;
+  color: #fff;
 }
 
 .page #my_map .leaflet-popup-content > p:nth-child(2) {

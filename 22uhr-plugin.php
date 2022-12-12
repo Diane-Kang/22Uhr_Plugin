@@ -50,6 +50,9 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/show_firmengruppe.php';
 ////////////// shortcodes
 require_once  PE_22Uhr_Plugin_Path . 'includes/shortcodes.php';
 
+require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_list.php';
+
+
 
 
 
@@ -63,8 +66,14 @@ function unternehmen_css() {
   add_action( 'wp_enqueue_scripts', 'unternehmen_css', 20, 1 );
   
   
-  
+/// GUT Detailseite
 
+function gut_css() {
+  if ( is_single('g-u-t')) {
+      wp_enqueue_style( 'gut_detail', plugin_dir_url( __FILE__ ) . 'css/detailseite_gut.css', array(), '1.9', false);
+  }
+}
+add_action( 'wp_enqueue_scripts', 'gut_css', 20, 1 );
 
 
 

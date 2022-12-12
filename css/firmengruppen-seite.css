@@ -7,16 +7,27 @@
 }
 
 .page .site-content .content-area h1 {
-  padding-bottom: 5px;
+  padding-bottom: 20px;
+  padding-top: 0;
+  font-size: 32px;
 }
 
 .zurueck_alle a {
-  display: block;
-  color: #f9c349;
+  display: inline-block;
+  color: #f9c349;;
   font-size: 16px;
-  padding-left: 2vw;
+  margin: 30px 0 5px 2vw;
   text-transform: uppercase;
-  padding-bottom: 20px;
+/*
+  background-color: #f9c349;
+  border-radius: 2px;
+  font-weight: 900;
+*/
+}
+
+.zurueck_alle a:hover,
+.zurueck_alle a:active {
+ opacity: 0.75;
 }
 
 .description-company-page{
@@ -47,6 +58,10 @@ body.page .entry-content .wrapper-liste {
 .parent-unternehmen h3 a {
   padding-right: 15px;
   display: block;
+}
+
+.page .unternehmen .parent-unternehmen .logo-wrapper img {
+  padding: 5px;
 }
 
 .ionicon-chevron-down {

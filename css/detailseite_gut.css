@@ -1,0 +1,27 @@
+body.single-unternehmen .single-layout-1 {
+    grid-template-rows: min-content 200px repeat(6, min-content);
+}
+
+.haupthaus-list {
+    grid-row: 3/4;
+    grid-column: 1/3;
+    padding-top: 50px;
+    /*display: flex;
+    flex-wrap: wrap;*/
+}
+
+.haupthaus-list .item {
+    width: 50%;
+    font-size: 14px;
+    padding: 5px 0;
+   display: inline;
+}
+
+.haupthaus-list .item::after {
+    content: "|";
+    padding: 0 5px;
+}
+
+.haupthaus-list .item span {
+    display: none;   
+}
