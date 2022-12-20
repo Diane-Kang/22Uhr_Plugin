@@ -46,6 +46,7 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/show_all_unternehmen_list.php';
 
 ////////////// Show ALL List of "Unternehmen"  and filter in front end
 require_once  PE_22Uhr_Plugin_Path . 'includes/show_firmengruppe.php';
+require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_child_template.php';
 
 ////////////// shortcodes
 require_once  PE_22Uhr_Plugin_Path . 'includes/shortcodes.php';

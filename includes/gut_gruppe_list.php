@@ -3,10 +3,11 @@
 
 
 
-add_action( 'astra_single_header_after', 'before_content_hello');
+add_action( 'astra_single_header_after', 'before_content_gut_main');
 
-function before_content_hello() {
+function before_content_gut_main() {
     if (is_single('g-u-t')) {
+
 
     $firmengruppen_name = 'G.U.T.';
 

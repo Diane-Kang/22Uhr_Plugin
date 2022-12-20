@@ -89,7 +89,7 @@ $after = '<div class="zertifikat top-border">
     Teilnahme an diesem Projekt motiviert die betreffenden Firmen dazu, dies ganz bewusst auch in Zukunft so zu
     belassen. </p>
 </div>
-<button class="zurueck" onclick="window.close();">zurück zum verzeichnis</button>';
+<button class="zurueck" href="/firmenverzeichnis/">zurück zum verzeichnis</button>';
 
 echo $after;
 }
