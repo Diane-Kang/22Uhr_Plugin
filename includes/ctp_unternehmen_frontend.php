@@ -4,7 +4,7 @@
 
 
 add_action( 'astra_single_header_after', 'before_content');
-add_action( 'astra_entry_content_after', 'after_content');
+add_action( 'astra_entry_content_after', 'after_content', 12);
 
 
 function before_content() {
@@ -61,9 +61,6 @@ echo $adresse;
 }
 
 
-
-
-
 //After content
 function after_content(){
 if ( is_singular('unternehmen') ) {
@@ -89,7 +86,8 @@ $after = '<div class="zertifikat top-border">
     Teilnahme an diesem Projekt motiviert die betreffenden Firmen dazu, dies ganz bewusst auch in Zukunft so zu
     belassen. </p>
 </div>
-<button class="zurueck" href="/firmenverzeichnis/">zurück zum verzeichnis</button>';
+<a class="zurueck is_parent" href="/firmenverzeichnis/">zurück zum Verzeichnis</a>
+<a class="zurueck is_child" href="/firmenverzeichnis/g-u-t-gruppe/">zurück zum Verzeichnis der G.U.T.-GRUPPE</a>';
 
 echo $after;
 }

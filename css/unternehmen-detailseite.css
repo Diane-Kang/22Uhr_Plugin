@@ -121,12 +121,46 @@ body.single-unternehmen h2 {
     color: #F9C349;
 }
 
+.single-unternehmen .zurueck.is_child {
+    display: none;
+}
+
+/* Has Parent */
+
+.is_child .entry-title::after {
+    content: "Ein Unternehmen der G.U.T.-Unternehmensgruppe";
+    display: block;
+    padding-top: 5px 0 10px 0;
+    font-size: 16px;
+} 
+
+.is_child.single-unternehmen .zurueck.top {
+    border: none;
+    font-weight: 400;
+    width: 100%;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    text-align: left;
+    padding: 5px 0;
+    margin: 0;
+    display: block;
+}
+
+.is_child.single-unternehmen .zurueck.is_child {
+    display: block;
+    width: max-content;
+}
+
+.is_child.single-unternehmen .zurueck {
+    display: none;
+}
+
 @media only screen and (min-width: 920px) {
 
     .single-unternehmen .single-layout-1 {
         display: grid;
         grid-template-columns: 50% 50%;
-        grid-template-rows: min-content 200px repeat(5, min-content);
+        grid-template-rows: min-content 200px repeat(6, min-content);
     }
 
     .single-unternehmen.single .entry-header {

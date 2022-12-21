@@ -3,9 +3,9 @@
 
 
 
-add_action( 'astra_single_header_after', 'before_content_gut_main');
+add_action( 'astra_entry_content_after', 'after_content_gut_main', 11);
 
-function before_content_gut_main() {
+function after_content_gut_main() {
     if (is_single('g-u-t')) {
 
 
@@ -30,7 +30,8 @@ function before_content_gut_main() {
     
             // Unternehmen List 
             $string .= 
-            '<div class="haupthaus-list">
+            '<div class="list_wrapper">
+            <div class="haupthaus-list">
             <h2>Übersicht aller Häuser der G.U.T.-GRUPPE</h2>';
             $list_content = "";
             $i = 0 ;
@@ -48,7 +49,11 @@ function before_content_gut_main() {
                   
               }
       
-              $string .=  '</div>'; //<div class="unternehmen">
+              $string .=  
+              
+              '</div>
+              <button class="show_all">alle anzeigen</button>
+              </div>'; 
       
         }
         else {
