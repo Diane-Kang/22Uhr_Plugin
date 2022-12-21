@@ -40,25 +40,40 @@ fortan so belassen.";
 else $text .= "Dies war bislang schon so und wird im Zuge der Teilnahme an diesem Projekt auch fortan so belassen.";
 
 
-$adresse = '<div class="adresse">
-  <div class="strasse-hn">' . get_post_meta(get_the_ID(), 'Straße und Hausnummer', true) . '</div>
-  <div class="plz-ort">(' . get_post_meta( get_the_ID(), 'Land', true ) . ')&nbsp;' . get_post_meta(get_the_ID(),
+$adresse = 
+'<div class="adresse">
+  <div class="strasse-hn">' . get_post_meta(get_the_ID(), 'Straße und Hausnummer', true) .
+  '<span class="plz-ort">,&nbsp;(' . get_post_meta( get_the_ID(), 'Land', true ) . ')&nbsp;' . get_post_meta(get_the_ID(),
     'Postleitzahl', true)
-    . '&nbsp;' . get_post_meta(get_the_ID(), 'Ort', true) . '</div>
-  <div class="internet"><span>Bundesland: </span>' . get_post_meta(get_the_ID(), 'Bundesland', true) . '</div>
+    . '&nbsp;' . get_post_meta(get_the_ID(), 'Ort', true) . '</span></div>
   <div class="branche"><span>Branche: </span>' . $list_branchen . '</div>
   <div class="internet"><a href="' . get_post_meta(get_the_ID(), 'Internet', true) . '" target="_blank"
       rel="noopener">Internetseite</a></div>
-</div>
+</div>';
+
+
+
+$header_unternehmen = 
+'<div class="header_22">
+<div class="row1">
+<div class="post-thumb">'
+. get_the_post_thumbnail(get_the_ID()) .
+'</div>
 <div class="abschaltung-angepasst">
   <h3 class="abschaltung-um">' . $abschaltung_um_uhr . $text . '</h3>
 </div>
+</div>
+<h1 class="entry_title">' . get_the_title(get_the_ID()) . '</h1>' . 
+$adresse .
+'<a class="zurueck is_child top" href="/firmenverzeichnis/g-u-t-gruppe/">zurück zum Verzeichnis der G.U.T.-GRUPPE</a>
+</div>
 <h2 class="dabei">Deswegen sind wir bei „22 Uhr – Licht aus“ dabei:</h2>';
 
-echo $adresse;
+echo $header_unternehmen;
 
 }
 }
+
 
 
 //After content
@@ -66,9 +81,7 @@ function after_content(){
 if ( is_singular('unternehmen') ) {
 
 $after = '<div class="zertifikat top-border">
-  <p class="beitrag-artenschutz">Durch die Abschaltung trägt die Firma ' . get_the_title() . ' zur Reduzierung der
-    Lichtverschmutzung in ' . get_post_meta(get_the_ID(), 'Ort', true) . ' bei und leistet somit einen wertvollen
-    Beitrag zum Artenschutz, Umweltschutz und Klimaschutz.</p>
+  <p class="beitrag-artenschutz">Dieser verantwortungsvolle Umgang mit der Werbebeleuchtung trägt zur Reduzierung der Lichtverschmutzung in ' . get_post_meta(get_the_ID(), 'Ort', true) . ' bei. Dadurch wird ein wertvoller Beitrag zum Artenschutz, Umweltschutz und Klimaschutz geleistet.</p>
   <a href="' . get_post_meta(get_the_ID(), 'PDF Pfad', true) .'">
     <img src="/wp-content/uploads/2022/05/Zertifikat-22-Uhr-Licht-aus-thumb-01.png" alt="Zertifikat 22 Uhr">
     <h2>Zertifikat (PDF)</h2>

@@ -53,6 +53,9 @@ function after_content_gut_main() {
               
               '</div>
               <button class="show_all">alle anzeigen</button>
+              </div>
+              <div class="zertifikat top-border firmengruppe"> 
+              <p class="beitrag-artenschutz">Die <span>G.U.T.-GRUPPE</span>, eine bundesweit agierende Unternehmensgruppe für Gebäude- und Umwelttechnik, trägt durch die Werbelicht-Abschaltungen aller beteiligten Standorte zur Reduzierung der Lichtverschmutzung in Deutschland bei und leistet somit einen wertvollen Beitrag zum Artenschutz, Umweltschutz und Klimaschutz.</p>
               </div>'; 
       
         }
