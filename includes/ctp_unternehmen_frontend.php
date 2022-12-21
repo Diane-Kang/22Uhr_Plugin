@@ -63,10 +63,10 @@ $header_unternehmen =
   <h3 class="abschaltung-um">' . $abschaltung_um_uhr . $text . '</h3>
 </div>
 </div>
-<h1 class="entry_title">' . get_the_title(get_the_ID()) . '</h1>' . 
+<h1 class="entry_title">' . get_the_title(get_the_ID()) . '</h1>
+<div class="parent_unternehmen">Ein Unternehmen der <a class="zurueck is_child top" href="/firmenverzeichnis/g-u-t-gruppe/">G.U.T.-GRUPPE</a></div>' . 
 $adresse .
-'<a class="zurueck is_child top" href="/firmenverzeichnis/g-u-t-gruppe/">zurück zum Verzeichnis der G.U.T.-GRUPPE</a>
-</div>
+'</div>
 <h2 class="dabei">Deswegen sind wir bei „22 Uhr – Licht aus“ dabei:</h2>';
 
 echo $header_unternehmen;
@@ -78,6 +78,23 @@ echo $header_unternehmen;
 
 //After content
 function after_content(){
+
+  // check if Details zur Lichtabschaltung is empty
+$abschaltung_check = get_post_meta(get_the_ID(), 'Abschaltung', true);
+
+  if (empty($abschaltung_check)) {
+    $abschaltung_value = '<!-- No Details -->';
+  }
+
+  else {
+    $abschaltung_value =
+'<div class="abschaltung top-border">
+<h2>Details zur Licht- bzw. Werbelicht-Abschaltung:</h2>
+  <p>' . get_post_meta(get_the_ID(), 'Abschaltung', true) . '</p>
+</div>
+</div>';
+  }
+
 if ( is_singular('unternehmen') ) {
 
 $after = '<div class="zertifikat top-border">
@@ -86,12 +103,9 @@ $after = '<div class="zertifikat top-border">
     <img src="/wp-content/uploads/2022/05/Zertifikat-22-Uhr-Licht-aus-thumb-01.png" alt="Zertifikat 22 Uhr">
     <h2>Zertifikat (PDF)</h2>
   </a>
-</div>
-<div class="abschaltung top-border">
-  <h2>Details zur Licht- bzw. Werbelicht-Abschaltung:</h2>
-  <p>' . get_post_meta(get_the_ID(), 'Abschaltung', true) . '</p>
-</div>
-<div class="uber-uns top-border">
+</div>' .
+$abschaltung_value .
+'<div class="uber-uns top-border">
   <h2>Worum geht es bei „22 Uhr – Licht aus?“</h2>
   <p>Das Projekt "22 Uhr – Licht aus" dient der Reduzierung der Lichtverschmutzung. Teilnehmende Firmen haben sich
     freiwillig dazu bereiterklärt, nachts die gesamte im Freien sichtbare Werbebeleuchtung so früh wie möglich,

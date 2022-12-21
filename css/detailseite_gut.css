@@ -1,8 +1,12 @@
 
-.is_child .entry-title::after {
+.single-unternehmen .header_22 .entry_title::after {
 content: "Hauptsitz der Unternehmensgruppe";
 font-size: 25px;
 padding-bottom: 20px;
+}
+
+.single-unternehmen .header_22 .parent_unternehmen {
+    display: none;
 }
 
 .haupthaus-list {
@@ -28,10 +32,6 @@ padding-bottom: 20px;
 
 .haupthaus-list .item span {
     display: none;   
-}
-
-.abschaltung-angepasst {
-    display: none;
 }
 
 .single-unternehmen .zertifikat.top-border {
