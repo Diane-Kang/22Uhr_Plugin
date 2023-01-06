@@ -35,6 +35,8 @@
   "parent-info"
   "adress"
   "zitat";  
+  /* für zitat zeichnen */
+  position: relative;
 }
 
 .unternehmen_header_grid .grid-logo{
@@ -44,6 +46,7 @@
 
 .unternehmen_header_grid .grid-zitat{
   grid-area:zitat;
+  position: relative;
 }
 .unternehmen_header_grid .grid-title{
   grid-area:title;
@@ -61,7 +64,22 @@
   max-width: 360px;
 }
 
+.single-unternehmen .abschaltung-angepasst::before {
+  font-family:'Times New Roman', Times, serif;
+  content: "\201D";
+  font-size: 270px;
+  height: 82px;
+  line-height: 0.78;
+  line-height: 1;
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  color: #ccc;
+  opacity: 0.4;
+}
+
 .single-unternehmen .abschaltung-angepasst h3 {
+  
     font-size: 24px;
     font-weight: 300;
     font-style: italic;
