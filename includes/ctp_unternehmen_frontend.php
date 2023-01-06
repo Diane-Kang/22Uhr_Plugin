@@ -1,77 +1,78 @@
 <?php defined('ABSPATH') or die();
 
-
-
-
-add_action( 'astra_single_header_after', 'before_content');
+add_action( 'astra_single_header_after', 'ctp_unternehmen_before_content');
 add_action( 'astra_entry_content_after', 'after_content', 12);
 
 
-function before_content() {
-if ( is_singular('unternehmen') ) {
+function ctp_unternehmen_before_content() {
+  if ( is_singular('unternehmen') ) {
+    $branche = get_the_terms( get_the_ID(), 'branche' );
+    
+    if (! empty($branche)) {
+      foreach($branche as $tag) {
+        $list_branchen .= '<span>' . $tag->name . '</span>';
+        }
+    }
+
+    $abschaltung = get_the_terms( get_the_ID(), 'abschaltung' );
+    
+    if (! empty($abschaltung)) {
+      foreach($abschaltung as $uhr) {
+        if ($uhr->name == 'Nicht vorhanden') {
+          $abschaltung_um_uhr .= 
+            "Wir <span class='orange'>verzichten</span> seit jeher
+            bewusst auf <span class='orange'>Werbebeleuchtung</span>. ";
+        }
+        else {
+          $abschaltung_um_uhr .= 
+            "Wir schalten unsere im Freien sichtbare <span class='orange'>Werbebeleuchtung</span> um
+            spätestens <span class='orange'>" . $uhr->name . " aus</span>. ";
+        }
+      }
+    }
 
 
-$branche = get_the_terms( get_the_ID(), 'branche' );
-if (! empty($branche)) {
-foreach($branche as $tag) {
-$list_branchen .= '<span>' . $tag->name . '</span>';
-}
-}
+    $angepasst = get_post_meta(get_the_ID(), 'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true);
 
-$abschaltung = get_the_terms( get_the_ID(), 'abschaltung' );
+    if ($angepasst == 'j') $text .= "Dies haben wir im Zuge der Teilnahme an diesem Projekt herbeigeführt und wird auch fortan so belassen.";
+    else $text .= "Dies war bislang schon so und wird im Zuge der Teilnahme an diesem Projekt auch fortan so belassen.";
 
 
-
-if (! empty($abschaltung)) {
-foreach($abschaltung as $uhr) {
-if ($uhr->name == 'Nicht vorhanden') $abschaltung_um_uhr .= "Wir <span class='orange'>verzichten</span> seit jeher
-bewusst auf <span class='orange'>Werbebeleuchtung</span>. ";
-else $abschaltung_um_uhr .= "Wir schalten unsere im Freien sichtbare <span class='orange'>Werbebeleuchtung</span> um
-spätestens <span class='orange'>" . $uhr->name . " aus</span>. ";
-}
-}
-
-
-$angepasst = get_post_meta(get_the_ID(), 'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true);
-
-
-if ($angepasst == 'j') $text .= "Dies haben wir im Zuge der Teilnahme an diesem Projekt herbeigeführt und wird auch
-fortan so belassen.";
-else $text .= "Dies war bislang schon so und wird im Zuge der Teilnahme an diesem Projekt auch fortan so belassen.";
-
-
-$adresse = 
-'<div class="adresse">
-  <div class="strasse-hn">' . get_post_meta(get_the_ID(), 'Straße und Hausnummer', true) .
-  '<span class="plz-ort">,&nbsp;(' . get_post_meta( get_the_ID(), 'Land', true ) . ')&nbsp;' . get_post_meta(get_the_ID(),
-    'Postleitzahl', true)
-    . '&nbsp;' . get_post_meta(get_the_ID(), 'Ort', true) . '</span></div>
-  <div class="branche"><span>Branche: </span>' . $list_branchen . '</div>
-  <div class="internet"><a href="' . get_post_meta(get_the_ID(), 'Internet', true) . '" target="_blank"
-      rel="noopener">Internetseite</a></div>
-</div>';
+    $adresse = 
+    '<div class="adresse">
+      <div class="strasse-hn"> 
+        (' . get_post_meta( get_the_ID(), 'Land', true ) . ') 
+        <span class="plz-ort">'.get_post_meta(get_the_ID(),'Postleitzahl', true).'</span>
+        ' . get_post_meta(get_the_ID(), 'Ort', true) . '
+        '. get_post_meta(get_the_ID(), 'Straße und Hausnummer', true) .'
+      </div>
+      <div>'. get_post_meta(get_the_ID(), 'Bundesland', true).'</div>
+      <div class="branche"><span>Branche: </span>' . $list_branchen . '</div>
+      <div class="internet"><a href="' . get_post_meta(get_the_ID(), 'Internet', true) . '" target="_blank"
+          rel="noopener">Internetseite</a></div>
+    </div>';
 
 
 
-$header_unternehmen = 
-'<div class="header_22">
-<div class="row1">
-<div class="post-thumb">'
-. get_the_post_thumbnail(get_the_ID()) .
-'</div>
-<div class="abschaltung-angepasst">
-  <h3 class="abschaltung-um">' . $abschaltung_um_uhr . $text . '</h3>
-</div>
-</div>
-<h1 class="entry_title">' . get_the_title(get_the_ID()) . '</h1>
-<div class="parent_unternehmen">Ein Unternehmen der <a class="zurueck is_child top" href="/firmenverzeichnis/g-u-t-gruppe/">G.U.T.-GRUPPE</a></div>' . 
-$adresse .
-'</div>
-<h2 class="dabei">Deswegen sind wir bei „22 Uhr – Licht aus“ dabei:</h2>';
+    $header_unternehmen = 
+    '<div class="header_22">
+      <div class="row1">
+        <div class="post-thumb">'
+          . get_the_post_thumbnail(get_the_ID()) .
+        '</div>
+        <div class="abschaltung-angepasst">
+          <h3 class="abschaltung-um">' . $abschaltung_um_uhr . $text . '</h3>
+        </div>
+      </div>
+      <h1 class="entry_title">' . get_the_title(get_the_ID()) . '</h1>
+      <div class="parent_unternehmen">Ein Unternehmen der <a class="zurueck is_child top" href="/firmenverzeichnis/g-u-t-gruppe/">G.U.T.-GRUPPE</a></div>' . 
+      $adresse .
+    '</div>
+    <h2 class="dabei">Deswegen sind wir bei „22 Uhr – Licht aus“ dabei:</h2>';
 
-echo $header_unternehmen;
+    echo $header_unternehmen;
 
-}
+  }
 }
 
 
