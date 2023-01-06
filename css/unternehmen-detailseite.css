@@ -61,7 +61,7 @@
 .single-unternehmen .post-thumb {
   padding: 30px;
   background-color: #fff;
-  max-width: 360px;
+  max-width: 250px;
 }
 
 .single-unternehmen .abschaltung-angepasst::before {
@@ -90,12 +90,12 @@
 
   }
 
-.single-unternehmen.single .single-layout-1 .header_22 .wp-post-image {
+/* .single-unternehmen.single .single-layout-1 .header_22 .wp-post-image {
   margin: 0 auto;
   max-height: 200px;
   max-width: 100%;
   width: 100%;
-}
+} */
 
 .single-unternehmen h1 {
   font-size: 32px;
