@@ -94,11 +94,11 @@ body.page .entry-content .wrapper-liste {
   display: block;
 }
 
-.unternehmen .unternehmenseintrag .text {
-  /* display: grid;
-  /* grid-template-columns: auto min-content; */
-  /* grid-template-columns: 1fr; */
-}
+/* .unternehmen .unternehmenseintrag .text {
+   display: grid;
+  grid-template-columns: auto min-content;
+  grid-template-columns: 1fr;
+} */
 
 /* .unternehmen .unternehmenseintrag .text h3 {
   grid-column: 1/-1;
@@ -134,6 +134,8 @@ line-height: 1.2em;
   .page .leaflet-popup-content {
     color: #fff;
   }
+
+  
 
   @media only screen and (max-aspect-ratio: 1/1) { /*für hochkant*/
     

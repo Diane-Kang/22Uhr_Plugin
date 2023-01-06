@@ -39,7 +39,7 @@ function ctp_unternehmen_before_content() {
 
 
     $adresse = 
-    '<div class="adresse">
+    '<div class="adresse grid-adress">
       <div class="strasse-hn"> 
         (' . get_post_meta( get_the_ID(), 'Land', true ) . ') 
         <span class="plz-ort">'.get_post_meta(get_the_ID(),'Postleitzahl', true).'</span>
@@ -48,24 +48,22 @@ function ctp_unternehmen_before_content() {
       </div>
       <div>'. get_post_meta(get_the_ID(), 'Bundesland', true).'</div>
       <div class="branche"><span>Branche: </span>' . $list_branchen . '</div>
-      <div class="internet"><a href="' . get_post_meta(get_the_ID(), 'Internet', true) . '" target="_blank"
-          rel="noopener">Internetseite</a></div>
+      <div class="internet"><a href="' . get_post_meta(get_the_ID(), 'Internet', true) . '" target="_blank" rel="noopener">Internetseite</a></div>
     </div>';
 
 
 
     $header_unternehmen = 
-    '<div class="header_22">
-      <div class="row1">
-        <div class="post-thumb">'
+    '<div class="header_22 unternehmen_header_grid">
+        <div class="post-thumb grid-logo">'
           . get_the_post_thumbnail(get_the_ID()) .
         '</div>
-        <div class="abschaltung-angepasst">
+        <div class="abschaltung-angepasst grid-zitat">
           <h3 class="abschaltung-um">' . $abschaltung_um_uhr . $text . '</h3>
         </div>
-      </div>
-      <h1 class="entry_title">' . get_the_title(get_the_ID()) . '</h1>
-      <div class="parent_unternehmen">Ein Unternehmen der <a class="zurueck is_child top" href="/firmenverzeichnis/g-u-t-gruppe/">G.U.T.-GRUPPE</a></div>' . 
+      <div class="entry_title grid-title"><h1>' . get_the_title(get_the_ID()) . '</h1></div>
+      <div class="parent_unternehmen grid-parent-info">Ein Unternehmen der <a class="zurueck is_child top" href="/firmenverzeichnis/g-u-t-gruppe/">G.U.T.-GRUPPE</a>
+      </div>' . 
       $adresse .
     '</div>
     <h2 class="dabei">Deswegen sind wir bei „22 Uhr – Licht aus“ dabei:</h2>';
