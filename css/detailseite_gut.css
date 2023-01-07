@@ -11,17 +11,18 @@ padding-bottom: 20px;
 
 .haupthaus-list {
     padding-top: 50px;
-    /*display: flex;
-    flex-wrap: wrap;*/
+    position: relative;
+}
+
+.haupthaus-list.show-only-short-list{
     height: 16em;
     overflow-y: auto;
-    position: relative;
 }
 
 .show_all {
     margin-top: 20px;
-
 }
+
 
 .haupthaus-list .item {
     font-size: 14px;

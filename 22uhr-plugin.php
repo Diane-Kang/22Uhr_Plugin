@@ -69,12 +69,13 @@ function unternehmen_css() {
   
 /// GUT Detailseite
 
-function gut_css() {
+function gut_main_addtional_style_js() {
   if ( is_single('g-u-t')) {
-      wp_enqueue_style( 'gut_detail', plugin_dir_url( __FILE__ ) . 'css/detailseite_gut.css', array(), '1.9', false);
+      wp_enqueue_style( 'gut_detail',                     plugin_dir_url( __FILE__ ) . 'css/detailseite_gut.css', array(), '1.9', false);
+      wp_enqueue_script( 'alle_anzeigen_button_js',       plugin_dir_url( __FILE__ ) . 'js/gut_main_detailseite_button.js', array(), false, false );
   }
 }
-add_action( 'wp_enqueue_scripts', 'gut_css', 20, 1 );
+add_action( 'wp_enqueue_scripts', 'gut_main_addtional_style_js', 20, 1 );
 
 
 

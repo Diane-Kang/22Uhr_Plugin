@@ -1,8 +1,6 @@
 <?php defined('ABSPATH') or die();
 
 
-
-
 add_action( 'astra_entry_content_after', 'after_content_gut_main', 11);
 
 function after_content_gut_main() {
@@ -31,7 +29,7 @@ function after_content_gut_main() {
             // Unternehmen List 
             $string .= 
             '<div class="list_wrapper">
-            <div class="haupthaus-list">
+            <div class="haupthaus-list show-only-short-list">
             <h2>Übersicht aller Häuser der G.U.T.-GRUPPE</h2>';
             $list_content = "";
             $i = 0 ;
