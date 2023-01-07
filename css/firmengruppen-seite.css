@@ -1,4 +1,5 @@
 
+
 .entry-title{
   font-weight:bold;
   text-decoration: underline solid #f9c349;
@@ -58,7 +59,13 @@ body.page .entry-content .wrapper-liste {
 .parent-unternehmen h3 a {
   padding-right: 15px;
   display: block;
+  text-transform: uppercase; 
 }
+
+.child-unternehmen h3 a {
+  text-transform: uppercase; 
+}
+
 
 .page .unternehmen .parent-unternehmen .logo-wrapper img {
   padding: 5px;

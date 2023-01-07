@@ -74,6 +74,10 @@ function gut_main_addtional_style_js() {
       wp_enqueue_style( 'gut_detail',                     plugin_dir_url( __FILE__ ) . 'css/detailseite_gut.css', array(), '1.9', false);
       wp_enqueue_script( 'alle_anzeigen_button_js',       plugin_dir_url( __FILE__ ) . 'js/gut_main_detailseite_button.js', array(), false, false );
   }
+
+  if ( $post->post_parent == url_to_postid( site_url('g-u-t'))) {
+    wp_enqueue_style( 'gut_detail',                     plugin_dir_url( __FILE__ ) . 'css/detailseite_gut.css', array(), '1.9', false);
+}
 }
 add_action( 'wp_enqueue_scripts', 'gut_main_addtional_style_js', 20, 1 );
 

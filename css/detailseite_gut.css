@@ -1,4 +1,11 @@
 
+.single-unternehmen h1{
+    text-transform: uppercase; 
+}
+.single-unternehmen h1 span{
+    text-transform: none; 
+}
+
 .single-unternehmen .header_22 .entry_title::after {
 content: "Hauptsitz der Unternehmensgruppe";
 font-size: 25px;
