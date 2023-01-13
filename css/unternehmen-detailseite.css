@@ -67,15 +67,17 @@
 .single-unternehmen .abschaltung-angepasst::before {
   font-family:'Times New Roman', Times, serif;
   content: "\201D";
-  font-size: 270px;
+  font-size: 640px;
   height: 82px;
   line-height: 0.78;
   line-height: 1;
   position: absolute;
-  top: -50px;
+  top: -120px;
   right: -50px;
-  color: #ccc;
-  opacity: 0.4;
+  color: var(--ast-global-color-4);
+  opacity: 1;
+  z-index: 1;
+  font-weight: 900;
 }
 
 .single-unternehmen .abschaltung-angepasst h3 {
@@ -87,7 +89,8 @@
     text-align: center;
     padding: 5px 0;
     font-size: 1.1rem;
-
+    position: relative;
+    z-index: 9;
   }
 
 /* .single-unternehmen.single .single-layout-1 .header_22 .wp-post-image {

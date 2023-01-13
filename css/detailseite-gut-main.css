@@ -1,0 +1,57 @@
+/* Nur für GUT-Firmengruppen Detailseite (ohne Karte); nicht für Children */
+
+.single-unternehmen .header_22 .entry_title::after {
+    content: "Hauptsitz der Unternehmensgruppe";
+    font-size: 25px;
+    padding-bottom: 20px;
+    }
+
+    .haupthaus-list {
+        padding-top: 50px;
+        position: relative;
+    }
+    
+    .haupthaus-list.show-only-short-list{
+        height: 16em;
+        overflow-y: auto;
+    }
+    
+    .show_all {
+        margin-top: 20px;
+    }
+    
+    
+    .haupthaus-list .item {
+        font-size: 14px;
+        padding: 5px 0;
+       display: block;
+       
+    }
+    
+    .haupthaus-list .item span {
+        display: none;   
+    }
+    
+    .single-unternehmen .zertifikat.top-border {
+        border: none;
+        padding-top: 0;
+        margin-top: 0;
+    }
+    
+    .beitrag-artenschutz {
+        display: none;
+    }
+    
+    .single-unternehmen .firmengruppe.zertifikat.top-border {
+        border-top: 4px solid #F9C349;
+        padding-top: 60px;
+        margin-top: 60px;
+    }
+    
+    .single-unternehmen .firmengruppe .beitrag-artenschutz  {
+    display: block;
+    }
+    
+    .single-unternehmen .firmengruppe .beitrag-artenschutz  span {
+        font-weight: 700;
+        }

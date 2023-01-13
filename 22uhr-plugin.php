@@ -82,6 +82,15 @@ function gut_main_addtional_style_js() {
 add_action( 'wp_enqueue_scripts', 'gut_main_addtional_style_js', 10, 1 );
 
 
+/// GUT Main Seite only
+
+function gut_main_site_css() {
+  if ( is_single('G.U.T.-GRUPPE')) {
+      wp_enqueue_style( 'gut_detail_main',                     plugin_dir_url( __FILE__ ) . 'css/detailseite-gut-main.css', array(), '1.0', false);
+  }
+}
+add_action( 'wp_enqueue_scripts', 'gut_main_site_css', 10, 1 );
+
 
 ///////////// MAP ///////////////////
 
