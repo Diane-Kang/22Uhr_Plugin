@@ -74,8 +74,11 @@ function gut_main_addtional_style_js() {
       wp_enqueue_style( 'gut_detail',                     plugin_dir_url( __FILE__ ) . 'css/detailseite_gut.css', array(), '1.9', false);
       wp_enqueue_script( 'alle_anzeigen_button_js',       plugin_dir_url( __FILE__ ) . 'js/gut_main_detailseite_button.js', array('jquery'), false, false );
   }
-
-  if ( $post->post_parent == url_to_postid( site_url('g-u-t'))) {
+  
+  // first call the $post variable 
+  global $post;
+  // check the post hast a parent &&(AND) the paerent is the post with slug('g-u-t')
+  if ( ($post->post_parent != 0) && ('g-u-t' == basename(get_permalink($post->post_parent)))) {
     wp_enqueue_style( 'gut_detail',                     plugin_dir_url( __FILE__ ) . 'css/detailseite_gut.css', array(), '1.9', false);
   }
 }
