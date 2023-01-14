@@ -20,7 +20,7 @@
 /* Margin zw. Content und Box */
 .ast-separate-container .ast-article-post,
 .ast-separate-container .ast-article-single {
-  padding: 0em 6.67em 1em 6.67em;
+  padding: 0em 40px 1em 40px;
 }
 
 /* Grid für Logo, Zitat, Adresse und Link  */

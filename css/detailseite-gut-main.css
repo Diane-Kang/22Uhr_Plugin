@@ -1,5 +1,9 @@
 /* Nur für GUT-Firmengruppen Detailseite (ohne Karte); nicht für Children */
 
+.single-unternehmen .header_22 .parent_unternehmen {
+    display: none;
+}
+
 .single-unternehmen .header_22 .entry_title::after {
     content: "Hauptsitz der Unternehmensgruppe";
     font-size: 25px;

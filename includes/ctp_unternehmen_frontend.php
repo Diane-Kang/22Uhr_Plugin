@@ -43,7 +43,7 @@ function ctp_unternehmen_before_content() {
       <div class="strasse-hn"> 
         (' . get_post_meta( get_the_ID(), 'Land', true ) . ') 
         <span class="plz-ort">'.get_post_meta(get_the_ID(),'Postleitzahl', true).'</span>
-        ' . get_post_meta(get_the_ID(), 'Ort', true) . '
+        ' . get_post_meta(get_the_ID(), 'Ort', true) . ', 
         '. get_post_meta(get_the_ID(), 'Straße und Hausnummer', true) .'
       </div>
       <div>'. get_post_meta(get_the_ID(), 'Bundesland', true).'</div>
