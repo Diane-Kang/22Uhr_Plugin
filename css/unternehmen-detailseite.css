@@ -56,6 +56,7 @@
 }
 .unternehmen_header_grid .grid-adress{
   grid-area:adress;
+  margin-bottom: 30px;
 }
 
 .single-unternehmen .post-thumb {
@@ -170,7 +171,6 @@ body.single-unternehmen h2 {
   width: 250px;
   padding: 60px 0 15px 0;
   color: #f9c349;
-  font-family: Poppins;
   font-weight: 800;
   border: 2px solid #f9c349;
   display: inline-block;

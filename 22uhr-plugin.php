@@ -57,14 +57,15 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_list.php';
 
 
 
-///////////// Unternehmen Seite CSS  ///////////////////
+///////////// Unternehmendetail Seite CSS  ///////////////////
 
+// This applies for all the Unternehmendetailsite (CPT-unternehmen seite)
 function unternehmen_css() {
     if ( is_singular( 'unternehmen' )) {
         wp_enqueue_style( 'unternehmen_detail', plugin_dir_url( __FILE__ ) . 'css/unternehmen-detailseite.css', array(), '1.9', false);
     }
   }
-  add_action( 'wp_enqueue_scripts', 'unternehmen_css', 20, 1 );
+add_action( 'wp_enqueue_scripts', 'unternehmen_css', 20, 1 );
   
   
 /// GUT Detailseite
