@@ -41,12 +41,9 @@ function getParentAtCurrentZoom(marker) {
 
 //save markerLayer_id as a value with tag 'map_id_'+post_id
 function save_layerId_in_html(markers, option_name='post_id'){
-  console.log('any')
   markers.eachLayer(marker => {
       var post_id = marker['options'][option_name];
-
       var map_id = markers.getLayerId(marker);     
-      console.log(marker['options']);
       document.getElementById('map_id_'+post_id).setAttribute('value',map_id)
   })
 }
