@@ -621,12 +621,14 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 
 /* Landscape mode */
 @media only screen and (min-aspect-ratio: 1/1) {
-  /* .page .entry-content {
-    display: grid;
-    grid-template-columns: 50vw 50vw;
-  } */
 
-  body.page .entry-content h1 {
+  body.page .entry-content {
+    display:grid;
+    grid-template-columns: 50vw 50vw;
+  }
+
+   
+  body.page .entry-content > :nth-child(1){
     grid-column: 1/2;
     grid-row: 1/2;
     margin-top: 0;
