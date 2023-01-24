@@ -101,19 +101,14 @@ function map_related_dependency(){
 
     // Get CSS for Leaflet Framework before (! Dependency !) JS
     wp_enqueue_style( 'leaflet-main-css',                   plugin_dir_url( __FILE__ ) . 'node_modules/leaflet/dist/leaflet.css' , array(), false, false);
-    // wp_enqueue_style( 'leaflet-main-css',                   plugin_dir_url( __FILE__ ) . 'node_modules/leaflet/dist/leaflet.css' , array(), false, false);
-    // wp_enqueue_script( 'ionicon-js',                        plugin_dir_url( __FILE__ ) . 'node_modules/leaflet/dist/ionicons.js', array(), false, false );
 
     // Get 22Uhr Custom CSS & JS and Leaflet Framework JS
     wp_enqueue_script( 'leaflet-js',                        plugin_dir_url( __FILE__ ) . 'node_modules/leaflet/dist/leaflet.js', array(), false, false );
-    wp_enqueue_script( 'leaflet-marker-cluster-js',         plugin_dir_url( __FILE__ ) . 'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js', array(), false, false);
-    wp_enqueue_script( 'leaflet-marker-cluster-group-js',   plugin_dir_url( __FILE__ ) . 'node_modules/leaflet.markercluster.layersupport/dist/leaflet.markercluster.layersupport.js', array(), false, false);
+    wp_enqueue_script( 'leaflet-marker-cluster-js',         plugin_dir_url( __FILE__ ) . 'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js', array('leaflet-js'), false, false);
+    wp_enqueue_script( 'leaflet-marker-cluster-group-js',   plugin_dir_url( __FILE__ ) . 'node_modules/leaflet.markercluster.layersupport/dist/leaflet.markercluster.layersupport.js', array('leaflet-marker-cluster-js'), false, false);
     //---------------------------------------------------------------------------------------------------------------------------- need to be called after all html ready---------
     wp_enqueue_script( 'list_modify-js',                    plugin_dir_url( __FILE__ ) . 'js/list_modify.js', array('jquery'), false, true );
-    // wp_enqueue_script( 'pon-js-v2',                         plugin_dir_url( __FILE__ ) . 'pon.js', array('jquery'), '1.1', true);    
     wp_enqueue_script( 'geocoder-js',                       plugin_dir_url( __FILE__ ) . 'node_modules/leaflet-control-geocoder/dist/Control.Geocoder.js', array('leaflet-js'), false, false);
-    //wp_enqueue_script( 'map_firmengruppen_js',              plugin_dir_url( __FILE__ ) . 'js/map_firmengruppen.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
-
 
     // style 
     wp_enqueue_style( 'leaflet-marker-cluster-css',         plugin_dir_url( __FILE__ ) . 'node_modules/leaflet.markercluster/dist/MarkerCluster.css', array(), false, false);
