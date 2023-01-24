@@ -51,10 +51,11 @@ function ctp_unternehmen_before_content() {
       <div class="internet"><a href="' . get_post_meta(get_the_ID(), 'Internet', true) . '" target="_blank" rel="noopener">Internetseite</a></div>
     </div>';
 
-
+    
+    $null_content = (get_the_content() == "")? "null_content": "" ;
 
     $header_unternehmen = 
-    '<div class="header_22 unternehmen_header_grid">
+    '<div class="header_22 unternehmen_header_grid ' .$null_content. '">
         <div class="post-thumb grid-logo">'
           . get_the_post_thumbnail(get_the_ID()) .
         '</div>
@@ -65,8 +66,8 @@ function ctp_unternehmen_before_content() {
       <div class="parent_unternehmen grid-parent-info">Ein Unternehmen der <a class="zurueck is_child top" href="/firmenverzeichnis/g-u-t-gruppe/">G.U.T.-GRUPPE</a>
       </div>' . 
       $adresse .
-    '</div>
-    <h2 class="dabei">Deswegen sind wir bei „22 Uhr – Licht aus“ dabei:</h2>';
+    ' <h2 class="dabei">Deswegen sind wir bei „22 Uhr – Licht aus“ dabei:</h2>
+    </div>';
 
     echo $header_unternehmen;
 

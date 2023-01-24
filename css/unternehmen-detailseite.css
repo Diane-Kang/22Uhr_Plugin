@@ -34,7 +34,8 @@
   "title"
   "parent-info"
   "adress"
-  "zitat";  
+  "zitat"
+  "conent-header";  
   /* für zitat zeichnen */
   position: relative;
 }
@@ -47,9 +48,13 @@
 .unternehmen_header_grid .grid-zitat{
   grid-area:zitat;
   position: relative;
+  margin-bottom: 90px;
 }
+
+
 .unternehmen_header_grid .grid-title{
   grid-area:title;
+  padding-top: 10px;
 }
 .unternehmen_header_grid .grid-parent-info{
   grid-area:parent-info;
@@ -58,11 +63,26 @@
   grid-area:adress;
   margin-bottom: 30px;
 }
+.unternehmen_header_grid .dabei{
+  grid-area:conent-header;
+}
+
+.null_content .dabei{
+  display:none;
+}
+
+.single-unternehmen .attachment-post-thumbnail {
+  height: 100%;
+  width: auto;
+  }
 
 .single-unternehmen .post-thumb {
+  display: flex;
+  justify-content: center;
   padding: 30px;
   background-color: #fff;
-  max-width: 250px;
+  min-height: 120px;
+  max-height: 300px;
 }
 
 .single-unternehmen .abschaltung-angepasst::before {
@@ -119,8 +139,7 @@
 }
 
 .single-unternehmen .header_22 {
-  padding: 60px 0;
-  border-bottom: 4px solid #f9c349;
+  padding: 30px 0;
 }
 
 
@@ -130,6 +149,7 @@ body.single-unternehmen h2 {
 
 .single-unternehmen h2.dabei {
   padding-top: 50px;
+  border-top: 4px solid #f9c349;
 }
 
 .single-unternehmen .entry-content > p {
@@ -168,7 +188,6 @@ body.single-unternehmen h2 {
 }
 
 .single-unternehmen .zurueck {
-  width: 250px;
   padding: 60px 0 15px 0;
   color: #f9c349;
   font-weight: 800;
@@ -212,7 +231,6 @@ body.single-unternehmen h2 {
 
 .is_child.single-unternehmen .zurueck.is_child {
   display: block;
-  width: max-content;
 }
 
 .is_child.single-unternehmen .zurueck {
@@ -222,19 +240,24 @@ body.single-unternehmen h2 {
 @media only screen and (min-width: 920px) {
 
 /* Grid für Logo, Zitat, Adresse und Link  */
-.unternehmen_header_grid{
-  display:grid;
-  /* vertical center */
-  align-items: center; 
-  grid-column-gap:30px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-  "logo zitat"
-  "title title"
-  "parent-info parent-info"
-  "adress adress";  
-}
+  .unternehmen_header_grid{
+    display:grid;
+    /* vertical center */
+    align-items: center; 
+    grid-column-gap:30px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "logo zitat"
+    "title title"
+    "parent-info parent-info"
+    "adress adress"
+    "conent-header conent-header";  
+  }
+
+  .unternehmen_header_grid .grid-zitat{
+    margin-bottom: 0px;
+  }
 
   .single-unternehmen.single .header_22 .row1 {
     display: flex;
@@ -244,16 +267,17 @@ body.single-unternehmen h2 {
   .single-unternehmen .post-thumb {
     /* padding: 30px; */
     background-color: #fff;
-    /* margin-right: 30px; */
-    max-width: 600px;
-    min-width: 410px;
-    min-height:300px;
+    min-width: 400px;
+    max-height: 400px;
     display: flex;
   }
 
   .single-unternehmen.single .header_22 .post-thumb img.wp-post-image {
     margin: 0;
+    padding: 5px;
     align-self: center;
+    max-height: 400px;
+    width: auto;
   }
 
   single-unternehmen .abschaltung-angepasst {
