@@ -55,6 +55,10 @@
   list-style-type: none;
 }
 
+.page #my_map{
+  z-index: 1000;
+}
+
 /*WYSIWYG Bug*/
 .page #my_map + p {
   margin: 0;
