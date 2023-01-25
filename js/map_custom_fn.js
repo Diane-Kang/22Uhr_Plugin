@@ -1,5 +1,3 @@
-
-
 //  Marker fucus functions
 
 function centerLeafletMapOnMarker(map, marker) {
@@ -43,8 +41,11 @@ function getParentAtCurrentZoom(marker) {
 function save_layerId_in_html(markers, option_name='post_id'){
   markers.eachLayer(marker => {
       var post_id = marker['options'][option_name];
-      var map_id = markers.getLayerId(marker);     
-      document.getElementById('map_id_'+post_id).setAttribute('value',map_id)
+      var map_id = markers.getLayerId(marker);
+      if(document.getElementById('map_id_'+post_id) == null){
+        console.log(marker);
+      }
+      else document.getElementById('map_id_'+post_id).setAttribute('value',map_id)
   })
 }
 

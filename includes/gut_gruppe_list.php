@@ -5,8 +5,6 @@ add_action( 'astra_entry_content_after', 'after_content_gut_main', 11);
 
 function after_content_gut_main() {
     if (is_single('g-u-t')) {
-
-
     $firmengruppen_name = 'G.U.T.';
 
     $arg = array( 
@@ -63,8 +61,8 @@ function after_content_gut_main() {
       
         /* Restore original Post Data*/
         wp_reset_postdata();
-    
+      echo $string;
     }
 
-    echo $string;
+   
 }

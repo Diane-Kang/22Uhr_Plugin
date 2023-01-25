@@ -571,6 +571,7 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
 
   .page.nav-show-22 .site-header {
     width: 100vw;
+    z-index: 1001;
   }
 
   .page.nav-show-22 #ast-desktop-header {

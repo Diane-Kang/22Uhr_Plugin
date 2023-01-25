@@ -89,7 +89,7 @@ $abschaltung_check = get_post_meta(get_the_ID(), 'Abschaltung', true);
   else {
     $abschaltung_value =
 '<div class="abschaltung top-border">
-<h2>Details zur Licht- bzw. Werbelicht-Abschaltung:</h2>
+<h2>Infos/Details zur Werbelicht-Abschaltung bzw. sonstigen Außenbeleuchtung:</h2>
   <p>' . get_post_meta(get_the_ID(), 'Abschaltung', true) . '</p>
 </div>
 </div>';
