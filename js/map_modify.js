@@ -75,8 +75,6 @@ async function main() {
         let temp_string = 'group_' + abschaltung_slug_unter;
         let group_abschaltung_uhrzeit = window[temp_string];
 
-        //console.log('marker.addTo(group_' +  abschaltung_slug_unter + ');');
-        //eval('marker.addTo(group_' +  abschaltung_slug_unter + ');');
         marker.addTo(group_abschaltung_uhrzeit);
         marker.addTo(group_abschaltung_all);
 
@@ -94,7 +92,6 @@ async function main() {
 
     for (i = 0; i < selection.length; i++) {
         selection[i].addEventListener('change', toggleGroup_dynamic);
-        //selection[i].addEventListener('change', unternehmen_list_filter); // D
     }
 
 
@@ -108,15 +105,13 @@ async function main() {
 
         if (group_name == "abschaltung_all"){
 
-            eval('let group = group_' + group_name + ';');
             let temp_string = 'group_' + group_name;
             let group = window[temp_string];
             mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
-            mcgLayerSupportGroup_auto["addLayer"](group);
+            mcgLayerSupportGroup_auto["addLayer"](group_abschaltung_all);
 
         }else if (group_name == "abschaltung_nicht_vorhanden"){
             
-            eval('let group = group_' + group_name + ';');
             let temp_string = 'group_' + group_name;
             let group = window[temp_string];
             mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
@@ -131,8 +126,6 @@ async function main() {
                 console.log(this.options[j].getAttribute("uhr_value"));
                 if (this.options[j].getAttribute("uhr_value") <= this.options[this.selectedIndex].getAttribute("uhr_value")){
                     let group_name = this.options[j].getAttribute('data-group');
-                    console.log(group_name);
-                    eval('let group = group_' + group_name + ';');
                     let temp_string = 'group_' + group_name;
                     let group = window[temp_string];
                     mcgLayerSupportGroup_auto["addLayer"](group);
@@ -153,15 +146,13 @@ main();
 
 /*Toogle Map Fullscreen */
 jQuery('.firmen-hide').click(function() {
-    jQuery('body').addClass('firmen-hide');
- });
- 
- jQuery('.firmen-show').click(function() {
+        jQuery('body').addClass('firmen-hide');
+});
+
+jQuery('.firmen-show').click(function() {
     jQuery('body').removeClass('firmen-hide');
- });
- 
- document.getElementById("change").onclick = function(){
+});
+
+document.getElementById("change").onclick = function(){
     map.invalidateSize();    
- };
-
-
+};
