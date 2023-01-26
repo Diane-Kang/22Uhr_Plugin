@@ -153,13 +153,15 @@ main();
 
 /*Toogle Map Fullscreen */
 jQuery('.firmen-hide').click(function() {
-        jQuery('body').addClass('firmen-hide');
-});
-
-jQuery('.firmen-show').click(function() {
+    jQuery('body').addClass('firmen-hide');
+ });
+ 
+ jQuery('.firmen-show').click(function() {
     jQuery('body').removeClass('firmen-hide');
-});
-
-document.getElementById("change").onclick = function(){
+ });
+ 
+ document.getElementById("change").onclick = function(){
     map.invalidateSize();    
-};
+ };
+
+
