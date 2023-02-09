@@ -24,7 +24,6 @@ if ( ! defined( 'PE_22Uhr_Plugin_Path' ) ) {
 	define( 'PE_22Uhr_Plugin_Path', plugin_dir_path( __FILE__ ) );
 }
 
-
 ///////////// Setting Custom type Post, taxonomy  ///////////////////
 require_once  PE_22Uhr_Plugin_Path . 'includes/ctp_unternehmen_init.php';
 ////////////// Unternehmen post 
@@ -39,7 +38,7 @@ $data = array(
   "firmengruppe" => "G.U.T.",
   "firmengruppe_slug" => "g-u-t"
 );
-$hello = new geojson_generate_Class($data);
+$hello = new geojson_generate_Class($data);   
 
 ////////////// Show ALL List of "Unternehmen"  and filter in front end
 require_once  PE_22Uhr_Plugin_Path . 'includes/show_all_unternehmen_list.php';
