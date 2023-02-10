@@ -215,13 +215,25 @@ display: flex;
 }
 
 .abschaltung_zeit {
-  text-transform: uppercase;
   font-size: 14px;
+  text-transform: capitalize;
 }
 
 
 .abschaltung_zeit::before {
-  content: "Abschaltung: ";
+  content: "Abschaltung bis spätestens ";
+  text-transform: none;
+}
+
+.abschaltung_nicht_vorhanden .abschaltung_zeit {
+  visibility: hidden;
+  font-size: 0;
+}
+
+.abschaltung_nicht_vorhanden .abschaltung_zeit::before {
+  content: "Seit jeher kein Werbelicht vorhanden";
+  visibility: visible;
+  font-size: 14px;
 }
 
 .alle a {
