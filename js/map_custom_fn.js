@@ -65,7 +65,7 @@ function build_link (markers){
 
 function build_marker_popup_content(feature){
 
-  let popup_title_text = "<a href = '" + feature.properties.url + ">" + feature.properties.name + "</a>";
+  let popup_title_text = "<a href = '" + feature.properties.url + "'>" + feature.properties.name + "</a>";
 
   let popup_mittel_text;
   if (feature.filter.abschaltung.slug == "nicht-vorhanden") {
@@ -79,7 +79,7 @@ function build_marker_popup_content(feature){
   let url = feature.properties.url.slice(0,-1);
   if(feature.firmengruppen_hierarchie==2){
     popup_title_text = feature.properties.name;
-    popup_ending_text = "<a href = '" + url.substring(0, url.lastIndexOf('/')) + "> zum Haupthaus</a>";
+    popup_ending_text = "<a href = '" + url.substring(0, url.lastIndexOf('/')) + "'> zum Haupthaus</a>";
   }
 
   return popup_title_text + popup_mittel_text + popup_ending_text;
