@@ -215,12 +215,12 @@ function generate_list_entry($post_id, $identity='haupt', $n_child =0){
     
     $string .= '      
         <div class="logo-wrapper">
-            <a target="_blank" rel="noopener" href="' . get_the_permalink($post_id) . '">
+            <a href="' . get_the_permalink($post_id) . '">
             '. get_the_post_thumbnail($post_id) . '
             </a>
         </div>
         <div class="text">
-            <h3><a target="_blank" rel="noopener" href="' . get_the_permalink($post_id) . '">' . get_the_title($post_id) . '</a></h3>
+            <h3><a href="' . get_the_permalink($post_id) . '">' . get_the_title($post_id) . '</a></h3>
             <div class="adresse">('. get_post_meta($post_id, 'Land', true ) . ')&nbsp;' . get_post_meta($post_id,  'Postleitzahl', true ) . ' '. get_post_meta($post_id,  'Ort', true ) . '
             </div>
             <div class="map_link_point" id="map_id_'. $post_id . '">Auf Karte zeigen </div>

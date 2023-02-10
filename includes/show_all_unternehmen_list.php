@@ -114,12 +114,12 @@ function show_unternehmen() {
               $string .= '  <div class="unternehmenseintrag-filter abschaltung_' . $zeit . '" value="'.$zeit_num.'">
                                 <div class="unternehmenseintrag werbebeleuchtung_'. $filter_value .'">
                                     <div class="logo-wrapper">
-                                        <a target="_blank" rel="noopener" href="' . get_the_permalink() . '">'
+                                        <a href="' . get_the_permalink() . '">'
                                     .   get_the_post_thumbnail() .
                                         '</a>
                                     </div>' .
                                     '<div class="text">
-                                        <h3><a target="_blank" rel="noopener" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
+                                        <h3><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
                                         <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' '
                                             . 	get_post_meta( get_the_ID(),  'Ort', true ) .
                                         '</div>
@@ -135,13 +135,13 @@ function show_unternehmen() {
               <div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .'">'
                                // <p>Firmengruppe Hauptverwaltung</p>
                               .'
-                              <div class="logo-wrapper"><a target="_blank" rel="noopener" href="/firmenverzeichnis/g-u-t-gruppe/">'. get_the_post_thumbnail() . '</a></div>' .
+                              <div class="logo-wrapper"><a rel="noopener" href="/firmenverzeichnis/g-u-t-gruppe/">'. get_the_post_thumbnail() . '</a></div>' .
                           '     <div class="text">
-                              <h3><a target="_blank" rel="noopener" href="/firmenverzeichnis/g-u-t-gruppe/">' . get_the_title() . '</a></h3>
+                              <h3><a href="/firmenverzeichnis/g-u-t-gruppe/">' . get_the_title() . '</a></h3>
                               <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' ' . get_post_meta( get_the_ID(),  'Ort', true ) .'</div>
                               <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
                               <div class="abschaltung_zeit">'. str_replace("-", " ", $filter_uhr[0]->slug)  . '</div>
-                              <div class="alle"> <a target="_blank" href="/firmenverzeichnis/g-u-t-gruppe/">Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' unserer Standorte anzeigen</a> </div>
+                              <div class="alle"> <a href="/firmenverzeichnis/g-u-t-gruppe/">Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' unserer Standorte anzeigen</a> </div>
                           </div>
                           </div>
                           </div>';
@@ -149,7 +149,7 @@ function show_unternehmen() {
           }
           else if ($firmengruppen_hierarchie == 1 || $firmengruppen_hierarchie == 2){
             $string .=  '<div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . ' display-none">
-                            <h3><a target="_blank" rel="noopener" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
+                            <h3><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
                             <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
                             <div class="abschaltung_zeit">'. str_replace("-", " ", $filter_uhr[0]->slug)  . '</div>
                         </div>';            

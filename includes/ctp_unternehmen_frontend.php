@@ -99,7 +99,7 @@ if ( is_singular('unternehmen') ) {
 
 $after = '<div class="zertifikat top-border">
   <p class="beitrag-artenschutz">Dieser verantwortungsvolle Umgang mit der Werbebeleuchtung trägt zur Reduzierung der Lichtverschmutzung in ' . get_post_meta(get_the_ID(), 'Ort', true) . ' bei. Dadurch wird ein wertvoller Beitrag zum Artenschutz, Umweltschutz und Klimaschutz geleistet.</p>
-  <a href="' . get_post_meta(get_the_ID(), 'PDF Pfad', true) .'">
+  <a target="_blank" href="' . get_post_meta(get_the_ID(), 'PDF Pfad', true) .'">
     <img src="/wp-content/uploads/2022/05/Zertifikat-22-Uhr-Licht-aus-thumb-01.png" alt="Zertifikat 22 Uhr">
     <h2>Zertifikat (PDF)</h2>
   </a>
@@ -113,8 +113,8 @@ $abschaltung_value .
     Teilnahme an diesem Projekt motiviert die betreffenden Firmen dazu, dies ganz bewusst auch in Zukunft so zu
     belassen. </p>
 </div>
-<a class="zurueck is_parent" href="/firmenverzeichnis/">zurück zum Verzeichnis</a>
-<a class="zurueck is_child" href="/firmenverzeichnis/g-u-t-gruppe/">zurück zum Verzeichnis der G.U.T.-GRUPPE</a>';
+<a class="zurueck is_parent" href="/firmenverzeichnis/">zum Verzeichnis</a>
+<a class="zurueck is_child" href="/firmenverzeichnis/g-u-t-gruppe/">zum Verzeichnis der G.U.T.-GRUPPE</a>';
 
 echo $after;
 }
