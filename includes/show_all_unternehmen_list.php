@@ -57,7 +57,6 @@ function show_unternehmen() {
           $uhr_value = str_replace(["abschaltung_", "-uhr"],"", $uhr_tag->slug);
           $uhr_value = str_replace("-",".", $uhr_value);
 
-
           if ("Nicht vorhanden" != $uhr_tag->name ) {
               $temp_string =
               '<option data-group="abschaltung_' . $abschaltung_slug_without_middle . '"  
@@ -124,7 +123,7 @@ function show_unternehmen() {
                                             . 	get_post_meta( get_the_ID(),  'Ort', true ) .
                                         '</div>
                                         <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                                        <div class="abschaltung_zeit">'. str_replace("-", " ", $filter_uhr[0]->slug)  . '</div>
+                                        <div class="abschaltung_zeit">'.$zeit_num. ' Uhr</div>
                                     </div>
                                 </div>
                             </div>';
@@ -141,7 +140,7 @@ function show_unternehmen() {
                               <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' ' . get_post_meta( get_the_ID(),  'Ort', true ) .'</div>
                               <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
                               <div class="abschaltung_zeit">'. str_replace("-", " ", $filter_uhr[0]->slug)  . '</div>
-                              <div class="alle"> <a href="/firmenverzeichnis/g-u-t-gruppe/">Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' unserer Standorte anzeigen</a> </div>
+                              <div class="alle"> <a href="/firmenverzeichnis/g-u-t-gruppe/">Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' unserer Standorte mit Abschaltzeit anzeigen</a> </div>
                           </div>
                           </div>
                           </div>';

@@ -72,7 +72,7 @@ function build_marker_popup_content(feature){
     popup_mittel_text = "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Seit jeher kein Werbelicht vorhanden</span></p>";
   }
   else{
-    popup_mittel_text = "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Abschaltung bis spätestens </span> "+feature.filter.abschaltung.name +"!</p>";
+    popup_mittel_text = "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Werbelicht-Abschaltung: </span> "+feature.filter.abschaltung.name +"</p>";
   }
 
   let popup_ending_text="";

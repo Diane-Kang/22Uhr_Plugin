@@ -25,8 +25,7 @@ function ctp_unternehmen_before_content() {
         }
         else {
           $abschaltung_um_uhr .= 
-            "Wir schalten unsere im Freien sichtbare <span class='orange'>Werbebeleuchtung</span> um
-            spätestens <span class='orange'>" . $uhr->name . " aus</span>. ";
+            "Wir schalten unsere im Freien sichtbare <span class='orange'>Werbebeleuchtung um " . $uhr->name . " aus</span>. ";
         }
       }
     }

@@ -118,8 +118,6 @@ async function main() {
             mcgLayerSupportGroup_auto["addLayer"](group);
     
         }else{
-
-            console.log("hier");
             mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
             for (let j = 1; j < this.options.length-1; ++j) {
 
