@@ -134,9 +134,7 @@
   grid-column: 1/-1;
 }
 
-.firmengruppen .map_link_point, 
-.firmengruppen .abschaltung_zeit
-{
+.firmengruppen .map_link_point{
 	display:none;
 } 
 
@@ -199,11 +197,19 @@ display: flex;
   padding: 5px 0;
 }
 
-.page .map_link_point::before {
+.page .map_link_point::before, 
+.firmengruppen .alle a::before {
   font-family: "Font Awesome 5 Free";
   padding: 5px;
   font-size: 18px;
   content: "\f279";
+}
+.page .fa-external-link-alt::before{
+  font-family: "Font Awesome 5 Free";
+  padding: 5px;
+  font-size: 14px;
+  content: "\f35d";
+  font-style:normal;
 }
 
 .page .map_link_point:hover,
@@ -218,7 +224,6 @@ display: flex;
 
 .abschaltung_zeit {
   font-size: 14px;
-  text-transform: capitalize;
 }
 
 
@@ -238,8 +243,9 @@ display: flex;
   font-size: 14px;
 }
 
-.alle a {
+.firmengruppen .alle {
   font-size: 14px;
+  padding:5px 0;
 }
 
 /* Borlabs */

@@ -29,22 +29,17 @@ function show_unternehmen() {
 
   // Unternehmen List section: 
   if ( $the_query->have_posts() ) {
-
-
-
-      // List of abshaltung tags
-      $abschaltung_tags = get_terms( array(
-          'taxonomy' => 'abschaltung',
-          'hide_empty' => true,
-      ));
-
-
-      // Begining of Selector html
-      $string .= '
-      <div class="abschaltung filter">
-          <p>Filtern nach Abschaltzeit:</p>
-          <select  name="uhrzeit" id="abschaltung_uhrzeit">
-              <option data-group="abschaltung_all" value="25.0" selected >Alle Firmen zeigen</option>';
+    // List of abshaltung tags
+    $abschaltung_tags = get_terms( array(
+        'taxonomy' => 'abschaltung',
+        'hide_empty' => true,
+    ));
+  // Begining of Selector html
+    $string .= '
+    <div class="abschaltung filter">
+        <p>Filtern nach Abschaltzeit:</p>
+        <select  name="uhrzeit" id="abschaltung_uhrzeit">
+            <option data-group="abschaltung_all" value="25.0" selected >Alle Firmen zeigen</option>';
 
       // make a list of option with abschaltung_tags
       $options_array = [];
@@ -139,8 +134,8 @@ function show_unternehmen() {
                               <h3><a href="/firmenverzeichnis/g-u-t-gruppe/">' . get_the_title() . '</a></h3>
                               <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' ' . get_post_meta( get_the_ID(),  'Ort', true ) .'</div>
                               <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                              <div class="abschaltung_zeit">'. str_replace("-", " ", $filter_uhr[0]->slug)  . '</div>
-                              <div class="alle"> <a href="/firmenverzeichnis/g-u-t-gruppe/">Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' unserer Standorte mit Abschaltzeit anzeigen</a> </div>
+                              <div class="alle"> <a href="/firmenverzeichnis/g-u-t-gruppe/"> Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte mit Abschaltzeit anzeigen <i class="fas fa-external-link-alt"></i></a> </div>
+                              <div class="abschaltung_zeit">Aller Standorte bis spätesten 21 Uhr</div>
                           </div>
                           </div>
                           </div>';
