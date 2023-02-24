@@ -103,7 +103,14 @@ function show_unternehmen() {
             else {
                 $zeit = "empty";
             }
-
+        
+        $abschaltung_zeit_text = "";
+        if ($zeit_num == ""){
+            $abschaltung_zeit_text = "Seit jeher kein Werbelicht vorhanden";
+        }else{
+            $abschaltung_zeit_text = "Werbelicht-Abschaltung: ".$zeit_num. " Uhr";
+        }
+        
         if(empty($firmengruppen)){ // Einzel Beitrag
               $string .= '  <div class="unternehmenseintrag-filter abschaltung_' . $zeit . '" value="'.$zeit_num.'">
                                 <div class="unternehmenseintrag werbebeleuchtung_'. $filter_value .'">
@@ -118,7 +125,7 @@ function show_unternehmen() {
                                             . 	get_post_meta( get_the_ID(),  'Ort', true ) .
                                         '</div>
                                         <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                                        <div class="abschaltung_zeit">'.$zeit_num. ' Uhr</div>
+                                        <div class="abschaltung_zeit">'.$abschaltung_zeit_text.'</div>
                                     </div>
                                 </div>
                             </div>';
@@ -134,8 +141,8 @@ function show_unternehmen() {
                               <h3><a href="/firmenverzeichnis/g-u-t-gruppe/">' . get_the_title() . '</a></h3>
                               <div class="adresse">(' . get_post_meta( get_the_ID(),  'Land', true ) . ')&nbsp;' . get_post_meta( get_the_ID(),  'Postleitzahl', true ) . ' ' . get_post_meta( get_the_ID(),  'Ort', true ) .'</div>
                               <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                              <div class="alle"> <a href="/firmenverzeichnis/g-u-t-gruppe/"> Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte mit Abschaltzeit anzeigen <i class="fas fa-external-link-alt"></i></a> </div>
-                              <div class="abschaltung_zeit">Aller Standorte bis spätesten 21 Uhr</div>
+                              <div class="alle"> <a href="/firmenverzeichnis/g-u-t-gruppe/"><div> Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></div></a> </div>
+                              <div class="abschaltung_zeit">Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr</div>
                           </div>
                           </div>
                           </div>';
@@ -145,7 +152,6 @@ function show_unternehmen() {
             $string .=  '<div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . ' display-none">
                             <h3><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
                             <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                            <div class="abschaltung_zeit">'. str_replace("-", " ", $filter_uhr[0]->slug)  . '</div>
                         </div>';            
           }
       }

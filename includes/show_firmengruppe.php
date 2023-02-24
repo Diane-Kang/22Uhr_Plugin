@@ -174,16 +174,16 @@ function generate_list_entry($post_id, $identity='haupt', $n_child =0){
     $filter_uhr = get_the_terms($post_id, 'abschaltung');
     $filter_value = get_post_meta(get_the_ID(),  'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true);
 
+
     if (! empty($filter_uhr)) {
         foreach($filter_uhr as $tag) {
             $zeit = str_replace("-", "_", $tag->slug);
+            $zeit_num = is_numeric(str_replace(" Uhr", "", $tag->name))?str_replace(" Uhr", "", $tag->name):"";
         }
     }
     else {
         $zeit = "empty";
     }
-
-    $string ="";
 
 
 
@@ -211,6 +211,12 @@ function generate_list_entry($post_id, $identity='haupt', $n_child =0){
             break;
     }
 
+    $abschaltung_zeit_text = "";
+    if ($zeit_num == ""){
+        $abschaltung_zeit_text = "Seit jeher kein Werbelicht vorhanden";
+    }else{
+        $abschaltung_zeit_text = "Werbelicht-Abschaltung: ".$zeit_num. " Uhr";
+    }
     //<img src="http://localhost:10008/wp-content/uploads/2022/10/GUT-Logo.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" srcset="http://localhost:10008/wp-content/uploads/2022/10/GUT-Logo.jpg 580w, http://localhost:10008/wp-content/uploads/2022/10/GUT-Logo-300x200.jpg 300w" sizes="(max-width: 580px) 100vw, 580px" width="580" height="387">
     
     $string .= '      
@@ -224,7 +230,7 @@ function generate_list_entry($post_id, $identity='haupt', $n_child =0){
             <div class="adresse">('. get_post_meta($post_id, 'Land', true ) . ')&nbsp;' . get_post_meta($post_id,  'Postleitzahl', true ) . ' '. get_post_meta($post_id,  'Ort', true ) . '
             </div>
             <div class="map_link_point" id="map_id_'. $post_id . '">Auf Karte zeigen </div>
-            <div class="abschaltung_zeit">'. str_replace("-", " ", $filter_uhr[0]->slug)  . '</div>';
+            <div class="abschaltung_zeit">'.$abschaltung_zeit_text.'</div>';
 
 
 
