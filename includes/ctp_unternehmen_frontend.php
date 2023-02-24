@@ -79,17 +79,17 @@ function ctp_unternehmen_before_content() {
 function after_content(){
 
   // check if Details zur Lichtabschaltung is empty
-$abschaltung_check = get_post_meta(get_the_ID(), 'Abschaltung', true);
+$detail_zum_licht_text = get_post_meta(get_the_ID(), 'Details zum Licht', true);
 
-  if (empty($abschaltung_check)) {
-    $abschaltung_value = '<!-- No Details -->';
+  if (empty($detail_zum_licht_text)) {
+    $detail_zum_licht_content = '<!-- No Details -->';
   }
 
   else {
-    $abschaltung_value =
+    $detail_zum_licht_content =
 '<div class="abschaltung top-border">
 <h2>Infos/Details zur Werbelicht-Abschaltung bzw. sonstigen Außenbeleuchtung:</h2>
-  <p>' . get_post_meta(get_the_ID(), 'Abschaltung', true) . '</p>
+  <p>' . $detail_zum_licht_text . '</p>
 </div>
 </div>';
   }
@@ -103,7 +103,7 @@ $after = '<div class="zertifikat top-border">
     <h2>Zertifikat (PDF)</h2>
   </a>
 </div>' .
-$abschaltung_value .
+$detail_zum_licht_content .
 '<div class="uber-uns top-border">
   <h2>Worum geht es bei „22 Uhr – Licht aus?“</h2>
   <p>Das Projekt "22 Uhr – Licht aus" dient der Reduzierung der Lichtverschmutzung. Teilnehmende Firmen haben sich
