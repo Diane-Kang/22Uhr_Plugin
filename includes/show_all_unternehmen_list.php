@@ -112,8 +112,8 @@ function show_unternehmen() {
         }
         
         if(empty($firmengruppen)){ // Einzel Beitrag
-              $string .= '  <div class="unternehmenseintrag-filter abschaltung_' . $zeit . '" value="'.$zeit_num.'">
-                                <div class="unternehmenseintrag werbebeleuchtung_'. $filter_value .'">
+              $string .= '  
+                                <div class="unternehmenseintrag werbebeleuchtung_'. $filter_value .' unternehmenseintrag-filter abschaltung_' . $zeit . '" value="'.$zeit_num.'">
                                     <div class="logo-wrapper">
                                         <a href="' . get_the_permalink() . '">'
                                     .   get_the_post_thumbnail() .
@@ -128,12 +128,12 @@ function show_unternehmen() {
                                         <div class="abschaltung_zeit">'.$abschaltung_zeit_text.'</div>
                                     </div>
                                 </div>
-                            </div>';
+                            ';
           }
           else if ($firmengruppen_hierarchie == 0){
              // $firmengruppen_seite_url = get_post_meta( get_the_ID(),  'firmengruppen-seite', true );
-              $string .=  ' <div class="unternehmenseintrag-filter abschaltung_' . $zeit . '">
-              <div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .'">'
+              $string .=  '
+              <div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .' unternehmenseintrag-filter abschaltung_' . $zeit . '">'
                                // <p>Firmengruppe Hauptverwaltung</p>
                               .'
                               <div class="logo-wrapper"><a rel="noopener" href="/firmenverzeichnis/g-u-t-gruppe/">'. get_the_post_thumbnail() . '</a></div>' .
@@ -145,15 +145,15 @@ function show_unternehmen() {
                               <div class="abschaltung_zeit">Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr</div>
                           </div>
                           </div>
-                          </div>';
+                        ';
 
           }
-          else if ($firmengruppen_hierarchie == 1 || $firmengruppen_hierarchie == 2){
-            $string .=  '<div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . ' display-none">
-                            <h3><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
-                            <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
-                        </div>';            
-          }
+        //   else if ($firmengruppen_hierarchie == 1 || $firmengruppen_hierarchie == 2){
+        //     $string .=  '<div class="unternehmenseintrag firmengruppen werbebeleuchtung_'. $filter_value .' abschaltung_' . $zeit . ' display-none">
+        //                     <h3><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
+        //                     <div class="map_link_point" id="map_id_'. get_the_ID() . '">Auf Karte zeigen </div>
+        //                 </div>';            
+        //   }
       }
       $string .='</div>';
 

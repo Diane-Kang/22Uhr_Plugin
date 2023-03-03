@@ -103,7 +103,7 @@
 
 .page .unternehmenseintrag {
   padding: 10px 0px;
-  margin:10px 0px;
+  /* margin:10px 0px; */
   display: flex;
 }
 
@@ -114,9 +114,14 @@
 /* 
 ** Style for Firmengruppen : z.B. G-U-T gruppen Beitrag block
  */
-.firmengruppen {
-  border-top: solid #f9c349;
-  border-bottom: solid #f9c349;
+ .unternehmenseintrag{
+  border-top: solid 1px #333;
+  margin: -1px;
+ }
+
+.unternehmenseintrag.firmengruppen {
+  border-top: solid 2px #f9c349;
+  border-bottom: solid 2px #f9c349;
 }
 
 .page .firmengruppen {
@@ -783,7 +788,7 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   }
 
   .page .unternehmenseintrag {
-    padding: 10px 0;
+    padding: 20px 0;
   }
 
   .page .unternehmenseintrag .text {
@@ -812,12 +817,12 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
   .page .werbebeleuchtung_ja .adresse::after {
     content: "\f005";
     font-family: "Font Awesome 5 Free";
-    font-size: 20px;
+    font-size: 15px;
     color: #f9c349;
     display: block;
-    height: 20px;
+    /* height: 20px;
     width: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
   }
 
   .page .werbebeleuchtung_j .adresse:hover::after,
@@ -827,16 +832,17 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     content: "Werbelicht im Zuge der Teilnahme optimiert";
     background: #000;
     color: #fff;
-    padding: 11px;
+    padding: 0.8em;
     box-shadow: 0 0 3px 1px #fff;
     font-size: 14px;
     text-shadow: none;
     display: block;
-    width: 350px;
-    height: 36px;
+    /* width: 350px; */
+    /* height: 36px; */
+    width:100%;
     margin-bottom: 0;
     position: relative;
-    line-height: 1em;
+    line-height: 1.1em;
   }
 
   .page .unternehmen .logo-wrapper {

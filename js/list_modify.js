@@ -29,14 +29,14 @@ document.getElementById('abschaltung_uhrzeit').addEventListener('change', functi
     let uhr_group_text = this.options[this.selectedIndex].getAttribute("data-group");
 
     if (uhr_group_text =="abschaltung_all"){
-        for (i = 0; i < all_unternehmen.length; i++) all_unternehmen[i].style.display = 'block';
+        for (i = 0; i < all_unternehmen.length; i++) all_unternehmen[i].style.display = 'flex';
     }else if (uhr_group_text =="abschaltung_nicht_vorhanden"){
 
 
         let elements = document.getElementsByClassName(uhr_group_text);
         
         for (i = 0; i < elements.length; i++) {
-            elements[i].style.display = "block";
+            elements[i].style.display = "flex";
         }
     }else{
         
@@ -47,7 +47,7 @@ document.getElementById('abschaltung_uhrzeit').addEventListener('change', functi
                 let elements = document.getElementsByClassName(target_group);
         
                 for (i = 0; i < elements.length; i++) {
-                    elements[i].style.display = "block";
+                    elements[i].style.display = "flex";
                 }
             }
           }
