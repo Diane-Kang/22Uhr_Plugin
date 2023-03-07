@@ -24,8 +24,13 @@ if ( ! defined( 'PE_22Uhr_Plugin_Path' ) ) {
 	define( 'PE_22Uhr_Plugin_Path', plugin_dir_path( __FILE__ ) );
 }
 
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/unterhnehmenliste-shortcode.php';
+
+
 ///////////// Setting Custom type Post, taxonomy  ///////////////////
 require_once  PE_22Uhr_Plugin_Path . 'includes/ctp_unternehmen_init.php';
+
+
 ////////////// Unternehmen post 
 require_once  PE_22Uhr_Plugin_Path . 'includes/ctp_unternehmen_frontend.php';
 
@@ -96,7 +101,7 @@ function map_related_dependency(){
   global $post;
 
   // Diese Dependency loaded only when it is 'firmenverzeichnis' or only when its parents is 'firmenverzeichnis' // it can be checked with url  
-  if (is_page($target_page_name) || $post->post_parent == url_to_postid( site_url('firmenverzeichnis'))){
+  if (is_page($target_page_name) || $post->post_parent == url_to_postid( site_url('firmenverzeichnis')) || is_page('diane-firmenverzeichnis'  )){
 
     wp_enqueue_script( 'map-seite-addtional-functions-js',  plugin_dir_url( __FILE__ ) . 'js/map_seite_addtional_functions.js', array('jquery'), false, true );
 

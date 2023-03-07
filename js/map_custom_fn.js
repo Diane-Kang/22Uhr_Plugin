@@ -43,7 +43,7 @@ function save_layerId_in_html(markers, option_name='post_id'){
       var post_id = marker['options'][option_name];
       var map_id = markers.getLayerId(marker);
       if(document.getElementById('map_id_'+post_id) == null){
-        console.log(marker);
+        // console.log(marker);
       }
       else document.getElementById('map_id_'+post_id).setAttribute('value',map_id)
   })
