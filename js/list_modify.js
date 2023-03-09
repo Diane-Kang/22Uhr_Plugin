@@ -14,7 +14,7 @@ for (let i = 1; i < options.length; i++) {
 }
 
 // set variable for colletion of html by Name for all Unternehmen
-var all_unternehmen = document.getElementsByClassName("unternehmenseintrag-filter");
+var all_unternehmen = document.getElementsByClassName("unternehmenseintrag");
 
 
 

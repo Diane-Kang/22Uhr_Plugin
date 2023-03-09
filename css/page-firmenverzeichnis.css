@@ -1,0 +1,922 @@
+.page .site-content .ast-container {
+  max-width: 100vw;
+  padding: 0;
+}
+
+.page .ast-container #primary {
+  margin: 0;
+}
+.page .ast-article-single {
+  padding: 0;
+}
+#main .page {
+  background-color: #1e1810;
+}
+.page .entry-header {
+  margin-bottom: 0;
+}
+.page .navicon-close {
+  display: none;
+}
+
+.page .entry-content {
+  min-height: 100vh;
+}
+
+.page .content-area h1 {
+  /* padding: 40px 10px 20px 10px;
+  margin-top: 0;
+  margin-bottom: 0; */
+  line-height: 1.2em;
+  font-size: 35px;
+  z-index: 999;
+  background-color: #1e1810;
+  position: relative;
+  padding-left: 0;
+}
+/* 
+.page .search_bar {
+  display: none;
+}
+
+.page .input_search {
+  font-size: 15px;
+  max-width: 500px;
+  min-width: 320px;
+  width: 80%;
+}
+
+.page .search_result li {
+  list-style-type: none;
+} */
+
+.page #my_map{
+  z-index: 1000;
+}
+
+/*WYSIWYG Bug*/
+.page #my_map + p {
+  margin: 0;
+  padding: 0;
+}
+
+/* .post-1303 .entry-content br,
+.post-3990 .entry-content br {
+  display: none;
+} */
+
+/* .page-description.number {
+  font-size: 20px;
+  padding-left: 2vw;
+  padding-bottom: 15px;
+} */
+
+/* Left Area*/
+.page .entry-content .wrapper-liste {
+  padding-bottom: 45vh;
+  z-index: 9;
+  background-color: #1e1810;
+  position: relative;
+}
+
+.page .abschaltung.filter {
+  padding-left: 5px;
+  padding-bottom: 15px;
+}
+
+.page .abschaltung.filter p {
+  margin-bottom: 5px;
+}
+
+
+/* .page .display-none {
+  display: none !important;
+} */
+
+.page .unternehmen a {
+  text-decoration: none;
+}
+.page .unternehmenseintrag {
+  padding: 10px 0px;
+  display: flex;
+}
+.unternehmenseintrag span {
+ text-transform: uppercase;
+}
+/* 
+** Style for Firmengruppen : z.B. G-U-T gruppen Beitrag block
+ */
+ .unternehmenseintrag{
+  border-top: solid 1px #333;
+  border-bottom: solid 1px #333;
+ }
+
+.unternehmenseintrag.firmengruppen {
+  border-top: solid 1px #f9c349;
+  border-bottom: solid 1px #f9c349;
+}
+.unternehmenseintrag.firmengruppen + .unternehmenseintrag{
+  border-top: unset;
+}
+/* .unternehmenseintrag + .unternehmenseintrag.firmengruppen{
+  border-bottom: unset;
+} */
+
+.page .firmengruppen {
+  display: grid;
+  grid-template-columns: min-content auto;
+}
+
+.page .firmengruppen p {
+  grid-column: 1/-1;
+}
+
+.firmengruppen .map_link_point{
+	display:none;
+} 
+
+.dropdown-wrapper .unternehmenseintrag{
+  cursor: pointer;
+}
+.dropdown-wrapper .child-unternehmen-block{
+  display:none;
+  margin: 10px 20px 40px 20px;
+}
+.dropdown-wrapper.child-block-open .child-unternehmen-block{
+  display:block;
+}
+
+
+
+
+
+.page .unternehmen .logo-wrapper {
+  max-width: 100px;
+  min-width: 100px;
+  background-color: #fff;
+  height: 60px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+display: flex;
+}
+
+.page .unternehmen .logo-wrapper img {
+  padding: 5px;
+  max-height: 50px;
+  width: auto;
+}
+
+.page .unternehmen .logo-wrapper img:hover,
+.page .unternehmen .logo-wrapper img:active {
+  opacity: 0.5;
+}
+
+.page .unternehmenseintrag .text {
+  padding-left: 10px;
+  align-self: center;
+}
+
+.page .unternehmen .unternehmenseintrag h3 {
+  margin-bottom: 0;
+}
+
+.page .unternehmen .unternehmenseintrag h3 a {
+  font-size: 18px;
+}
+
+.page .unternehmen .child-unternehmen h3 a {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.page .unternehmen .unternehmenseintrag h3 a:hover,
+.page .unternehmen .unternehmenseintrag h3 a:active {
+  color: #f9c349;
+}
+
+.page .unternehmen .unternehmenseintrag h3 span {
+  font-size: 14px;
+  width: 100%;
+  display: block;
+  font-weight: 300;
+}
+
+.page .map_link_point {
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px 0;
+  display: inline-block;
+}
+
+.page .map_link_point::before, 
+.firmengruppen .alle a::before {
+  font-family: "Font Awesome 5 Free";
+  padding: 5px;
+  font-size: 18px;
+  content: "\f279";
+}
+.page .fa-external-link-alt::before{
+  font-family: "Font Awesome 5 Free";
+  padding: 5px;
+  font-size: 14px;
+  content: "\f35d";
+  font-style:normal;
+}
+
+.page .map_link_point:hover,
+.page .map_link_point:active {
+  opacity: 0.5;
+}
+
+.page .adresse {
+  font-size: 14px;
+  position: relative;
+}
+
+.abschaltung_zeit {
+  font-size: 14px;
+  line-height: 1.2em;
+}
+
+
+  /* .abschaltung_zeit::before {
+    content: "Werbelicht-Abschaltung: ";
+    text-transform: none;
+  } */
+
+/* .abschaltung_nicht_vorhanden .abschaltung_zeit {
+  visibility: hidden;
+  font-size: 0;
+} */
+
+/* .abschaltung_nicht_vorhanden .abschaltung_zeit::before {
+  content: "Seit jeher kein Werbelicht vorhanden";
+  visibility: visible;
+  font-size: 14px;
+} */
+.unternehmenseintrag--dropdown .alle,
+.firmengruppen .alle {
+  font-size: 14px;
+  padding:10px 0;
+  line-height: 1.2em;
+}
+
+.firmengruppen .alle > a {
+  display: flex;
+  align-items: center;
+  line-height: 1.2em;
+}
+
+
+.ionicon-chevron-down {
+  height: 30px;
+  position: absolute;
+  right: 0;
+  bottom: 20%;
+  background-color: #f9c44981;
+  cursor: pointer;
+}
+.unternehmenseintrag--dropdown{
+  position:relative;
+}
+
+/* Borlabs */
+
+body .BorlabsCookie ._brlbs-content-blocker ._brlbs-caption a {
+  color: #f9c349;
+}
+
+body .BorlabsCookie ._brlbs-content-blocker p {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn {
+  background-color: none;
+  border: 4px solid #f9c349;
+  color: #f9c349;
+  font-weight: 900;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0;
+  text-transform: lowercase;
+  font-size: 20px;
+}
+
+body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:hover,
+body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0.5;
+}
+
+.page #my_map {
+  width: 100vw;
+  /* position: fixed; 
+    bottom: 0px;
+    top: auto;
+    left: 0;
+    z-index: 9; 
+    border-top: 20px solid #1e1810;
+	*/
+}
+
+.page #my_map {
+  height: 50vh;
+  min-height: 100px;
+}
+
+.page .leaflet-touch .leaflet-control-layers,
+.page .leaflet-touch .leaflet-bar {
+  box-shadow: none;
+  border: none;
+}
+
+/*Suchfunktion*/
+
+.page .leaflet-control-container .leaflet-control-geocoder-form {
+  display: block;
+  max-width: 250px;
+  width: 250px;
+}
+
+.page .leaflet-control-container .leaflet-control-geocoder-form input {
+  text-align: center;
+}
+
+.page .leaflet-control-geocoder .leaflet-control-geocoder-icon {
+  display: none;
+}
+
+.page .leaflet-control-zoom-in,
+.page .leaflet-control-zoom-out,
+.page .leaflet-control-geocoder-form,
+.page .leaflet-control-geocoder-form:focus,
+.page .leaflet-control-geocoder-form input[type="text"],
+.page .leaflet-control-geocoder-form input::placeholder,
+.page .leaflet-control-geocoder-form-no-error,
+.page .leaflet-control-geocoder-error,
+.page .leaflet-control-geocoder-alternatives {
+  background-color: rgba(30, 24, 16, 0.9);
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.page .leaflet-control-geocoder-form input,
+.page .leaflet-control-geocoder-alternatives {
+  width: 100%;
+}
+
+.page .leaflet-control-geocoder-alternatives li:hover,
+.page .leaflet-control-geocoder-alternatives li:active,
+.page .leaflet-control-geocoder-selected {
+  background-color: rgba(30, 24, 16, 0.9);
+}
+
+.page .leaflet-control-geocoder-alternatives a,
+.page .leaflet-control-geocoder-alternatives span {
+  color: #fff;
+  width: 100%;
+}
+
+.page .leaflet-marker-icon div {
+  background-color: rgba(1, 3, 85, 0.8);
+  box-shadow: 0 0 30px 30px rgba(1, 3, 85, 0.5);
+  border: 1px solid #abb8c3;
+}
+
+.page #my_map .leaflet-popup-content-wrapper,
+.page #my_map .leaflet-popup-tip {
+  background-color: rgba(30, 24, 16, 0.9);
+  border-radius: 0;
+  color: #fff;
+}
+
+.page #my_map .leaflet-popup-content > p:nth-child(2) {
+  color: #fff;
+  font-size: 90%;
+}
+
+/* .page #my_map .leaflet-popup span {
+  color: #fff;
+} */
+
+.page #my_map .leaflet-popup a {
+  color: #f9c349;
+}
+
+.page #my_map .leaflet-popup a:hover,
+.page #my_map .leaflet-popup a:active {
+  opacity: 0.5;
+}
+
+.page #my_map .leaflet-popup a::after {
+  content: "";
+}
+
+.page #my_map .leaflet-popup .leaflet-popup-close-button::after {
+  content: "";
+}
+
+.page .firmen-toggle {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  z-index: 9999;
+  width: 100px;
+  height: 100px;
+  font-size: 0px;
+  box-shadow: 0 0 10px 3px #666;
+}
+
+.page .firmen-toggle .firmen-show {
+  display: none;
+}
+
+.page .firmen-toggle .firmen-hide::after,
+.page .firmen-toggle .firmen-show::after {
+  font-family: "Font Awesome 5 Free";
+  background-color: #f9c349;
+  color: #000;
+  font-size: 30px;
+  border-radius: 2px;
+  line-height: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.page .firmen-toggle .firmen-hide::after {
+  content: "\f060";
+}
+
+.page .firmen-toggle .firmen-show::after {
+  content: "\f061";
+}
+
+.page .firmen-toggle:hover,
+.page .firmen-toggle:acttive {
+  opacity: 0.5;
+}
+
+/* Firmenliste Show/Hide */
+.page.firmen-hide .entry-content h1,
+.page.firmen-hide .wrapper-liste,
+.page.firmen-hide .firmen-toggle .firmen-hide {
+  display: none;
+}
+
+.page.firmen-hide .firmen-toggle .firmen-show {
+  display: flex;
+}
+
+.page.firmen-hide #my_map {
+  width: 100vw;
+}
+
+.leaflet-control-container .leaflet-top.leaflet-left {
+  bottom: 30px;
+  top: auto;
+  right: 10px;
+  left: auto;
+}
+
+.page .site-footer {
+  z-index: 9;
+  position: relative;
+}
+
+@media only screen and (max-width: 980px) {
+  html {
+    margin-top: 0 !important;
+  }
+
+  .ast-mobile-header-wrap .ast-primary-header-bar,
+  .ast-primary-header-bar .site-primary-header-wrap {
+    min-height: 55px;
+  }
+  .page .main-header-bar {
+    padding: 0;
+  }
+
+  .page .custom-logo {
+    max-width: 100px;
+  }
+
+  .page .ast-button-wrap .menu-toggle.main-header-menu-toggle {
+    padding: 10px;
+  }
+
+  .page .entry-content {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .page .entry-content h1 {
+    font-size: 25px;
+    order: 2;
+    display: flex;
+    /* margin-top: 45vh; */
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 0;
+  }
+
+  .page .firmen-toggle {
+    height: 75px;
+    width: 75px;
+    order: 4;
+  }
+
+  .page .firmen-toggle .firmen-hide::after,
+  .page .firmen-toggle .firmen-show::after {
+    font-size: 15px;
+    line-height: 15px;
+  }
+
+  body.page .entry-content .wrapper-liste {
+    padding-top: 20px;
+    order: 3;
+    margin-top: 0;
+  }
+
+  .page .entry-content h3 {
+    font-size: 15px;
+  }
+  .page .map_link_point::before, 
+  .firmengruppen .alle a::before {
+    font-size: 12px;
+    padding-top: 0;
+  }
+  .page .fa-external-link-alt::before{
+    font-size: 10px;
+    padding-top: 0;
+  }
+
+  /* .page .entry-content .unternehmenseintrag.firmengruppen {
+    padding: 10px 0;
+  } */
+
+  .page #my_map {
+    order: 1;
+    display: flex;
+    /*   top: 36px; */
+  }
+
+  .leaflet-control-container .leaflet-top.leaflet-left {
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: auto;
+  }
+
+  .page .leaflet-control-attribution.leaflet-control {
+    font-size: 12px;
+  }
+
+  .leaflet-top.leaflet-right {
+    max-width: 205px;
+  }
+
+  .leaflet-top.leaflet-right .leaflet-control-geocoder-form input {
+    font-size: 14px;
+    line-height: 1.2em;
+    padding: 10px;
+  }
+
+  /* Fullscreen */
+
+  .page.firmen-hide #my_map {
+    height: 85vh;
+  }
+}
+
+@media only screen and (min-width: 1081px) {
+  .page .site-header-primary-section-left,
+  .page .site-header-above-section-right,
+  .page .ast-above-header-wrap {
+    display: none;
+  }
+
+  .page .site-header-primary-section-right {
+    justify-content: flex-start;
+  }
+
+  .page .site-header-primary-section-right::before {
+    content: "\f0c9";
+    font-family: "Font Awesome 5 Free";
+    font-size: 30px;
+    line-height: 30px;
+    background-color: #f9c349;
+    color: #000;
+    padding: 15px;
+    margin-right: 30px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  /* Show/Hide Navi */
+  .page.nav-show-22 .site-header-primary-section-left,
+  .page.nav-show-22 .site-header-above-section-right,
+  .page.nav-show-22 .ast-above-header-wrap {
+    display: block;
+  }
+
+  .page.nav-show-22 .site-header {
+    width: 100vw;
+    z-index: 1001;
+  }
+
+  .page.nav-show-22 #ast-desktop-header {
+    width: 100vw;
+    display: block;
+  }
+
+  .page.nav-show-22 .site-header-primary-section-right::before {
+    display: none;
+  }
+
+  .page.nav-show-22 .navicon-close {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+    left: 20px;
+    width: 1px;
+    font-size: 0;
+    z-index: 99999999;
+  }
+
+  .page.nav-show-22 .navicon-close::before {
+    content: "\f0c9";
+    font-family: "Font Awesome 5 Free";
+    font-size: 30px;
+    line-height: 30px;
+    background-color: #f9c349;
+    color: #000;
+    padding: 15px;
+    margin-right: 30px;
+    border-radius: 2px;
+    display: inline;
+    visibility: visible;
+    z-index: 9999999;
+    position: absolute;
+    margin-top: 1.2em;
+  }
+
+  .page.nav-show-22 #ast-hf-menu-1 a {
+    font-size: 18px;
+  }
+
+  /*Suchfunktion*/
+
+  .page .leaflet-control-container .leaflet-control-geocoder-form {
+    display: block;
+    max-width: 300px;
+    width: 300px;
+  }
+}
+.entry-content.clear::before{
+  display: none;
+}
+/* Landscape mode */
+@media only screen and (min-aspect-ratio: 1/1) {
+
+  body.page .entry-content {
+    display:grid;
+    grid-template-columns: 50vw 50vw;
+  }
+
+
+  body.page .entry-content > :nth-child(1){
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-top: 0;
+    padding:0 2vw;
+  }
+
+  .page .wrapper-liste {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0vh 2vw 2vh 2vw;
+    min-height: 100vh;
+  }
+
+  .page .abschaltung.filter {
+    padding-left: 0;
+  }
+
+  .page .unternehmenseintrag {
+    width: 100%;
+    /* padding-left: 0; */
+  }
+
+  .page .unternehmenseintrag .text {
+    padding-left: 10px;
+  }
+
+  .page .BorlabsCookie ._brlbs-content-blocker {
+    grid-column: 2/3;
+  }
+
+  .page #my_map {
+    height: 85vh;
+    width: 50vw;
+    display: block;
+    border: none;
+    grid-column: 2/3;
+    grid-row: 1/3;
+    margin-top: 0;
+  }
+
+  /* Fullscreen */
+
+  .page.firmen-hide #my_map {
+    height: 85vh;
+    grid-column: 1/3;
+  }
+}
+
+@media only screen and (min-aspect-ratio: 1/1) and (min-width: 1081px) {
+  .page .section-header-mobile-trigger {
+    display: none;
+  }
+
+  .page .site-header {
+    width: 50vw;
+    background-color: #1e1810;
+  }
+
+  .page #ast-desktop-header {
+    width: 280px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: #000;
+    padding-right: 15px;
+  }
+
+  .page .site-header-primary-section-right::before {
+    margin-left: 30px;
+  }
+
+  .page .site-header .site-primary-header-wrap {
+    padding: 0;
+  }
+
+  .page .site-header .custom-logo {
+    margin: 0;
+  }
+
+  .page .entry-content h1,
+  .page .wrapper-liste {
+    width: 50vw;
+  }
+
+  .page #my_map {
+    position: fixed;
+    right: 0;
+    left: auto;
+    top: 0;
+    bottom: auto;
+    height: 100vh;
+  }
+
+  /*Fullscreen */
+
+  .page.firmen-hide #my_map {
+    height: 100vh;
+    grid-column: 1/3;
+  }
+}
+
+@media only screen and (min-aspect-ratio: 1/1) and (min-width: 1350px) {
+  body.page .entry-content {
+    grid-template-columns: 35vw 65vw;
+  }
+  .page.nav-show-22 #ast-hf-menu-1 a {
+    font-size: 1.04545454545rem;
+  }
+
+  .page .site-header,
+  .page .entry-content h1,
+  .page .wrapper-liste {
+    width: 35vw;
+  }
+
+  .page .entry-content h1 {
+    padding-top: 30px;
+    font-size: 40px;
+  }
+
+  .page .unternehmenseintrag {
+    padding: 20px 0;
+  }
+
+  .page .unternehmenseintrag .text {
+    padding-left: 20px;
+  }
+
+  .page .unternehmen .unternehmenseintrag h3 a {
+    font-size: 1.21739130435rem;
+    line-height: 1.2em;
+  }
+
+  .page .unternehmen .unternehmenseintrag h3 span {
+    font-size: 16px;
+  }
+
+  .page .unternehmen .child-unternehmen h3 a {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .page .adresse {
+    font-size: 16px;
+  }
+
+  .page .werbebeleuchtung_j .adresse::after,
+  .page .werbebeleuchtung_ja .adresse::after {
+    content: "\f005";
+    font-family: "Font Awesome 5 Free";
+    font-size: 15px;
+    color: #f9c349;
+    display: block;
+    /* height: 20px;
+    width: 30px;
+    margin-bottom: 10px; */
+  }
+
+  .page .werbebeleuchtung_j .adresse:hover::after,
+  .page .werbebeleuchtung_j .adresse:active::after,
+  .page .werbebeleuchtung_ja .adresse:hover::after,
+  .page .werbebeleuchtung_ja .adresse:active::after {
+    content: "Werbelicht im Zuge der Teilnahme optimiert";
+    background: #000;
+    color: #fff;
+    padding: 0.8em;
+    box-shadow: 0 0 3px 1px #fff;
+    font-size: 14px;
+    text-shadow: none;
+    display: block;
+    /* width: 350px; */
+    /* height: 36px; */
+    max-width: 110%;
+    margin-bottom: 0;
+    position: relative;
+    line-height: 1.1em;
+  }
+
+  .page .unternehmen .logo-wrapper {
+    max-width: 160px;
+    min-width: 160px;
+    height: 120px;
+  }
+
+  .page .unternehmen .logo-wrapper img {
+    padding: 20px;
+    max-height: 120px;
+  }
+
+  .page #my_map {
+    position: fixed;
+    width: 65vw;
+  }
+
+  .page .leaflet-top.leaflet-right {
+    top: 0;
+  }
+}
+
+/* Smartphone Hochkant*/
+@media only screen and (max-aspect-ratio: 1/1) and (max-width: 650px) {
+  .page .entry-content ._brlbs-content-blocker ._brlbs-embed ._brlbs-caption {
+    transform: none;
+    position: static;
+  }
+}
+
+/* Landscape kleinere screens*/
+@media only screen and (min-aspect-ratio: 1/1) and (max-width: 1280px) {
+  .page .entry-content ._brlbs-content-blocker ._brlbs-embed ._brlbs-caption {
+    transform: none;
+    position: static;
+  }
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  src: url(/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2);
+}

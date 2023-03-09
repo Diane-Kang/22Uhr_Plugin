@@ -18,5 +18,3 @@ $('.site-header-primary-section-right').click(function() {
 jQuery('.icon-click-area').click(function(e){
    e.target.parentNode.parentNode.parentNode.classList.toggle('child-block-open');
 })
-
-

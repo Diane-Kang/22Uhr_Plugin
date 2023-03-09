@@ -24,7 +24,6 @@ if ( ! defined( 'PE_22Uhr_Plugin_Path' ) ) {
 	define( 'PE_22Uhr_Plugin_Path', plugin_dir_path( __FILE__ ) );
 }
 
-require_once  PE_22Uhr_Plugin_Path . 'template-parts/unterhnehmenliste-shortcode.php';
 
 
 ///////////// Setting Custom type Post, taxonomy  ///////////////////
@@ -52,12 +51,13 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/show_all_unternehmen_list.php';
 require_once  PE_22Uhr_Plugin_Path . 'includes/show_firmengruppe.php';
 require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_child_template.php';
 
-////////////// shortcodes
+////////////// shortcodes & functions 
 require_once  PE_22Uhr_Plugin_Path . 'includes/shortcodes.php';
 
 require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_list.php';
 
-
+////////////// shortcodes & functions
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/unterhnehmenliste-shortcode.php';
 
 
 
@@ -115,30 +115,25 @@ function map_related_dependency(){
     //---------------------------------------------------------------------------------------------------------------------------- need to be called after all html ready---------
     wp_enqueue_script( 'list-modify-js',                    plugin_dir_url( __FILE__ ) . 'js/list_modify.js', array('jquery'), false, true );
     wp_enqueue_script( 'geocoder-js',                       plugin_dir_url( __FILE__ ) . 'node_modules/leaflet-control-geocoder/dist/Control.Geocoder.js', array('leaflet-js'), false, false);
+    wp_enqueue_script( 'map-custom-fn-js',                  plugin_dir_url( __FILE__ ) . 'js/map_custom_fn.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
 
     // style 
     wp_enqueue_style( 'leaflet-marker-cluster-css',         plugin_dir_url( __FILE__ ) . 'node_modules/leaflet.markercluster/dist/MarkerCluster.css', array(), false, false);
     wp_enqueue_style( 'leaflet-marker-cluster-default-css', plugin_dir_url( __FILE__ ) . 'node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css', array(), false, false);
     wp_enqueue_style( 'geocoder-css',                       plugin_dir_url( __FILE__ ) . 'node_modules/leaflet-control-geocoder/dist/Control.Geocoder.css', array(), false, false);
     wp_enqueue_style( 'font-awesome-css',                   '/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css', array(), false, false);
-
-
-    // map-app-style.css, controled by .page-id-1303!!!!!
-    wp_enqueue_style( 'map-app-style-css',                  plugin_dir_url( __FILE__ ) . 'css/map-app-style.css', array(), '3.3', false);
-    wp_enqueue_script( 'map-custom-fn-js',                  plugin_dir_url( __FILE__ ) . 'js/map_custom_fn.js', array('leaflet-js','leaflet-marker-cluster-js', 'geocoder-js' ), '1.3', true);
-
-
-    if (is_page($target_page_name)){
-      wp_enqueue_script( 'map_modify-js',                   plugin_dir_url( __FILE__ ) . 'js/map_modify.js', array( 'leaflet-js','leaflet-marker-cluster-js', 'geocoder-js', 'map-custom-fn-js'), false, true);
-
-    }
-
-    if ($post->post_parent == url_to_postid( site_url('firmenverzeichnis'))){
-      wp_enqueue_script( 'map-firmengruppen-js',                   plugin_dir_url( __FILE__ ) . 'js/map_firmengruppen.js', array( 'leaflet-js','leaflet-marker-cluster-js', 'geocoder-js', 'map-custom-fn-js'), '3.0', true);
-      wp_enqueue_style( 'firmengruppen-style-css',          plugin_dir_url( __FILE__ ) . 'css/firmengruppen-seite.css', array(), '3.2', false);
-    }
-
   }
+  if (is_page($target_page_name)){
+    wp_enqueue_style( 'firmenverzeichnis-css',                  plugin_dir_url( __FILE__ ) . 'css/page-firmenverzeichnis.css', array(), '3.3', false);
+    wp_enqueue_script( 'map_modify-js',                   plugin_dir_url( __FILE__ ) . 'js/map_modify.js', array( 'leaflet-js','leaflet-marker-cluster-js', 'geocoder-js', 'map-custom-fn-js'), false, true);
+  }
+  if ($post->post_parent == url_to_postid( site_url('firmenverzeichnis'))){
+    wp_enqueue_style( 'map-app-style-css',                  plugin_dir_url( __FILE__ ) . 'css/map-app-style.css', array(), '3.3', false);
+    wp_enqueue_style( 'firmengruppen-style-css',          plugin_dir_url( __FILE__ ) . 'css/firmengruppen-seite.css', array(), '3.2', false);
+    wp_enqueue_script( 'map-firmengruppen-js',                   plugin_dir_url( __FILE__ ) . 'js/map_firmengruppen.js', array( 'leaflet-js','leaflet-marker-cluster-js', 'geocoder-js', 'map-custom-fn-js'), '3.0', true);
+  }
+
+  
 }
 
 

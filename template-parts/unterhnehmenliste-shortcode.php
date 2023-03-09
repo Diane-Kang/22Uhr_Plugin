@@ -3,14 +3,11 @@
 add_shortcode('liste_unternehmen_diane', 'generate_unternehmen_list');
 
 function generate_unternehmen_list() {
-  $abschaltung_filter = generate_abschlatung_filter();
-
-
   // Quelle Query for list 
   $arg = 
     array(
       'post_type' => 'unternehmen', 
-      'posts_per_page' => 10);
+      'posts_per_page' => -1);
   
   $unternehmen_query = new WP_Query( $arg );
   $unternehmen_list_html = '';
@@ -25,12 +22,14 @@ function generate_unternehmen_list() {
     // Einzel Firmaeintrag
     if($firmengruppe == ""){
       $unternehmen_list_html .= generate_eintrag($postId);
-    }else {
+    }else if($firmengruppe_hierarchie == 0 && $firmengruppe_has_page != 1) {
       $unternehmen_list_html .= generate_eintrag($postId, 'dropdown');
+    }else if($firmengruppe_hierarchie == 0 && $firmengruppe_has_page == 1) {
+      $unternehmen_list_html .= generate_eintrag($postId, 'fg_page');
     }
   }
   $unternehmenListe = '<div class="unternehmen">' . $unternehmen_list_html .'</div>';
-  // $unternehmenlist = generate_unternehmenlist();// this for firmenverzeichnis
+  $abschaltung_filter = generate_abschlatung_filter();
   return  $abschaltung_filter . $unternehmenListe;
 }
 
@@ -63,6 +62,11 @@ function generate_eintrag($postId, $type='basic'){
     case 'dropdown':
       $string = eintrag_dropdown($unternehme);
       break;
+    case 'dropdown-child':
+      $string = eintrag_dropdown_child($unternehme);
+      break;
+    case 'fg_page':
+      $string = eintrag_fgPage($unternehme);
   }
 
   return $string;
@@ -86,17 +90,74 @@ function eintrag_basic($unternehme){
 }
 
 function eintrag_dropdown($unternehme){
+
+  $args = array(
+    'post_type' => 'unternehmen',
+    'post_parent' => $unternehme["id"],
+    'posts_per_page' => -1,
+  ); 
+  $child_query = new WP_Query($args);
+
   $string =
-  '<div class="unternehmenseintrag unternehmenseintrag--dropdown '.$unternehme["werbebeleuchtung"].' '.$unternehme["abschaltung_data_group"].'" value='.$unternehme["abschaltung_value"].'>
-    <div class="logo-wrapper">
-      '.$unternehme["thumbnail"].'
-    </div>
+  ' <div class="unternehmenseintrag unternehmenseintrag--dropdown '.$unternehme["werbebeleuchtung"].' '.$unternehme["abschaltung_data_group"].'" value='.$unternehme["abschaltung_value"].'>
+      <div class="icon-click-area">
+        <svg class="ionicon-chevron-down" viewBox="0 0 512 512">
+          <title>Chevron Down</title>
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"></path>
+        </svg>
+      </div>
+      <div class="logo-wrapper">
+        '.$unternehme["thumbnail"].'
+      </div>
+      <div class="text">
+        <h3>'.$unternehme["title"].'</h3>
+        <div class="alle">Alle '.$child_query->post_count.' Standorte mit Abschaltzeit anzeigen</div>
+        <div class="abschaltung_zeit">Werbelicht-Abschaltung aller Standorte: Bis spätestens 21(static) Uhr</div>
+      </div>
+    </div>';
+
+  $string .= '<div class="child-unternehmen-block">';
+  while ( $child_query->have_posts() ) {
+    $child_query->the_post();
+    $postId = get_the_ID();
+    $string .= generate_eintrag($postId, 'dropdown-child'); 
+  }
+  $string .='</div>';
+  return '<div class="dropdown-wrapper">' .$string. '</div>'; 
+}
+
+function eintrag_dropdown_child($unternehme){
+  $string =
+  '<div class="unternehmenseintrag '.$unternehme["werbebeleuchtung"].' '.$unternehme["abschaltung_data_group"].'" value='.$unternehme["abschaltung_value"].'>
     <div class="text">
-      <h3>'.$unternehme["title"].'</h3>
+      <h3><a href="'.$unternehme["permalink"].'">'.$unternehme["title"].'</a></h3>
+      <div class="adresse">('.$unternehme["adresse-land"].')&nbsp;'.$unternehme["adresse-postzahl"].' '.$unternehme["adresse-ort"].'</div>
+      <div class="map_link_point" id="map_id_'.$unternehme["id"].'">Auf Karte zeigen </div>
+      <div class="abschaltung_zeit">'.$unternehme["abschaltung_text"].'</div>
+      '. get_post_meta($unternehme["id"],  'firmengruppen', true). get_post_meta($unternehme["id"],  'firmengruppen-hierarchie', true) . get_post_meta($unternehme["id"],  'is_fg_page', true).'
     </div>
   </div>';
   return $string; 
 }
+
+function eintrag_fgPage($unternehme){
+  $string =
+  '<div class="unternehmenseintrag firmengruppen '.$unternehme["werbebeleuchtung"].' '.$unternehme["abschaltung_data_group"].'" value='.$unternehme["abschaltung_value"].'>
+    <div class="logo-wrapper">
+      <a href="'.$unternehme["permalink"].'">'.$unternehme["thumbnail"].'</a>
+    </div>
+    <div class="text">
+      <h3><a href="/firmenverzeichnis/'. get_post_meta($unternehme["id"], "firmengruppen-seite", true).'">'.$unternehme["title"].'</a></h3>
+      <div class="adresse">('.$unternehme["adresse-land"].')&nbsp;'.$unternehme["adresse-postzahl"].' '.$unternehme["adresse-ort"].'</div>
+      <div class="alle"> <a href="/firmenverzeichnis/'. get_post_meta($unternehme["id"], "firmengruppen-seite", true).'"><div> Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></div></a> </div>
+      <div class="abschaltung_zeit">Werbelicht-Abschaltung aller Standorte: Bis spätestens 22(static) Uhr</div>
+    </div>
+  </div>';
+  return $string; 
+}
+
+
+
 
 function generate_abschlatung_filter(){
   $abschaltung_zeit_all = get_terms( array(
