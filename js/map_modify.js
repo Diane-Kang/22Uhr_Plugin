@@ -64,19 +64,24 @@ async function main() {
 
     //generate marker groups from geojson data
     json.features.forEach(feature => {
+        // make marker only when the geocode is valid 
+        // feature.geometry.coordinates[1] 0 18 
+        let isLong_inRange = 0 < feature.geometry.coordinates[0] && feature.geometry.coordinates[0] < 18;
+        let isLat_inRange = 44 < feature.geometry.coordinates[1] && feature.geometry.coordinates[1] < 55;
+        if (isLong_inRange && isLat_inRange){
+            let popuptext = build_marker_popup_content(feature);
+            let marker = build_marker_object(feature);
+            marker.bindPopup(popuptext);
 
-        let popuptext = build_marker_popup_content(feature);
-        let marker = build_marker_object(feature);
-        marker.bindPopup(popuptext);
+            //dynamic
+            let abschaltung_slug = feature.filter.abschaltung.slug;
+            let abschaltung_slug_unter = 'abschaltung_' + abschaltung_slug.replace(/\-/g, "_");
+            let temp_string = 'group_' + abschaltung_slug_unter;
+            let group_abschaltung_uhrzeit = window[temp_string];
 
-        //dynamic
-        let abschaltung_slug = feature.filter.abschaltung.slug;
-        let abschaltung_slug_unter = 'abschaltung_' + abschaltung_slug.replace(/\-/g, "_");
-        let temp_string = 'group_' + abschaltung_slug_unter;
-        let group_abschaltung_uhrzeit = window[temp_string];
-
-        marker.addTo(group_abschaltung_uhrzeit);
-        marker.addTo(group_abschaltung_all);
+            marker.addTo(group_abschaltung_uhrzeit);
+            marker.addTo(group_abschaltung_all);
+        }
 
     })
 
