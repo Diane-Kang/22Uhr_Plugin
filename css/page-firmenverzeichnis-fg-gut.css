@@ -1,4 +1,29 @@
+@media only screen and (min-aspect-ratio: 1 / 1) and (min-width: 1350px){
+  .werbebeleuchtung_j .text > div:last-child::after,
+  .werbebeleuchtung_ja .text > div:last-child::after {
+      content: "\f005";
+      font-family: "Font Awesome 5 Free";
+      font-size: 15px;
+      color: #f9c349;
+      display: block;
+      line-height: 2em;
+  }
 
+  .werbebeleuchtung_j .text > div:last-child:hover::after,
+  .werbebeleuchtung_ja .text > div:last-child:hover::after{
+    content: "Werbelicht im Zuge der Teilnahme optimiert";
+    background: #000;
+    color: #fff;
+    box-shadow: 0 0 3px 1px #fff;
+    font-size: 14px;
+    text-shadow: none;
+    display: inline-block;
+    max-width: 110%;
+    position: relative;
+    padding: 0 1em;
+  }
+
+}
 
 .entry-title{
   font-weight:bold;

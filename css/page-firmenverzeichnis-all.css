@@ -3,33 +3,40 @@
 */
 
 /******* Sternchen Hover *******/
-.werbebeleuchtung_j .text > div:last-child::after,
-.werbebeleuchtung_ja .text > div:last-child::after {
-    content: "\f005";
+
+@media only screen and (min-aspect-ratio: 1 / 1) and (min-width: 1350px){
+
+  .werbebeleuchtung_j .hover-wrapper{
+    display:block;
+  }
+  .hover-icon {
     font-family: "Font Awesome 5 Free";
     font-size: 15px;
     color: #f9c349;
-    display: block;
-    height:33px;
+    position: absolute;
+  }
+  .hover-text {
+    visibility: hidden;
+    background: #000;
+    color: #fff;
+    box-shadow: 0 0 3px 1px #fff;
+    font-size: 14px;
+    padding: 0.4em 1em;
+    line-height: 1.5em;
+    display: inline-block;
+  }
+  .hover-wrapper:hover .hover-icon {
+    display: none;
+  }
+  .hover-icon:hover .hover-text {
+    visibility: visible;
+  }
+  .hover-wrapper:hover .hover-text {
+    visibility: visible;
+  }
+
 }
 
-.werbebeleuchtung_j .text > div:last-child:hover::after,
-.werbebeleuchtung_ja .text > div:last-child:hover::after{
-  content: "Werbelicht im Zuge der Teilnahme optimiert";
-  background: #000;
-  color: #fff;
-  /* padding: 0.8em; */
-  box-shadow: 0 0 3px 1px #fff;
-  font-size: 14px;
-  text-shadow: none;
-  display: inline-block;
-  /* width: 350px; */
-  /* height: 36px; */
-  max-width: 110%;
-  /* margin-bottom: 0; */
-  position: relative;
-  /* line-height: 1.1em; */
-  padding: 0 1em;
-  line-height: 2em;
-  height:33px;
+.hover-wrapper{
+  display:none;
 }

@@ -92,6 +92,7 @@ function eintrag_basic($unternehme){
       <div class="map_link_point" id="map_id_'.$unternehme["id"].'">Auf Karte zeigen </div>
       <div class="abschaltung_zeit">'.$unternehme["abschaltung_text"].'</div>
       '. get_post_meta($unternehme["id"],  'firmengruppen', true). get_post_meta($unternehme["id"],  'firmengruppen-hierarchie', true) . get_post_meta($unternehme["id"],  'is_fg_page', true).'
+      <div class="hover-wrapper"> <div class="hover-icon">&#xf005</div> <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div></div>
     </div>
   </div>';
   return $string; 
@@ -122,6 +123,7 @@ function eintrag_dropdown($unternehme){
         <div class="adresse">('.$unternehme["fg_adresse_land"].')&nbsp;'.$unternehme["fg_adresse_postzahl"].' '.$unternehme["fg_adresse_ort"].'</div>
         <div class="abschaltung_zeit">Werbelicht-Abschaltung: Bis spätestens '.$unternehme['fg_s_abschaltungszeit'].' Uhr</div>
         <div class="alle">Alle Standorte zeigen</div>
+        <div class="hover-wrapper"> <div class="hover-icon">&#xf005</div> <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div></div>
       </div>
     </div>';
 
@@ -143,7 +145,7 @@ function eintrag_dropdown_child($unternehme){
       <div class="adresse">('.$unternehme["adresse-land"].')&nbsp;'.$unternehme["adresse-postzahl"].' '.$unternehme["adresse-ort"].'</div>
       <div class="map_link_point" id="map_id_'.$unternehme["id"].'">Auf Karte zeigen </div>
       <div class="abschaltung_zeit">'.$unternehme["abschaltung_text"].'</div>
-      '. get_post_meta($unternehme["id"],  'firmengruppen', true). get_post_meta($unternehme["id"],  'firmengruppen-hierarchie', true) . get_post_meta($unternehme["id"],  'is_fg_page', true).'
+      <div class="hover-wrapper"> <div class="hover-icon">&#xf005</div> <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div></div>
     </div>
   </div>';
   return $string; 
@@ -160,6 +162,7 @@ function eintrag_fg_Page_gut($unternehme){
       <div class="adresse">('.$unternehme["adresse-land"].')&nbsp;'.$unternehme["adresse-postzahl"].' '.$unternehme["adresse-ort"].'</div>
       <div class="alle"> <a href="/firmenverzeichnis/'. get_post_meta($unternehme["id"], "firmengruppen-seite", true).'"><div> Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></div></a> </div>
       <div class="abschaltung_zeit">Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr</div>
+      <div class="hover-wrapper"> <div class="hover-icon">&#xf005</div> <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div></div>
     </div>
   </div>';
   return $string; 
