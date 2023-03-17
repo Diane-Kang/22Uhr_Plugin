@@ -6,22 +6,28 @@ add_action( 'astra_entry_content_after', 'after_content', 12);
 
 function single_unternehmen_before_content() {
   if ( is_singular('unternehmen') ) {
-    $branche      = get_the_terms( get_the_ID(), 'branche' );
     $abschaltung  = get_the_terms( get_the_ID(), 'abschaltung', true);
     $uhr = $abschaltung[0];
     $angepasst    = get_post_meta(get_the_ID(), 'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true);
+    $branche = get_the_terms( get_the_ID(), 'branche' );
+    $list_branchen = "";
+    if (! empty($branche)) {
+      foreach($branche as $tag) {
+        $list_branchen .= '<span>' . $tag->name . '</span>';
+        }
+    }
 
     $zitat_text = '';
     if($uhr->name == 'Nicht vorhanden'){
-      $zitat_text ='Wir <span class="orange">verzichten</span> schon seit jeher ganz gezielt auf <span class="orange">Werbebeleuchtung</span>. 
+      $zitat_text ='Wir <span class="orange">verzichten</span> schon seit jeher ganz gezielt auf <span class="orange">Werbebeleuchtung</span>.<br />
       Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies im Zuge der Projektteilnahme nun ganz bewusst so beibehalten.';
     }
     else if($angepasst == n && $uhr->name != 'Nicht vorhanden'){
-      $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung seit jeher schon um '. $uhr->name .' aus</span>. 
+      $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung seit jeher schon um '. $uhr->name .' aus</span>.<br /> 
       Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies im Zuge der Projektteilnahme nun ganz bewusst so beibehalten.';
     } 
     else if ($angepasst == j && $uhr->name != 'Nicht vorhanden'){
-      $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung nun schon um '. $uhr->name .' aus</span>. 
+      $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung nun schon um '. $uhr->name .' aus</span>.<br /> 
       Dies haben wir im Zuge der Teilnahme an diesem Projekt herbeigeführt. 
       Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies nun ganz bewusst so beibehalten.';
     } 

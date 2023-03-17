@@ -3,19 +3,18 @@
 */
 
 /******* Sternchen Hover *******/
-.werbebeleuchtung_j .text:last-child::after,
-.werbebeleuchtung_ja .text:last-child::after {
+.werbebeleuchtung_j .text > div:last-child::after,
+.werbebeleuchtung_ja .text > div:last-child::after {
     content: "\f005";
     font-family: "Font Awesome 5 Free";
     font-size: 15px;
     color: #f9c349;
     display: block;
+    height:33px;
 }
 
-.werbebeleuchtung_j .text:last-child:hover::after,
-.werbebeleuchtung_j .text:last-child:active::after,
-.werbebeleuchtung_ja .text:last-child:hover::after,
-.werbebeleuchtung_ja .text:last-child:active::after {
+.werbebeleuchtung_j .text > div:last-child:hover::after,
+.werbebeleuchtung_ja .text > div:last-child:hover::after{
   content: "Werbelicht im Zuge der Teilnahme optimiert";
   background: #000;
   color: #fff;
@@ -32,4 +31,5 @@
   /* line-height: 1.1em; */
   padding: 0 1em;
   line-height: 2em;
+  height:33px;
 }
