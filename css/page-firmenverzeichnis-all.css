@@ -1,0 +1,35 @@
+/* this apply root-url/firmenverzeichnis/ and all unter seite von root-url/firmenverzeichnis/
+*  ex) 22uhr.net/firmenverzeichnis and 22uhr.net/firmenverzeichnis/g-u-t-gruppe/  
+*/
+
+/******* Sternchen Hover *******/
+.werbebeleuchtung_j .text:last-child::after,
+.werbebeleuchtung_ja .text:last-child::after {
+    content: "\f005";
+    font-family: "Font Awesome 5 Free";
+    font-size: 15px;
+    color: #f9c349;
+    display: block;
+}
+
+.werbebeleuchtung_j .text:last-child:hover::after,
+.werbebeleuchtung_j .text:last-child:active::after,
+.werbebeleuchtung_ja .text:last-child:hover::after,
+.werbebeleuchtung_ja .text:last-child:active::after {
+  content: "Werbelicht im Zuge der Teilnahme optimiert";
+  background: #000;
+  color: #fff;
+  /* padding: 0.8em; */
+  box-shadow: 0 0 3px 1px #fff;
+  font-size: 14px;
+  text-shadow: none;
+  display: inline-block;
+  /* width: 350px; */
+  /* height: 36px; */
+  max-width: 110%;
+  /* margin-bottom: 0; */
+  position: relative;
+  /* line-height: 1.1em; */
+  padding: 0 1em;
+  line-height: 2em;
+}

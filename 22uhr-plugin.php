@@ -101,7 +101,8 @@ function map_related_dependency(){
   global $post;
 
   // Diese Dependency loaded only when it is 'firmenverzeichnis' or only when its parents is 'firmenverzeichnis' // it can be checked with url  
-  if (is_page($target_page_name) || $post->post_parent == url_to_postid( site_url('firmenverzeichnis')) || is_page('diane-firmenverzeichnis'  )){
+  if (is_page($target_page_name) || $post->post_parent == url_to_postid( site_url('firmenverzeichnis'))){
+    wp_enqueue_style( 'page-firmenverzeichnis-all',          plugin_dir_url( __FILE__ ) . 'css/page-firmenverzeichnis-all.css', array(), '3.2', false);
 
     wp_enqueue_script( 'map-seite-addtional-functions-js',  plugin_dir_url( __FILE__ ) . 'js/map_seite_addtional_functions.js', array('jquery'), false, true );
 
@@ -129,7 +130,7 @@ function map_related_dependency(){
   }
   if ($post->post_parent == url_to_postid( site_url('firmenverzeichnis'))){
     wp_enqueue_style( 'map-app-style-css',                  plugin_dir_url( __FILE__ ) . 'css/map-app-style.css', array(), '3.3', false);
-    wp_enqueue_style( 'firmengruppen-style-css',          plugin_dir_url( __FILE__ ) . 'css/firmengruppen-seite.css', array(), '3.2', false);
+    wp_enqueue_style( 'page-firmenverzeichnis-fg-gut',          plugin_dir_url( __FILE__ ) . 'css/page-firmenverzeichnis-fg-gut.css', array(), '3.2', false);
     wp_enqueue_script( 'map-firmengruppen-js',                   plugin_dir_url( __FILE__ ) . 'js/map_firmengruppen.js', array( 'leaflet-js','leaflet-marker-cluster-js', 'geocoder-js', 'map-custom-fn-js'), '3.0', true);
   }
 

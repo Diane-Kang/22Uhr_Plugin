@@ -820,38 +820,6 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     font-size: 16px;
   }
 
-  .page .werbebeleuchtung_j .adresse::after,
-  .page .werbebeleuchtung_ja .adresse::after {
-    content: "\f005";
-    font-family: "Font Awesome 5 Free";
-    font-size: 15px;
-    color: #f9c349;
-    display: block;
-    /* height: 20px;
-    width: 30px;
-    margin-bottom: 10px; */
-  }
-
-  .page .werbebeleuchtung_j .adresse:hover::after,
-  .page .werbebeleuchtung_j .adresse:active::after,
-  .page .werbebeleuchtung_ja .adresse:hover::after,
-  .page .werbebeleuchtung_ja .adresse:active::after {
-    content: "Werbelicht im Zuge der Teilnahme optimiert";
-    background: #000;
-    color: #fff;
-    padding: 0.8em;
-    box-shadow: 0 0 3px 1px #fff;
-    font-size: 14px;
-    text-shadow: none;
-    display: block;
-    /* width: 350px; */
-    /* height: 36px; */
-    max-width: 110%;
-    margin-bottom: 0;
-    position: relative;
-    line-height: 1.1em;
-  }
-
   .page .unternehmen .logo-wrapper {
     max-width: 160px;
     min-width: 160px;
