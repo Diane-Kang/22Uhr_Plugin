@@ -179,10 +179,7 @@ display: flex;
 
 .page .unternehmen .unternehmenseintrag h3 {
   margin-bottom: 0;
-}
-
-.page .unternehmen .unternehmenseintrag h3 a {
-  font-size: 18px;
+  line-height: 1;
 }
 
 .page .unternehmen .child-unternehmen h3 a {
@@ -237,24 +234,10 @@ display: flex;
 .abschaltung_zeit {
   font-size: 14px;
   line-height: 1.2em;
+  margin-top: 0.6em;
 }
 
 
-  /* .abschaltung_zeit::before {
-    content: "Werbelicht-Abschaltung: ";
-    text-transform: none;
-  } */
-
-/* .abschaltung_nicht_vorhanden .abschaltung_zeit {
-  visibility: hidden;
-  font-size: 0;
-} */
-
-/* .abschaltung_nicht_vorhanden .abschaltung_zeit::before {
-  content: "Seit jeher kein Werbelicht vorhanden";
-  visibility: visible;
-  font-size: 14px;
-} */
 .unternehmenseintrag--dropdown .alle,
 .firmengruppen .alle {
   font-size: 14px;
@@ -279,6 +262,10 @@ display: flex;
 }
 .unternehmenseintrag--dropdown{
   position:relative;
+}
+.firmengruppe_num{
+  font-size:16px;
+  font-style:italic;  
 }
 
 /* Borlabs */
@@ -544,10 +531,10 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     order: 3;
     margin-top: 0;
   }
-
+/* 
   .page .entry-content h3 {
     font-size: 15px;
-  }
+  } */
   .page .map_link_point::before, 
   .firmengruppen .alle a::before {
     font-size: 12px;

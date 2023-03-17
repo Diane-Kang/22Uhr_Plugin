@@ -31,7 +31,7 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/ctp_unternehmen_init.php';
 
 
 ////////////// Unternehmen post 
-require_once  PE_22Uhr_Plugin_Path . 'includes/ctp_unternehmen_frontend.php';
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/single-unternehmen-shortcodes.php';
 
 
 ////////////// Register own Endpoint for API - /wp-json/22uhr-plugin/v1/unternehmen

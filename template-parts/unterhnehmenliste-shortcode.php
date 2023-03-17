@@ -55,6 +55,12 @@ function generate_eintrag($postId, $type='basic'){
     'adresse-postzahl'        => get_post_meta($postId, 'Postleitzahl', true),
     'adresse-ort'             => get_post_meta($postId, 'Ort', true),
     'id'                      => $postId,
+    'fg_f_abschaltungszeit'   => get_post_meta($postId, 'fg_fruehste_abschaltungszeit', true),
+    'fg_s_abschaltungszeit'   => get_post_meta($postId, 'fg_spaeteste_abschaltungszeit', true),
+    'has_fg_sternchen'        => 'werbebeleuchtung_'. (get_post_meta($postId, 'has_fg_sternchen', true) ? 'j' : 'n'),
+    'fg_adresse_land'         => get_post_meta($postId, 'fg_adresse-land', true),
+    'fg_adresse_postzahl'     => get_post_meta($postId, 'fg_adresse-postzahl', true),
+    'fg_adresse_ort'          => get_post_meta($postId, 'fg_adresse-ort', true),
   );
   $string = "";
   switch ($type) {
@@ -68,7 +74,7 @@ function generate_eintrag($postId, $type='basic'){
       $string = eintrag_dropdown_child($unternehme);
       break;
     case 'fg_page':
-      $string = eintrag_fgPage($unternehme);
+      $string = eintrag_fg_Page_gut($unternehme);
   }
 
   return $string;
@@ -92,7 +98,6 @@ function eintrag_basic($unternehme){
 }
 
 function eintrag_dropdown($unternehme){
-
   $args = array(
     'post_type' => 'unternehmen',
     'post_parent' => $unternehme["id"],
@@ -101,7 +106,7 @@ function eintrag_dropdown($unternehme){
   $child_query = new WP_Query($args);
 
   $string =
-  ' <div class="unternehmenseintrag unternehmenseintrag--dropdown '.$unternehme["werbebeleuchtung"].' '.$unternehme["abschaltung_data_group"].'" value='.$unternehme["abschaltung_value"].'>
+  ' <div class="unternehmenseintrag unternehmenseintrag--dropdown '.$unternehme["has_fg_sternchen"].' '.$unternehme["abschaltung_data_group"].'" value='.$unternehme['fg_f_abschaltungszeit'].'>
       <div class="icon-click-area">
         <svg class="ionicon-chevron-down" viewBox="0 0 512 512">
           <title>Chevron Down</title>
@@ -112,9 +117,11 @@ function eintrag_dropdown($unternehme){
         '.$unternehme["thumbnail"].'
       </div>
       <div class="text">
+        <div class="firmengruppe_num">Firmen-Gruppe mit '.$child_query->post_count.' Standorten</div>
         <h3>'.$unternehme["title"].'</h3>
-        <div class="alle">Alle '.$child_query->post_count.' Standorte mit Abschaltzeit anzeigen</div>
-        <div class="abschaltung_zeit">Werbelicht-Abschaltung aller Standorte: Bis spätestens 21(static) Uhr</div>
+        <div class="adresse">('.$unternehme["fg_adresse_land"].')&nbsp;'.$unternehme["fg_adresse_postzahl"].' '.$unternehme["fg_adresse_ort"].'</div>
+        <div class="abschaltung_zeit">Werbelicht-Abschaltung: Bis spätestens '.$unternehme['fg_s_abschaltungszeit'].' Uhr</div>
+        <div class="alle">Alle Standorte zeigen</div>
       </div>
     </div>';
 
@@ -142,7 +149,7 @@ function eintrag_dropdown_child($unternehme){
   return $string; 
 }
 
-function eintrag_fgPage($unternehme){
+function eintrag_fg_Page_gut($unternehme){
   $string =
   '<div class="unternehmenseintrag firmengruppen '.$unternehme["werbebeleuchtung"].' '.$unternehme["abschaltung_data_group"].'" value='.$unternehme["abschaltung_value"].'>
     <div class="logo-wrapper">
@@ -152,7 +159,7 @@ function eintrag_fgPage($unternehme){
       <h3><a href="/firmenverzeichnis/'. get_post_meta($unternehme["id"], "firmengruppen-seite", true).'">'.$unternehme["title"].'</a></h3>
       <div class="adresse">('.$unternehme["adresse-land"].')&nbsp;'.$unternehme["adresse-postzahl"].' '.$unternehme["adresse-ort"].'</div>
       <div class="alle"> <a href="/firmenverzeichnis/'. get_post_meta($unternehme["id"], "firmengruppen-seite", true).'"><div> Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></div></a> </div>
-      <div class="abschaltung_zeit">Werbelicht-Abschaltung aller Standorte: Bis spätestens 22(static) Uhr</div>
+      <div class="abschaltung_zeit">Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr</div>
     </div>
   </div>';
   return $string; 
