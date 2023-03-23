@@ -28,7 +28,7 @@ function single_unternehmen_before_content() {
     } 
     else if ($angepasst == j && $uhr->name != 'Nicht vorhanden'){
       $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung nun schon um '. $uhr->name .' aus</span>.<br /> 
-      Dies haben wir im Zuge der Teilnahme an diesem Projekt herbeigeführt. 
+      Das haben wir im Zuge der Teilnahme an diesem Projekt herbeigeführt. 
       Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies nun ganz bewusst so beibehalten.';
     } 
 

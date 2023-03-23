@@ -32,7 +32,8 @@ function generate_unternehmen_list() {
       $abschaltung_filter = generate_abschlatung_filter();
     }
   }
-  return  $abschaltung_filter . $unternehmenListe;
+  $abschaltung_message = '<div class="abschaltung_message"><div class="hover-icon">&#xf005</div>Werbelicht im Zuge der Teilnahme optimiert</div>';
+  return  $abschaltung_filter . $abschaltung_message . $unternehmenListe;
 }
 
 function generate_eintrag($postId, $type='basic'){
@@ -90,9 +91,13 @@ function eintrag_basic($unternehme){
       <h3><a href="'.$unternehme["permalink"].'">'.$unternehme["title"].'</a></h3>
       <div class="adresse">('.$unternehme["adresse-land"].')&nbsp;'.$unternehme["adresse-postzahl"].' '.$unternehme["adresse-ort"].'</div>
       <div class="map_link_point" id="map_id_'.$unternehme["id"].'">Auf Karte zeigen </div>
-      <div class="abschaltung_zeit">'.$unternehme["abschaltung_text"].'</div>
-      '. get_post_meta($unternehme["id"],  'firmengruppen', true). get_post_meta($unternehme["id"],  'firmengruppen-hierarchie', true) . get_post_meta($unternehme["id"],  'is_fg_page', true).'
-      <div class="hover-wrapper"> <div class="hover-icon">&#xf005</div> <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div></div>
+      <div class="abschaltung_zeit">
+        <div class="hover-wrapper">
+          <div class="hover-icon">&#xf005</div>
+          '.$unternehme["abschaltung_text"].'
+          <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
+        </div>
+      </div>
     </div>
   </div>';
   return $string; 
@@ -121,10 +126,15 @@ function eintrag_dropdown($unternehme){
         <div class="firmengruppe_num">Firmen-Gruppe mit '.$child_query->post_count.' Standorten</div>
         <h3>'.$unternehme["title"].'</h3>
         <div class="adresse">('.$unternehme["fg_adresse_land"].')&nbsp;'.$unternehme["fg_adresse_postzahl"].' '.$unternehme["fg_adresse_ort"].'</div>
-        <div class="abschaltung_zeit">Werbelicht-Abschaltung: Bis spätestens '.$unternehme['fg_s_abschaltungszeit'].' Uhr</div>
+        <div class="abschaltung_zeit">
+          <div class="hover-wrapper">
+            <div class="hover-icon">&#xf005</div>
+            Werbelicht-Abschaltung: Bis spätestens '.$unternehme['fg_s_abschaltungszeit'].' Uhr
+            <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
+          </div>
+        </div>
         <div class="alle">Alle Standorte zeigen</div>
-        <div class="hover-wrapper"> <div class="hover-icon">&#xf005</div> <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div></div>
-      </div>
+       </div>
     </div>';
 
   $string .= '<div class="child-unternehmen-block">';
@@ -144,8 +154,13 @@ function eintrag_dropdown_child($unternehme){
       <h3><a href="'.$unternehme["permalink"].'">'.$unternehme["title"].'</a></h3>
       <div class="adresse">('.$unternehme["adresse-land"].')&nbsp;'.$unternehme["adresse-postzahl"].' '.$unternehme["adresse-ort"].'</div>
       <div class="map_link_point" id="map_id_'.$unternehme["id"].'">Auf Karte zeigen </div>
-      <div class="abschaltung_zeit">'.$unternehme["abschaltung_text"].'</div>
-      <div class="hover-wrapper"> <div class="hover-icon">&#xf005</div> <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div></div>
+      <div class="abschaltung_zeit">
+        <div class="hover-wrapper">
+          <div class="hover-icon">&#xf005</div>
+          '.$unternehme["abschaltung_text"].'
+          <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
+        </div>
+      </div>
     </div>
   </div>';
   return $string; 
@@ -161,8 +176,13 @@ function eintrag_fg_Page_gut($unternehme){
       <h3><a href="/firmenverzeichnis/'. get_post_meta($unternehme["id"], "firmengruppen-seite", true).'">'.$unternehme["title"].'</a></h3>
       <div class="adresse">('.$unternehme["adresse-land"].')&nbsp;'.$unternehme["adresse-postzahl"].' '.$unternehme["adresse-ort"].'</div>
       <div class="alle"> <a href="/firmenverzeichnis/'. get_post_meta($unternehme["id"], "firmengruppen-seite", true).'"><div> Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></div></a> </div>
-      <div class="abschaltung_zeit">Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr</div>
-      <div class="hover-wrapper"> <div class="hover-icon">&#xf005</div> <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div></div>
+      <div class="abschaltung_zeit">
+        <div class="hover-wrapper">
+          <div class="hover-icon">&#xf005</div>
+            Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr
+          <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
+        </div>
+      </div>
     </div>
   </div>';
   return $string; 

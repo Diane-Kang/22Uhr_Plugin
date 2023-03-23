@@ -54,11 +54,28 @@ function build_link (markers){
   const divs = document.querySelectorAll('.map_link_point');
 
   divs.forEach(el => el.addEventListener('click', event => {
-
-      let map_id = parseInt(event.target.getAttribute("value"));
-      var marker = markers.getLayer(map_id);
-      centerLeafletMapOnMarker(map, marker, mcgLayerSupportGroup_auto);
+    let map_id = parseInt(event.target.getAttribute("value"));
+    var marker = markers.getLayer(map_id);
+    centerLeafletMapOnMarker(map, marker, mcgLayerSupportGroup_auto);
+    console.log(isInViewport(document.getElementById('my_map')));
+    if(!isInViewport(document.getElementById('my_map'))){
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }    
   }))
+}
+
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 }
 
 

@@ -2,10 +2,29 @@
 *  ex) 22uhr.net/firmenverzeichnis and 22uhr.net/firmenverzeichnis/g-u-t-gruppe/  
 */
 
+/* Abschaltung select filter */
+.abschaltung {
+  font-size:22px;
+}
+#abschaltung_uhrzeit{
+  padding:0.5em;
+}
+.abschaltung_message {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding-bottom: 0.5em;
+}
+.abschaltung_message .hover-icon{
+  padding:0 5px;
+}
+
 /******* Sternchen Hover *******/
 
-@media only screen and (min-aspect-ratio: 1 / 1) and (min-width: 1350px){
-
+  .werbebeleuchtung_n .hover-icon,
+  .werbebeleuchtung_n .hover-text{
+    display:none;
+  };
+  
   .werbebeleuchtung_j .hover-wrapper{
     display:block;
   }
@@ -13,7 +32,10 @@
     font-family: "Font Awesome 5 Free";
     font-size: 15px;
     color: #f9c349;
-    position: absolute;
+    display: inline;
+  }
+  .hover-wrapper{
+    position: relative;
   }
   .hover-text {
     visibility: hidden;
@@ -23,20 +45,20 @@
     font-size: 14px;
     padding: 0.4em 1em;
     line-height: 1.5em;
-    display: inline-block;
-  }
-  .hover-wrapper:hover .hover-icon {
-    display: none;
-  }
-  .hover-icon:hover .hover-text {
-    visibility: visible;
-  }
-  .hover-wrapper:hover .hover-text {
-    visibility: visible;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(+110%);
   }
 
-}
-
-.hover-wrapper{
-  display:none;
-}
+  /*  hover effect only for Desktop */
+  @media only screen and (min-aspect-ratio: 1/1) and (min-width: 1350px) {
+    .hover-icon:hover .hover-text {
+      visibility: visible;
+    }
+    .hover-wrapper:hover .hover-text {
+      visibility: visible;
+    }
+    .abschaltung_message{
+      display:none;
+    }
+  }
