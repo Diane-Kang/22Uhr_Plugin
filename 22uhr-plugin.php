@@ -29,9 +29,24 @@ if ( ! defined( 'PE_22Uhr_Plugin_Path' ) ) {
 ///////////// Setting Custom type Post, taxonomy  ///////////////////
 require_once  PE_22Uhr_Plugin_Path . 'includes/ctp_unternehmen_init.php';
 
+////
+require_once  PE_22Uhr_Plugin_Path . 'includes/shortcodes.php';
 
 ////////////// Unternehmen post 
-require_once  PE_22Uhr_Plugin_Path . 'template-parts/single-unternehmen-shortcodes.php';
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/single-unternehmen.php';
+
+////////////// Show List of "Unternehmen"  and filter in frontend
+//components to build list 
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/list-filter.php';
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/list-elements.php';
+// all
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/list-unternehmen.php';
+// Firmengruppe
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/list-firmengruppe.php';
+
+////////////// Only for G.U.T Gruppe shortcodes & functions 
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/g-u-t/firma-counting.php';
+require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_list.php';
 
 
 ////////////// Register own Endpoint for API - /wp-json/22uhr-plugin/v1/unternehmen
@@ -44,20 +59,13 @@ $data = array(
 );
 $hello = new geojson_generate_Class($data);   
 
-////////////// Show ALL List of "Unternehmen"  and filter in front end
-require_once  PE_22Uhr_Plugin_Path . 'includes/show_all_unternehmen_list.php';
+
 
 ////////////// Show ALL List of "Unternehmen"  and filter in front end
 require_once  PE_22Uhr_Plugin_Path . 'includes/show_firmengruppe.php';
 require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_child_template.php';
 
-////////////// shortcodes & functions 
-require_once  PE_22Uhr_Plugin_Path . 'includes/shortcodes.php';
 
-require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_list.php';
-
-////////////// shortcodes & functions
-require_once  PE_22Uhr_Plugin_Path . 'template-parts/unterhnehmenliste-shortcode.php';
 
 
 

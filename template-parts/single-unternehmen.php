@@ -22,11 +22,11 @@ function single_unternehmen_before_content() {
       $zitat_text ='Wir <span class="orange">verzichten</span> schon seit jeher ganz gezielt auf <span class="orange">Werbebeleuchtung</span>.<br />
       Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies im Zuge der Projektteilnahme nun ganz bewusst so beibehalten.';
     }
-    else if($angepasst == n && $uhr->name != 'Nicht vorhanden'){
+    else if($angepasst == 'n' && $uhr->name != 'Nicht vorhanden'){
       $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung seit jeher schon um '. $uhr->name .' aus</span>.<br /> 
       Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies im Zuge der Projektteilnahme nun ganz bewusst so beibehalten.';
     } 
-    else if ($angepasst == j && $uhr->name != 'Nicht vorhanden'){
+    else if ($angepasst == 'j' && $uhr->name != 'Nicht vorhanden'){
       $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung nun schon um '. $uhr->name .' aus</span>.<br /> 
       Das haben wir im Zuge der Teilnahme an diesem Projekt herbeigeführt. 
       Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies nun ganz bewusst so beibehalten.';
