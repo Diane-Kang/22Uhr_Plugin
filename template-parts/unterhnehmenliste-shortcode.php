@@ -93,8 +93,8 @@ function eintrag_basic($unternehme){
       <div class="map_link_point" id="map_id_'.$unternehme["id"].'">Auf Karte zeigen </div>
       <div class="abschaltung_zeit">
         <div class="hover-wrapper">
-          <div class="hover-icon">&#xf005</div>
           '.$unternehme["abschaltung_text"].'
+          <div class="hover-icon">&#xf005</div>
           <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
         </div>
       </div>
@@ -128,8 +128,8 @@ function eintrag_dropdown($unternehme){
         <div class="adresse">('.$unternehme["fg_adresse_land"].')&nbsp;'.$unternehme["fg_adresse_postzahl"].' '.$unternehme["fg_adresse_ort"].'</div>
         <div class="abschaltung_zeit">
           <div class="hover-wrapper">
-            <div class="hover-icon">&#xf005</div>
             Werbelicht-Abschaltung: Bis spätestens '.$unternehme['fg_s_abschaltungszeit'].' Uhr
+            <div class="hover-icon">&#xf005</div>
             <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
           </div>
         </div>
@@ -156,8 +156,8 @@ function eintrag_dropdown_child($unternehme){
       <div class="map_link_point" id="map_id_'.$unternehme["id"].'">Auf Karte zeigen </div>
       <div class="abschaltung_zeit">
         <div class="hover-wrapper">
-          <div class="hover-icon">&#xf005</div>
           '.$unternehme["abschaltung_text"].'
+          <div class="hover-icon">&#xf005</div>
           <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
         </div>
       </div>
@@ -178,8 +178,8 @@ function eintrag_fg_Page_gut($unternehme){
       <div class="alle"> <a href="/firmenverzeichnis/'. get_post_meta($unternehme["id"], "firmengruppen-seite", true).'"><div> Alle '.show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")).' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></div></a> </div>
       <div class="abschaltung_zeit">
         <div class="hover-wrapper">
+          Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr
           <div class="hover-icon">&#xf005</div>
-            Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr
           <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
         </div>
       </div>
