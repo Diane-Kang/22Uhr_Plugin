@@ -23,7 +23,7 @@ function after_content_gut_main() {
         $the_query = new WP_Query($arg);
 
         if ( $the_query->have_posts() ) {
-    
+            $string ="";
             // Unternehmen List 
             $string .= 
             '<div class="list_wrapper">

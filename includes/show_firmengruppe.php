@@ -186,7 +186,7 @@ function generate_list_entry($post_id, $identity='haupt', $n_child =0){
     }
 
 
-
+    $string ="";
     $string .= '<div class=" unternehmenseintrag-filter abschaltung_' . $zeit . '">';
 
     if ($n_child){

@@ -46,7 +46,7 @@ require_once  PE_22Uhr_Plugin_Path . 'template-parts/list-firmengruppe.php';
 
 ////////////// Only for G.U.T Gruppe shortcodes & functions 
 require_once  PE_22Uhr_Plugin_Path . 'template-parts/g-u-t/firma-counting.php';
-require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_list.php';
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/g-u-t/gut_gruppe_list.php';
 
 
 ////////////// Register own Endpoint for API - /wp-json/22uhr-plugin/v1/unternehmen

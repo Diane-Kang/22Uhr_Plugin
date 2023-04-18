@@ -2,10 +2,11 @@
 function generate_eintrag($postId, $type='basic'){
 
     // extra configuration for filter 
+    
     $abschaltung_tag = get_the_terms($postId, 'abschaltung', true)[0];
     $abschaltung_underline = str_replace("-", "_",$abschaltung_tag->slug);
     $abschaltung_num = is_numeric(str_replace(" Uhr", "", $abschaltung_tag->name)) ? str_replace(" Uhr", "", $abschaltung_tag->name) : "";
-    
+
     $unternehme = array (
       // j oder n
       'werbebeleuchtung'        => 'werbebeleuchtung_'.get_post_meta($postId, 'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true),  
