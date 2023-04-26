@@ -1,0 +1,28 @@
+.entry-title {
+  font-weight: bold;
+  text-decoration: underline solid #f9c349;
+  padding-left: 2vw;
+}
+
+.page .site-content .content-area h1 {
+  padding-bottom: 20px;
+  padding-top: 0;
+  font-size: 40px;
+}
+
+.zurueck_alle a {
+  display: inline-block;
+  color: #f9c349;
+  font-size: 16px;
+  margin: 30px 0 5px 0;
+  text-transform: uppercase;
+}
+.zurueck_alle a:hover,
+.zurueck_alle a:active {
+  opacity: 0.75;
+}
+
+.page-description.number {
+  font-size: 20px;
+  padding-bottom: 15px;
+}

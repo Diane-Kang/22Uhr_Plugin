@@ -1,16 +1,17 @@
-@media only screen and (min-aspect-ratio: 1 / 1) and (min-width: 1350px){
+/* Star, hover effect  */
+@media only screen and (min-aspect-ratio: 1 / 1) and (min-width: 1350px) {
   .werbebeleuchtung_j .text > div:last-child::after,
   .werbebeleuchtung_ja .text > div:last-child::after {
-      content: "\f005";
-      font-family: "Font Awesome 5 Free";
-      font-size: 15px;
-      color: #f9c349;
-      display: block;
-      line-height: 2em;
+    content: "\f005";
+    font-family: "Font Awesome 5 Free";
+    font-size: 15px;
+    color: #f9c349;
+    display: block;
+    line-height: 2em;
   }
 
   .werbebeleuchtung_j .text > div:last-child:hover::after,
-  .werbebeleuchtung_ja .text > div:last-child:hover::after{
+  .werbebeleuchtung_ja .text > div:last-child:hover::after {
     content: "Werbelicht im Zuge der Teilnahme optimiert";
     background: #000;
     color: #fff;
@@ -22,59 +23,30 @@
     position: relative;
     padding: 0 1em;
   }
-
 }
-
-.entry-title{
-  font-weight:bold;
-  text-decoration: underline solid #f9c349;
-  padding-left:2vw;
-  
-}
-
-.page .site-content .content-area h1 {
-  padding-bottom: 20px;
-  padding-top: 0;
-  font-size: 40px;
-}
-
 .zurueck_alle a {
-  display: inline-block;
-  color: #f9c349;;
-  font-size: 16px;
-  margin: 30px 0 5px 2vw;
-  text-transform: uppercase;
-/*
-  background-color: #f9c349;
-  border-radius: 2px;
-  font-weight: 900;
-*/
+  margin-left: 2vw;
 }
 
-.zurueck_alle a:hover,
-.zurueck_alle a:active {
- opacity: 0.75;
-}
-
-.description-company-page{
+/* .description-company-page{
   font-size:30px;  
   padding-left:2vw;
 }
 
 .page-child .entry-header{
   margin-top:16px;
-}
+} */
 
 body.page .entry-content .wrapper-liste {
   max-width: 720px;
 }
 
+/* highlight hauptverwaltung */
 .hauptverwaltung .unternehmenseintrag {
   border-top: solid #f9c349;
   border-bottom: solid #f9c349;
 }
-
-.unternehmenseintrag-filter{
+.unternehmenseintrag-filter {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -84,35 +56,33 @@ body.page .entry-content .wrapper-liste {
 .parent-unternehmen h3 a {
   padding-right: 15px;
   display: block;
-  text-transform: uppercase; 
+  text-transform: uppercase;
 }
 
 .child-unternehmen h3 a {
-  text-transform: uppercase; 
+  text-transform: uppercase;
 }
-
 
 .page .unternehmen .parent-unternehmen .logo-wrapper img {
   padding: 5px;
 }
 
+/* drop down icon */
 .ionicon-chevron-down {
   height: 30px;
   position: absolute;
   right: 0;
   bottom: 20%;
-  background-color:#f9c44981;
+  background-color: #f9c44981;
   cursor: pointer;
 }
 
 .ionicon-chevron-down:hover,
 .ionicon-chevron-down:active {
- opacity: 0.7;
+  opacity: 0.7;
 }
 
-
-
-
+/* collection of child */
 .child-unternehmen-block {
   margin: 10px 20px 40px 20px;
 }
@@ -122,60 +92,39 @@ body.page .entry-content .wrapper-liste {
 }
 
 .unternehme.child-block-open .child-unternehmen-block,
-.unternehme  .show_children ~ .child-unternehmen-block {
+.unternehme .show_children ~ .child-unternehmen-block {
   display: block;
 }
-
-/* .unternehmen .unternehmenseintrag .text {
-   display: grid;
-  grid-template-columns: auto min-content;
-  grid-template-columns: 1fr;
-} */
-
-/* .unternehmen .unternehmenseintrag .text h3 {
-  grid-column: 1/-1;
-}
-.unternehmen .unternehmenseintrag .text .map_link_point {
-  grid-row: 3;
-}
-.unternehmen .unternehmenseintrag .text .ionicon-chevron-down {
-  grid-row: 2/4;
-  grid-column: 2;
-  align-self: center;
-} */
 
 .page .unternehmen .child-unternehmen .logo-wrapper {
   display: none;
 }
 
-.page  .child-unternehmen.unternehmenseintrag .text {
+.page .child-unternehmen.unternehmenseintrag .text {
   padding-left: 0;
-  }
-
-
-.page  .child-unternehmen.unternehmenseintrag .text h3 {
-font-size: 20px;
-line-height: 1.2em;
 }
 
+.page .child-unternehmen.unternehmenseintrag .text h3 {
+  font-size: 20px;
+  line-height: 1.2em;
+}
 
 .child-unternehmen h3 a {
   pointer-events: none;
+}
+
+.page .leaflet-popup-content {
+  color: #fff;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+  /*für hochkant*/
+
+  body.page .entry-content .wrapper-liste {
+    max-width: 400px;
   }
 
-  .page .leaflet-popup-content {
-    color: #fff;
+  .hauptverwaltung .unternehmenseintrag {
+    padding: 10px 0;
   }
-
-  
-
-  @media only screen and (max-aspect-ratio: 1/1) { /*für hochkant*/
-    
-    body.page .entry-content .wrapper-liste {
-      max-width: 400px;
-    }
-
-    .hauptverwaltung .unternehmenseintrag {
-      padding: 10px 0;
-    }
-  }
+}
