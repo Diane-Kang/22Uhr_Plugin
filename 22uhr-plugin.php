@@ -95,13 +95,13 @@ function gut_main_addtional_style_js()
   if (is_single('g-u-t')) {
     wp_enqueue_style('gut_detail',                     plugin_dir_url(__FILE__) . 'css/g-u-t/detailseite_gut.css', array(), '1.9', false);
     wp_enqueue_style('gut_detail_main',                plugin_dir_url(__FILE__) . 'css/g-u-t/detailseite-gut-main.css', array(), '1.0', false);
-    wp_enqueue_script('alle_anzeigen_button_js',       plugin_dir_url(__FILE__) . 'js/gut_main_detailseite_button.js', array('jquery'), false, false);
+    wp_enqueue_script('alle_anzeigen_button_js',       plugin_dir_url(__FILE__) . 'js/g-u-t/gut_main_detailseite_button.js', array('jquery'), false, false);
   }
   // first call the $post variable 
   global $post;
   // check the post hast a parent &&(AND) the paerent is the post with slug('g-u-t')
   if (($post->post_parent != 0) && ('g-u-t' == basename(get_permalink($post->post_parent)))) {
-    wp_enqueue_style('gut_detail',                     plugin_dir_url(__FILE__) . 'css/detailseite_gut.css', array(), '1.9', false);
+    wp_enqueue_style('gut_detail',                     plugin_dir_url(__FILE__) . 'css/g-u-t/detailseite_gut.css', array(), '1.9', false);
   }
 }
 add_action('wp_enqueue_scripts', 'gut_main_addtional_style_js', 10, 1);
@@ -118,7 +118,7 @@ function map_related_dependency()
   // Diese Dependency loaded only when it is 'firmenverzeichnis' or only when its parents is 'firmenverzeichnis' // it can be checked with url  
   if (is_page('firmenverzeichnis') || $post->post_parent == url_to_postid(site_url('firmenverzeichnis'))) {
     wp_enqueue_style('page-firmenverzeichnis-1',         plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-1.css', array(), '3.2', false);
-    wp_enqueue_script('map-seite-addtional-functions-js',  plugin_dir_url(__FILE__) . 'js/map_seite_addtional_functions.js', array('jquery'), false, true);
+    wp_enqueue_script('map_seite_nav',  plugin_dir_url(__FILE__) . 'js/map_seite_nav.js', array('jquery'), false, true);
 
     // Get CSS for Leaflet Framework before (! Dependency !) JS
     wp_enqueue_style('leaflet-main-css',                   plugin_dir_url(__FILE__) . 'node_modules/leaflet/dist/leaflet.css', array(), false, false);
@@ -130,7 +130,7 @@ function map_related_dependency()
     //---------------------------------------------------------------------------------------------------------------------------- need to be called after all html ready---------
     wp_enqueue_script('list-modify-js',                    plugin_dir_url(__FILE__) . 'js/list_modify.js', array('jquery'), false, true);
     wp_enqueue_script('geocoder-js',                       plugin_dir_url(__FILE__) . 'node_modules/leaflet-control-geocoder/dist/Control.Geocoder.js', array('leaflet-js'), false, false);
-    wp_enqueue_script('map-custom-fn-js',                  plugin_dir_url(__FILE__) . 'js/map_custom_fn.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js'), '1.3', true);
+    wp_enqueue_script('map-helper-fn',                     plugin_dir_url(__FILE__) . 'js/map_helper.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js'), '1.3', true);
 
     // style 
     wp_enqueue_style('leaflet-marker-cluster-css',         plugin_dir_url(__FILE__) . 'node_modules/leaflet.markercluster/dist/MarkerCluster.css', array(), false, false);
@@ -142,27 +142,27 @@ function map_related_dependency()
   if (is_page('firmenverzeichnis') || $post->post_parent == url_to_postid(site_url('firmenverzeichnis'))) {
     // map_javascript for all map except g-u-t
     if (!is_page('g-u-t-gruppe')) {
-      wp_register_script('map_modify-js',                   plugin_dir_url(__FILE__) . 'js/map_modify.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-custom-fn-js'), false, true);
+      wp_register_script('map_modify-js',                  plugin_dir_url(__FILE__) . 'js/map.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-helper-fn'), false, true);
       wp_localize_script('map_modify-js', 'current_page_info', ['slug' => $post->post_name]);
       wp_enqueue_script('map_modify-js');
     } else if (is_page('g-u-t-gruppe')) {
-      wp_enqueue_script('map-firmengruppen-js',             plugin_dir_url(__FILE__) . 'js/map_firmengruppen.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-custom-fn-js'), '3.0', true);
+      wp_enqueue_script('map_fg_gut',                      plugin_dir_url(__FILE__) . 'js/g-u-t/map_fg_gut.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-helper-fn'), '3.0', true);
     }
   }
 
 
   if (is_page('firmenverzeichnis')) {
-    wp_enqueue_style('page-firmenverzeichnis-2',               plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-2.css', array(), '3.3', false);
+    wp_enqueue_style('page-firmenverzeichnis-2',           plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-2.css', array(), '3.3', false);
   } else if ($post->post_parent == url_to_postid(site_url('firmenverzeichnis')) && !is_page('g-u-t-gruppe')) {
     // hagebau 
-    wp_enqueue_style('page-firmenverzeichnis-2',               plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-2.css', array(), '3.3', false);
-    wp_enqueue_style('page-firmenverzeichnis-fg',           plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-fg.css', array(), '3.2', false);
+    wp_enqueue_style('page-firmenverzeichnis-2',           plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-2.css', array(), '3.3', false);
+    wp_enqueue_style('page-firmenverzeichnis-fg',          plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-fg.css', array(), '3.2', false);
     // wp_enqueue_style('map-app-style-css',                   plugin_dir_url(__FILE__) . 'css/map-app-style.css', array(), '3.3', false);
   } else if (is_page('g-u-t-gruppe')) {
     // G.U.T. Gruppe
-    wp_enqueue_style('old-map-app-style-css',                   plugin_dir_url(__FILE__) . 'css/g-u-t/old-map-app-style.css', array(), '3.3', false);
-    wp_enqueue_style('page-firmenverzeichnis-fg',           plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-fg.css', array(), '3.2', false);
-    wp_enqueue_style('page-firmenverzeichnis-fg-gut',       plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-fg-gut.css', array(), '3.2', false);
+    wp_enqueue_style('old-map-app-style-css',              plugin_dir_url(__FILE__) . 'css/g-u-t/old-map-app-style.css', array(), '3.3', false);
+    wp_enqueue_style('page-firmenverzeichnis-fg',          plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-fg.css', array(), '3.2', false);
+    wp_enqueue_style('page-firmenverzeichnis-fg-gut',      plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-fg-gut.css', array(), '3.2', false);
   }
 }
 
