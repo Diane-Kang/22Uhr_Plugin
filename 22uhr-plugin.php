@@ -28,8 +28,8 @@ if (!defined('PE_22Uhr_Plugin_Path')) {
 
 ///////////// Setting Custom type Post, taxonomy  ///////////////////
 require_once  PE_22Uhr_Plugin_Path . 'includes/ctp_unternehmen_init.php';
-//// ??
-require_once  PE_22Uhr_Plugin_Path . 'includes/shortcodes.php';
+//// Additional functions/classes: local-font, unternehmen count short code, Unternehmen list order in admin page 
+require_once  PE_22Uhr_Plugin_Path . 'includes/functions-additional.php';
 
 
 // VIEW
@@ -39,6 +39,7 @@ require_once  PE_22Uhr_Plugin_Path . 'template-parts/single-unternehmen.php';
 
 ////////////// Show List of "Unternehmen"  and filter in frontend
 //components to build list 
+require_once  PE_22Uhr_Plugin_Path . 'template-parts/nav-close.php';
 require_once  PE_22Uhr_Plugin_Path . 'template-parts/list-filter.php';
 require_once  PE_22Uhr_Plugin_Path . 'template-parts/list-elements.php';
 // all
@@ -52,26 +53,9 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_all.php';
 ////////////// Class for Register own Endpoint for API - /wp-json/22uhr-plugin/v1/{firmengruppe_slug}
 require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_fg.php';
 new geojsonAPI_generate_fg("hagebaumarkt-gruppe-muenchen");
+new geojsonAPI_generate_fg("page-effect");
 
-
-
-
-
-////////////// Only for G.U.T Gruppe shortcodes & functions 
-///////Class for Register own Endpoint for API - /wp-json/22uhr-plugin/v1/unternehmen/g-u-t
-require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_fg_gut.php';
-$data = array(
-  "firmengruppe" => "G.U.T.",
-  "firmengruppe_slug" => "g-u-t"
-);
-new geojsonAPI_generate_fg_gut($data);
-
-require_once  PE_22Uhr_Plugin_Path . 'template-parts/g-u-t/firma-counting.php';
-require_once  PE_22Uhr_Plugin_Path . 'template-parts/g-u-t/gut_gruppe_list.php';
-require_once  PE_22Uhr_Plugin_Path . 'includes/g-u-t/liste_fg_gut.php';
-require_once  PE_22Uhr_Plugin_Path . 'includes/gut_gruppe_child_template.php';
-
-
+require_once  PE_22Uhr_Plugin_Path . '/g-u-t/functions.php';
 
 
 
@@ -86,25 +70,6 @@ function unternehmen_css()
 }
 add_action('wp_enqueue_scripts', 'unternehmen_css', 20, 1);
 
-
-/// GUT Detailseite
-
-function gut_main_addtional_style_js()
-{
-  // g-u-t main page only 
-  if (is_single('g-u-t')) {
-    wp_enqueue_style('gut_detail',                     plugin_dir_url(__FILE__) . 'css/g-u-t/detailseite_gut.css', array(), '1.9', false);
-    wp_enqueue_style('gut_detail_main',                plugin_dir_url(__FILE__) . 'css/g-u-t/detailseite-gut-main.css', array(), '1.0', false);
-    wp_enqueue_script('alle_anzeigen_button_js',       plugin_dir_url(__FILE__) . 'js/g-u-t/gut_main_detailseite_button.js', array('jquery'), false, false);
-  }
-  // first call the $post variable 
-  global $post;
-  // check the post hast a parent &&(AND) the paerent is the post with slug('g-u-t')
-  if (($post->post_parent != 0) && ('g-u-t' == basename(get_permalink($post->post_parent)))) {
-    wp_enqueue_style('gut_detail',                     plugin_dir_url(__FILE__) . 'css/g-u-t/detailseite_gut.css', array(), '1.9', false);
-  }
-}
-add_action('wp_enqueue_scripts', 'gut_main_addtional_style_js', 10, 1);
 
 
 ///////////// MAP ///////////////////
@@ -146,7 +111,7 @@ function map_related_dependency()
       wp_localize_script('map_modify-js', 'current_page_info', ['slug' => $post->post_name]);
       wp_enqueue_script('map_modify-js');
     } else if (is_page('g-u-t-gruppe')) {
-      wp_enqueue_script('map_fg_gut',                      plugin_dir_url(__FILE__) . 'js/g-u-t/map_fg_gut.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-helper-fn'), '3.0', true);
+      wp_enqueue_script('map_fg_gut',                      plugin_dir_url(__FILE__) . 'g-u-t/js/map_fg_gut.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-helper-fn'), '3.0', true);
     }
   }
 
@@ -160,40 +125,13 @@ function map_related_dependency()
     // wp_enqueue_style('map-app-style-css',                   plugin_dir_url(__FILE__) . 'css/map-app-style.css', array(), '3.3', false);
   } else if (is_page('g-u-t-gruppe')) {
     // G.U.T. Gruppe
-    wp_enqueue_style('old-map-app-style-css',              plugin_dir_url(__FILE__) . 'css/g-u-t/old-map-app-style.css', array(), '3.3', false);
+    wp_enqueue_style('old-map-app-style-css',              plugin_dir_url(__FILE__) . 'g-u-t/css/old-map-app-style.css', array(), '3.3', false);
     wp_enqueue_style('page-firmenverzeichnis-fg',          plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-fg.css', array(), '3.2', false);
-    wp_enqueue_style('page-firmenverzeichnis-fg-gut',      plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-fg-gut.css', array(), '3.2', false);
+    wp_enqueue_style('page-firmenverzeichnis-fg-gut',      plugin_dir_url(__FILE__) . 'g-u-t/css/page-firmenverzeichnis-fg-gut.css', array(), '3.2', false);
   }
 }
 
 
-///////////// Main map Seite component ///////////////////
-function nav_close_p()
-{
-  $target_page_name = 'firmenverzeichnis';
-  global $post;
-
-  if (is_page($target_page_name) || $post->post_parent == url_to_postid(site_url('firmenverzeichnis'))) {
-?>
-    <span class="navicon-close">Close</span>
-<?php
-  }
-};
-
-add_action('wp_head', 'nav_close_p');
 
 
 
-class local_fonts
-{
-  function __construct()
-  {
-    add_action('wp_enqueue_scripts', array($this, 'fonts'));
-  }
-  function fonts()
-  {
-    // Generate correspond fonts.css by https://gwfh.mranftl.com/fonts
-    wp_enqueue_style('fonts_css', plugins_url('22uhr-plugin/css/fonts.css'), array(), 1.0, false);
-  }
-}
-new local_fonts();
