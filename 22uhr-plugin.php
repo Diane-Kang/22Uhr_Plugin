@@ -52,7 +52,7 @@ require_once  PE_22Uhr_Plugin_Path . 'template-parts/list-firmengruppe.php';
 require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_all.php';
 ////////////// Class for Register own Endpoint for API - /wp-json/22uhr-plugin/v1/{firmengruppe_slug}
 require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_fg.php';
-new geojsonAPI_generate_fg("hagebaumarkt-gruppe-muenchen");
+new geojsonAPI_generate_fg("hagebaumaerkte-muenchen");
 
 require_once  PE_22Uhr_Plugin_Path . '/g-u-t/functions.php';
 
@@ -129,8 +129,3 @@ function map_related_dependency()
     wp_enqueue_style('page-firmenverzeichnis-fg-gut',      plugin_dir_url(__FILE__) . 'g-u-t/css/page-firmenverzeichnis-fg-gut.css', array(), '3.2', false);
   }
 }
-
-
-
-
-
