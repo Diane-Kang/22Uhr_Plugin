@@ -42,8 +42,13 @@ function generate_abschlatung_filter($fg_slug = "")
 
     if ('Nicht vorhanden' == $abschaltung_tax_name) {
       // this value for sorting later
-      $abschlatung_zeit_number = 0.1;
+      $abschlatung_zeit_number = "1";
       $text_label = 'Kein Werbelicht vorhanden';
+      $data_group_format = 'abschaltung_' . str_replace("-", "_", $abschaltung_zeit->slug);
+    } else if ('Sondernfall' == $abschaltung_tax_name) {
+      // this value for sorting later
+      $abschlatung_zeit_number = "0";
+      $text_label = 'Sondernfall';
       $data_group_format = 'abschaltung_' . str_replace("-", "_", $abschaltung_zeit->slug);
     } else if (is_numeric($abschlatung_zeit_number)) {
       $text_label = 'Bis spätestens ' .  $abschaltung_tax_name;

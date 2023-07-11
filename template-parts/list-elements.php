@@ -3,9 +3,21 @@ function generate_eintrag($postId, $type = 'basic')
 {
 
   // extra configuration for filter 
-  $abschaltung_tag = get_the_terms($postId, 'abschaltung', true)[0] ??= '';;
+  $abschaltung_tag = get_the_terms($postId, 'abschaltung', true)[0];
   $abschaltung_underline = str_replace("-", "_", $abschaltung_tag->slug);
-  $abschaltung_num = is_numeric(str_replace(" Uhr", "", $abschaltung_tag->name)) ? str_replace(" Uhr", "", $abschaltung_tag->name) : "";
+  $abschaltung_name = $abschaltung_tag->name;
+  $abschaltung_num = is_numeric(str_replace(" Uhr", "", $abschaltung_name)) ? str_replace(" Uhr", "", $abschaltung_name) : "";
+  switch ($abschaltung_underline) {
+    case 'nicht_vorhanden';
+      $abschaltung_text = "Seit jeher kein Werbelicht vorhanden";
+      break;
+    case 'sondernfall';
+      $abschaltung_text = "Werbelicht-Abschaltung: Sondernfall";
+      break;
+    default;
+      $abschaltung_text = "Werbelicht-Abschaltung: " . $abschaltung_num . " Uhr";
+      break;
+  }
 
 
   $unternehme = array(
@@ -13,7 +25,7 @@ function generate_eintrag($postId, $type = 'basic')
     'werbebeleuchtung'        => 'werbebeleuchtung_' . get_post_meta($postId, 'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true),
     'abschaltung_data_group'  => 'abschaltung_' . $abschaltung_underline,
     'abschaltung_value'       => $abschaltung_num,
-    'abschaltung_text'        => ($abschaltung_num == "") ? "Seit jeher kein Werbelicht vorhanden" : "Werbelicht-Abschaltung: " . $abschaltung_num . " Uhr",
+    'abschaltung_text'        => $abschaltung_text,
     'permalink'               => get_the_permalink(),
     'thumbnail'               => get_the_post_thumbnail(),
     'title'                   => get_the_title(),

@@ -53,6 +53,7 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_all.php';
 ////////////// Class for Register own Endpoint for API - /wp-json/22uhr-plugin/v1/{firmengruppe_slug}
 require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_fg.php';
 new geojsonAPI_generate_fg("hagebaumaerkte-muenchen");
+new geojsonAPI_generate_fg("getraenkemaerkte-wierer");
 
 require_once  PE_22Uhr_Plugin_Path . '/g-u-t/functions.php';
 

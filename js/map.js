@@ -1,5 +1,3 @@
-console.log(current_page_info.slug);
-
 const map = L.map(
   "my_map",
   (scrollWheelZoom = false),
@@ -114,9 +112,14 @@ async function main() {
       let group = window[temp_string];
       mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
       mcgLayerSupportGroup_auto["addLayer"](group);
+    } else if (group_name == "abschaltung_sondernfall") {
+      let temp_string = "group_" + group_name;
+      let group = window[temp_string];
+      mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
+      mcgLayerSupportGroup_auto["addLayer"](group);
     } else {
       mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
-      for (let j = 1; j < this.options.length - 1; ++j) {
+      for (let j = 1; j < this.options.length - 2; ++j) {
         console.log(this.options[j].getAttribute("uhr_value"));
         if (
           this.options[j].getAttribute("uhr_value") <=

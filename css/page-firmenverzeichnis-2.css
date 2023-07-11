@@ -203,11 +203,13 @@
   line-height: 1.2em;
 }
 
-.ionicon-chevron-down {
-  height: 2em;
+.icon-click-area {
   position: absolute;
   right: 0;
   bottom: 1em;
+}
+.ionicon-chevron-down {
+  height: 2em;
   background-color: #f9c44981;
   cursor: pointer;
 }
