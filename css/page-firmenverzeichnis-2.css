@@ -89,7 +89,7 @@
   display: flex;
 }
 .unternehmenseintrag span {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 /* 
 ** Style for Firmengruppen : z.B. G-U-T gruppen Beitrag block
@@ -189,7 +189,21 @@
   padding-bottom: 1em;
   line-height: 1.2em;
 }
+.abschaltung_zeit span {
+  color: #aadaff;
+  /* color: #71c3fb; */
+}
 
+.unternehmenseintrag--dropdown h3,
+.unternehmenseintrag--dropdown .alle,
+.unternehmenseintrag--dropdown .logo-wrapper {
+  cursor: pointer;
+}
+.unternehmenseintrag--dropdown h3:hover,
+.unternehmenseintrag--dropdown .alle:hover,
+.unternehmenseintrag--dropdown .icon-click-area:hover {
+  opacity: 0.5;
+}
 .unternehmenseintrag--dropdown .alle,
 .firmengruppen .alle {
   font-size: 0.95em;

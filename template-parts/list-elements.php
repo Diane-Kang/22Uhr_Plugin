@@ -4,6 +4,13 @@ function generate_eintrag($postId, $type = 'basic')
 
   // extra configuration for filter 
   $abschaltung_tag = get_the_terms($postId, 'abschaltung', true)[0];
+  if ($abschaltung_tag == null) {
+    print_r(get_the_title($postId) . "\t<br>");
+  }
+  if ($abschaltung_tag->slug == null) {
+    print_r(get_the_title($postId) . "\t<br>");
+  }
+
   $abschaltung_underline = str_replace("-", "_", $abschaltung_tag->slug);
   $abschaltung_name = $abschaltung_tag->name;
   $abschaltung_num = is_numeric(str_replace(" Uhr", "", $abschaltung_name)) ? str_replace(" Uhr", "", $abschaltung_name) : "";
@@ -11,8 +18,8 @@ function generate_eintrag($postId, $type = 'basic')
     case 'nicht_vorhanden';
       $abschaltung_text = "Seit jeher kein Werbelicht vorhanden";
       break;
-    case 'sondernfall';
-      $abschaltung_text = "Werbelicht-Abschaltung: Sondernfall";
+    case 'sonderfall';
+      $abschaltung_text = "Werbelicht-Abschaltung: <span>Sonderfall</span>";
       break;
     default;
       $abschaltung_text = "Werbelicht-Abschaltung: " . $abschaltung_num . " Uhr";

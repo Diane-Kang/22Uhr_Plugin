@@ -1,6 +1,4 @@
 /* Detailseite Unternehmen */
-/* Default css for small screen */
-/* Desktop css comes with Media query  */
 
 .orange {
   color: var(--ast-global-color-0);
@@ -12,7 +10,7 @@
 
 /* Margin zw. Navi und Content */
 .ast-separate-container #primary,
-.ast-separate-container.ast-left-sidebar #primary,  
+.ast-separate-container.ast-left-sidebar #primary,
 .ast-separate-container.ast-right-sidebar #primary {
   margin: 1em 0px;
 }
@@ -22,71 +20,45 @@
 .ast-separate-container .ast-article-single {
   padding: 0em 40px 1em 40px;
 }
-
-/* Grid für Logo, Zitat, Adresse und Link  */
-.unternehmen_header_grid{
-  display:grid;
-  grid-row-gap:10px;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-  "logo"
-  "title"
-  "parent-info"
-  "adress"
-  "zitat"
-  "conent-header";  
-  /* für zitat zeichnen */
-  position: relative;
+.single-unternehmen.single hr {
+  background-color: #f9c349;
+  height: 4px;
 }
 
-.unternehmen_header_grid .grid-logo{
-  grid-area:logo;
-  justify-self: center;
+/* Before content: Grid für Logo, Zitat, Adresse und Link  */
+.single-unternehmen .header_22 {
+  padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 0;
 }
-
-.unternehmen_header_grid .grid-zitat{
-  grid-area:zitat;
-  position: relative;
-  margin-bottom: 90px;
+.single-unternehmen .header_22 > * {
+  width: 100%;
 }
-
-
-.unternehmen_header_grid .grid-title{
-  grid-area:title;
-  padding-top: 10px;
-}
-.unternehmen_header_grid .grid-parent-info{
-  grid-area:parent-info;
-}
-.unternehmen_header_grid .grid-adress{
-  grid-area:adress;
-  margin-bottom: 30px;
-}
-.unternehmen_header_grid .dabei{
-  grid-area:conent-header;
-}
-
-.null_content .dabei{
-  display:none;
-}
-
-.single-unternehmen .attachment-post-thumbnail {
-  height: 100%;
-  width: auto;
-  }
-
-.single-unternehmen .post-thumb {
+.single-unternehmen .header_22 .post-thumb {
+  width: 47%;
+  background-color: #fff;
+  min-width: 400px;
+  min-height: 400px;
+  max-height: 400px;
   display: flex;
   justify-content: center;
-  padding: 15px;
-  background-color: #fff;
-  min-height: 120px;
-  max-height: 300px;
 }
 
+.single-unternehmen.single .header_22 .post-thumb img {
+  margin: 0;
+  padding: 5px;
+  align-self: center;
+  max-height: inherit;
+  width: auto;
+}
+.single-unternehmen .header_22 .abschaltung-angepasst {
+  width: 47%;
+  position: relative;
+  margin: auto;
+}
 .single-unternehmen .abschaltung-angepasst::before {
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   content: "\201D";
   font-size: 640px;
   height: 82px;
@@ -95,105 +67,135 @@
   position: absolute;
   top: -120px;
   right: -50px;
-  color: #3B3838;
+  color: #3b3838;
   opacity: 1;
   z-index: 1;
   font-weight: 900;
 }
 
 .single-unternehmen .abschaltung-angepasst h3 {
-  
-    font-size: 24px;
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.6;
-    text-align: center;
-    padding: 5px 0;
-    font-size: 1.1rem;
-    position: relative;
-    z-index: 9;
-  }
-
-/* .single-unternehmen.single .single-layout-1 .header_22 .wp-post-image {
-  margin: 0 auto;
-  max-height: 200px;
-  max-width: 100%;
-  width: 100%;
-} */
-
-.single-unternehmen h1 {
-  font-size: 32px;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 9;
 }
-
-.single-unternehmen h1 span {
-  font-size: 20px;
-  display: block;
+.single-unternehmen .abschaltung-angepasst .text {
+  margin-top: 1em;
 }
-
-.single-unternehmen .internet {
+.single-unternehmen .header_22 h1 {
+  font-size: 48px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+.single-unternehmen .header_22 h1 span {
+  font-size: 25px;
+}
+.single-unternehmen .header_22 .adresse {
+  margin-bottom: 50px;
+}
+.single-unternehmen .header_22 .internet {
   padding: 10px 0;
 }
 
-.single-unternehmen .internet a {
+.single-unternehmen .header_22 .internet a {
   text-decoration: underline;
 }
 
-.single-unternehmen .header_22 {
-  padding: 30px 0;
+@media screen and (max-width: 920px) {
+  .single-unternehmen .header_22 {
+    row-gap: 10px;
+  }
+  .single-unternehmen .header_22 > * {
+    width: 100%;
+  }
+  .single-unternehmen .header_22 .post-thumb {
+    width: unset;
+    margin: auto;
+    padding: 15px;
+    min-height: 120px;
+    max-height: 300px;
+    min-width: unset;
+    order: 1;
+  }
+  .single-unternehmen .header_22 .entry_title {
+    order: 2;
+  }
+  .single-unternehmen .header_22 h1 {
+    font-size: 32px;
+  }
+  .single-unternehmen .header_22 h1 span {
+    font-size: 20px;
+    display: block;
+  }
+  .single-unternehmen .header_22 .adresse {
+    order: 3;
+  }
+  .single-unternehmen .header_22 .abschaltung-angepasst {
+    order: 4;
+    width: unset;
+    margin-bottom: 90px;
+  }
 }
+/* Before content end  */
 
-
-body.single-unternehmen h2 {
+/* content */
+.null_content ~ .dabei,
+.null_content ~ hr {
+  display: none;
+}
+.single-unternehmen h2 {
+  padding: 60px 0 15px 0;
+  margin-bottom: 0;
   font-size: 28px;
-}
-
-.single-unternehmen h2.dabei {
-  padding-top: 50px;
-  border-top: 4px solid #f9c349;
 }
 
 .single-unternehmen .entry-content > p {
   font-style: italic;
 }
 
-.single-unternehmen .entry-content > p:first-child::before,
+/* .single-unternehmen .entry-content > p:first-child::before,
 .single-unternehmen .entry-content > p:first-child::after {
   content: '"';
+} */
+
+.single-unternehmen .zertifikat {
+  padding-top: 60px;
+}
+.single-unternehmen .zertifikat a {
+  display: flex;
+  column-gap: 20px;
+}
+
+.single-unternehmen .zertifikat .text {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.single-unternehmen .zertifikat img {
+  width: 200px;
 }
 
 .single-unternehmen .top-border {
   border-top: 4px solid #f9c349;
   margin-top: 60px;
 }
-
-.single-unternehmen .top-border h2 {
-  padding: 60px 0 15px 0;
-  margin-bottom: 0;
-}
-
-.single-unternehmen .zertifikat {
-  padding-top: 60px;
-}
-
-.single-unternehmen .zertifikat h2 {
-  display: block;
-}
-
-.single-unternehmen .zertifikat img {
-  padding: 60px 0 15px 0;
-}
-
 .single-unternehmen .uber-uns span {
   font-weight: 800;
 }
 
 .single-unternehmen .zurueck {
-  padding: 60px 0 15px 0;
+  padding: 1em 5em;
   color: #f9c349;
   font-weight: 800;
   border: 2px solid #f9c349;
   display: inline-block;
-  padding: 10px 10px;
   margin-top: 50px;
   text-align: center;
 }
@@ -210,6 +212,16 @@ body.single-unternehmen h2 {
 .single-unternehmen .parent_unternehmen,
 .zurueck.is_child {
   display: none;
+}
+
+@media only screen and (max-width: 920px) {
+  .single-unternehmen .zertifikat a {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .single-unternehmen .zurueck {
+    padding: 1em;
+  }
 }
 
 /* Has Parent */
@@ -235,132 +247,4 @@ body.single-unternehmen h2 {
 
 .is_child.single-unternehmen .zurueck {
   display: none;
-}
-
-@media only screen and (min-width: 920px) {
-
-/* Grid für Logo, Zitat, Adresse und Link  */
-  .unternehmen_header_grid{
-    display:grid;
-    /* vertical center */
-    align-items: center; 
-    grid-column-gap:30px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-    "logo zitat"
-    "title title"
-    "parent-info parent-info"
-    "adress adress"
-    "conent-header conent-header";  
-  }
-
-  .unternehmen_header_grid .grid-zitat{
-    margin-bottom: 0px;
-  }
-
-  .single-unternehmen.single .header_22 .row1 {
-    display: flex;
-    align-items: center;
-  }
-
-  .single-unternehmen .post-thumb {
-    /* padding: 30px; */
-    background-color: #fff;
-    min-width: 400px;
-    min-height: 400px;
-    max-height: 400px;
-    display: flex;
-  }
-
-  .single-unternehmen.single .header_22 .post-thumb img.wp-post-image {
-    margin: 0;
-    padding: 5px;
-    align-self: center;
-    max-height: 400px;
-    width: auto;
-  }
-
-  single-unternehmen .abschaltung-angepasst {
-    width: 100%;
-    max-width: 600px;
-    float: none;
-    display: block;
-    align-self: flex-end;
-  }
-
-  /* .single-unternehmen .abschaltung-angepasst h3 {
-    font-size: 24px;
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.6;
-    text-align: center;
-  } */
-
-  /* .single-unternehmen .header_22 .ast-single-post-order {
-        grid-column: 2/3;
-        grid-row: 1/2;
-    } */
-
-  .single-unternehmen h1 {
-    font-size: 48px;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-  }
-
-  .single-unternehmen h1 span {
-    font-size: 25px;
-  }
-
-  /* .single-unternehmen .adresse {
-        grid-column: 2/3;
-        grid-row: 2/3;
-    }
-	 */
-  /* .single-unternehmen .abschaltung-angepasst {
-		grid-column: 1/3;
-	}
-
-    .is_child.single-unternehmen .zurueck.top {
-        grid-column: 2/3;
-        grid-row: 3/4;
-    } */
-
-  /* .is_child.single-unternehmen .abschaltung-angepasst {
-       grid-row: 4/5;
-    }
-    
-    .is_child.single-unternehmen .dabei {
-        grid-row: 5/6;
-     }
-    
-     .is_child.single-unternehmen .entry-content {
-        grid-row: 6/7;
-     } */
-
-  .single-unternehmen .dabei {
-    /* grid-row: 4/5;
-        grid-column: 1/3; */
-    padding: 60px 0 15px 0;
-  }
-
-  /* .single-unternehmen .entry-content {
-        grid-column: 1/3;
-        grid-row: 5/6;
-    } */
-
-  .single-unternehmen .zertifikat a {
-    display: flex;
-  }
-  .single-unternehmen .zertifikat h2 {
-    padding-left: 20px;
-    display: inline-block;
-  }
-
-  .single-unternehmen .zurueck {
-    width: 450px;
-    padding: 10px 40px;
-  }
 }

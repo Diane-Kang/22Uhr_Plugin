@@ -87,6 +87,8 @@ function build_marker_popup_content(feature){
   let popup_mittel_text;
   if (feature.filter.abschaltung.slug == "nicht-vorhanden") {
     popup_mittel_text = "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Seit jeher kein Werbelicht vorhanden</span></p>";
+  }else if (feature.filter.abschaltung.slug == "sonderfall"){
+    popup_mittel_text = "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Werbelicht-Abschaltung: </span> <span style='color: #aadaff;'>"+feature.filter.abschaltung.name +"</span></p>";
   }
   else{
     popup_mittel_text = "<p class='" + feature.filter.abschaltung.slug + "'>" + "<span>Werbelicht-Abschaltung: </span> "+feature.filter.abschaltung.name +"</p>";

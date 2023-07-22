@@ -40,7 +40,7 @@ document
       for (i = 0; i < elements.length; i++) {
         elements[i].style.display = "flex";
       }
-    } else if (uhr_group_text == "abschaltung_sondernfall") {
+    } else if (uhr_group_text == "abschaltung_sonderfall") {
       let elements = document.getElementsByClassName(uhr_group_text);
       for (i = 0; i < elements.length; i++) {
         elements[i].style.display = "flex";
@@ -48,7 +48,7 @@ document
     } else {
       let selected_uhr_value =
         this.options[this.selectedIndex].getAttribute("uhr_value");
-      console.log(this.options[this.selectedIndex]);
+      // console.log(this.options[this.selectedIndex]);
       for (i = 0; i < all_unternehmen.length; i++) {
         let abschaltung = all_unternehmen[i].getAttribute("value");
         if (abschaltung != "" && abschaltung <= selected_uhr_value) {

@@ -83,7 +83,7 @@ function map_related_dependency()
   // Diese Dependency loaded only when it is 'firmenverzeichnis' or only when its parents is 'firmenverzeichnis' // it can be checked with url  
   if (is_page('firmenverzeichnis') || $post->post_parent == url_to_postid(site_url('firmenverzeichnis'))) {
     wp_enqueue_style('page-firmenverzeichnis-1',         plugin_dir_url(__FILE__) . 'css/page-firmenverzeichnis-1.css', array(), '3.2', false);
-    wp_enqueue_script('map_seite_nav',  plugin_dir_url(__FILE__) . 'js/map_seite_nav.js', array('jquery'), false, true);
+    wp_enqueue_script('map_seite',  plugin_dir_url(__FILE__) . 'js/map_seite.js', array('jquery'), false, true);
 
     // Get CSS for Leaflet Framework before (! Dependency !) JS
     wp_enqueue_style('leaflet-main-css',                   plugin_dir_url(__FILE__) . 'node_modules/leaflet/dist/leaflet.css', array(), false, false);

@@ -100,7 +100,7 @@ async function main() {
     let group_name =
       this.options[this.selectedIndex].getAttribute("data-group");
 
-    console.log(group_name);
+    // console.log(group_name);
 
     if (group_name == "abschaltung_all") {
       let temp_string = "group_" + group_name;
@@ -112,7 +112,7 @@ async function main() {
       let group = window[temp_string];
       mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
       mcgLayerSupportGroup_auto["addLayer"](group);
-    } else if (group_name == "abschaltung_sondernfall") {
+    } else if (group_name == "abschaltung_sonderfall") {
       let temp_string = "group_" + group_name;
       let group = window[temp_string];
       mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
@@ -120,7 +120,7 @@ async function main() {
     } else {
       mcgLayerSupportGroup_auto["removeLayer"]([group_abschaltung_all]);
       for (let j = 1; j < this.options.length - 2; ++j) {
-        console.log(this.options[j].getAttribute("uhr_value"));
+        // console.log(this.options[j].getAttribute("uhr_value"));
         if (
           this.options[j].getAttribute("uhr_value") <=
           this.options[this.selectedIndex].getAttribute("uhr_value")
