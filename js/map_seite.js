@@ -12,16 +12,32 @@ jQuery(document).ready(function ($) {
 });
 
 let dropdown_wrapper = document.querySelectorAll(".dropdown-wrapper");
-dropdown_wrapper.forEach((entry) => {
-  let dropdown_button = entry.querySelector(".icon-click-area");
-  let dropdown_title = entry.querySelector("h3");
-  let dropdown_image = entry.querySelector(".logo-wrapper");
-  let dropdown_alle = entry.querySelector(".alle");
-  [dropdown_button, dropdown_title, dropdown_image, dropdown_alle].forEach(
-    (element) => {
-      element.addEventListener("click", () => {
+if(dropdown_wrapper){
+  dropdown_wrapper.forEach((entry) => {
+    let dropdown_button = entry.querySelector(".icon-click-area");
+    let dropdown_title = entry.querySelector("h3");
+    let dropdown_image = entry.querySelector(".logo-wrapper");
+    let dropdown_alle = entry.querySelector(".alle");
+    [dropdown_button, dropdown_title, dropdown_image, dropdown_alle].forEach(
+      (element) => {
+        element.addEventListener("click", () => {
+          entry.classList.toggle("child-block-open");
+        });
+      }
+    );
+  });
+}
+
+
+let dropdown_wrapper_gut = document.querySelectorAll(".unternehme");
+if(dropdown_wrapper_gut){
+  dropdown_wrapper_gut.forEach((entry) => {
+    let dropdown_button = entry.querySelector(".icon-click-area");
+    if(dropdown_button){
+      dropdown_button.addEventListener("click", () => {
         entry.classList.toggle("child-block-open");
       });
     }
-  );
-});
+  });
+}
+

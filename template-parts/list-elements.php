@@ -79,7 +79,7 @@ function eintrag_basic($unternehme)
       <div class="text">
         <h3><a href="' . $unternehme["permalink"] . '">' . $unternehme["title"] . '</a></h3>
         <div class="adresse">(' . $unternehme["adresse-land"] . ')&nbsp;' . $unternehme["adresse-postzahl"] . ' ' . $unternehme["adresse-ort"] . '</div>
-        <div class="map_link_point" id="map_id_' . $unternehme["id"] . '">Auf Karte zeigen </div>
+        <div class="map_link_point map_link_text" id="map_id_' . $unternehme["id"] . '">Auf Karte zeigen </div>
         <div class="abschaltung_zeit">
           <div class="hover-wrapper">
             ' . $unternehme["abschaltung_text"] . '
@@ -123,7 +123,7 @@ function eintrag_dropdown($unternehme)
               <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
             </div>
           </div>
-          <div class="alle">Alle Standorte zeigen</div>
+          <div class="alle map_link_text">Alle Standorte zeigen</div>
          </div>
       </div>';
 
@@ -144,7 +144,7 @@ function eintrag_dropdown_child($unternehme)
       <div class="text">
         <h3><a href="' . $unternehme["permalink"] . '">' . $unternehme["title"] . '</a></h3>
         <div class="adresse">(' . $unternehme["adresse-land"] . ')&nbsp;' . $unternehme["adresse-postzahl"] . ' ' . $unternehme["adresse-ort"] . '</div>
-        <div class="map_link_point" id="map_id_' . $unternehme["id"] . '">Auf Karte zeigen </div>
+        <div class="map_link_point map_link_text" id="map_id_' . $unternehme["id"] . '">Auf Karte zeigen </div>
         <div class="abschaltung_zeit">
           <div class="hover-wrapper">
             ' . $unternehme["abschaltung_text"] . '
@@ -167,7 +167,7 @@ function eintrag_fg_Page_gut($unternehme)
       <div class="text">
         <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
         <div class="adresse">(' . $unternehme["adresse-land"] . ')&nbsp;' . $unternehme["adresse-postzahl"] . ' ' . $unternehme["adresse-ort"] . '</div>
-        <div class="alle"> <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '"><div> Alle ' . show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")) . ' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></div></a> </div>
+        <div class="alle map_link_text"> <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '"> Alle ' . show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")) . ' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></a> </div>
         <div class="abschaltung_zeit">
           <div class="hover-wrapper">
             Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr
@@ -198,7 +198,7 @@ function eintrag_fg_Page($unternehme)
           <div class="firmengruppe_num">Firmen-Gruppe mit ' . $child_query->post_count . ' Standorten</div>
           <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
           <div class="adresse">(' . $unternehme["fg_adresse_land"] . ')&nbsp;' . $unternehme["fg_adresse_postzahl"] . ' ' . $unternehme["fg_adresse_ort"] . '</div>
-          <div class="alle"> 
+          <div class="alle map_link_text"> 
             <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">
               <div> 
                 <i class="fas fa-solid fa-map"></i>

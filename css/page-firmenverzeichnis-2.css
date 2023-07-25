@@ -149,7 +149,7 @@
   color: #f9c349;
 }
 
-.page .map_link_point {
+.page .map_link_text {
   line-height: 1em;
   padding-bottom: 1em;
   font-size: 14px;
@@ -157,7 +157,7 @@
   display: inline-block;
 }
 
-.page .map_link_point::before,
+.page .map_link_text:not(.alle)::before,
 .page .fa-map::before,
 .firmengruppen .alle a::before {
   font-family: "Font Awesome 5 Free";
@@ -174,8 +174,8 @@
   font-style: normal;
 }
 
-.page .map_link_point:hover,
-.page .map_link_point:active {
+.page .map_link_text:hover,
+.page .map_link_text:active {
   opacity: 0.5;
 }
 
@@ -206,16 +206,11 @@
 }
 .unternehmenseintrag--dropdown .alle,
 .firmengruppen .alle {
-  font-size: 0.95em;
+  /* font-size: 0.95em; */
   line-height: 1.2em;
   padding-bottom: 1em;
 }
 
-.firmengruppen .alle > a {
-  display: flex;
-  align-items: center;
-  line-height: 1.2em;
-}
 
 .icon-click-area {
   position: absolute;
@@ -519,11 +514,11 @@ body .BorlabsCookie ._brlbs-content-blocker a._brlbs-btn:active {
     margin-top: 0;
   }
 
-  .page .map_link_point::before,
+  /* .page .map_link_point::before,
   .firmengruppen .alle a::before {
     font-size: 12px;
     padding-top: 0;
-  }
+  } */
   .page .fa-external-link-alt::before {
     font-size: 10px;
     padding-top: 0;

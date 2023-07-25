@@ -24,19 +24,30 @@ function single_unternehmen_before_content()
       $zitat_text = 'Wir <span class="orange">verzichten</span> schon seit jeher ganz gezielt auf <span class="orange">Werbebeleuchtung</span>.<br />
       Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies im Zuge der Projektteilnahme nun ganz bewusst so beibehalten.';
     } else if ($uhr->name == 'Sonderfall') {
-      $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung nun schon bis spätesten um 23 Uhr aus</span>.<br /> 
-        Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies nun ganz bewusst so beibehalten.' .
-        '<div class="orange text">
-        Dies ist ein Sonderfall <br />
-        (Info dazu: siehe unten)
-        </div>';
-    } else if ($angepasst == 'n' && $uhr->name != 'Nicht vorhanden') {
-      $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung seit jeher schon um ' . $uhr->name . ' aus</span>.<br /> 
-      Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies im Zuge der Projektteilnahme nun ganz bewusst so beibehalten.';
-    } else if ($angepasst == 'j' && $uhr->name != 'Nicht vorhanden') {
-      $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung nun schon um ' . $uhr->name . ' aus</span>.<br /> 
-      Das haben wir im Zuge der Teilnahme an diesem Projekt herbeigeführt. 
-      Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies nun ganz bewusst so beibehalten.';
+      if($angepasst == 'j'){
+        $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange"> Werbebeleuchtung nun schon um spät. 23 Uhr aus</span>.<br />
+        Das haben wir im Zuge der Teilnahme an diesem Projekt herbeigeführt. 
+        Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies
+        im Zuge der Projektteilnahme nun ganz bewusst so beibehalten.';
+      }else{
+        //$angepasst == 'n'
+        $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">  Werbebeleuchtung seit jeher schon um spät. 23 Uhr aus</span>.<br />
+        Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies im Zuge der Projektteilnahme nun ganz bewusst so beibehalten.';
+      }
+      $zitat_text .= '<div> [Dies ist ein Sonderfall. Info dazu: siehe unten] </div>';
+    } 
+    //$uhr->name == '** Uhr'
+    else {
+      if($angepasst == 'j'){
+        $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung nun schon um ' . $uhr->name . ' aus</span>.<br /> 
+        Das haben wir im Zuge der Teilnahme an diesem Projekt herbeigeführt. 
+        Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies nun ganz bewusst so beibehalten.';
+      }
+      //$angepasst == 'n'
+      else{
+        $zitat_text = 'Wir schalten unsere im Freien sichtbare <span class="orange">Werbebeleuchtung seit jeher schon um ' . $uhr->name . ' aus</span>.<br /> 
+        Mit dem Wissen um die Problematik der Lichtverschmutzung werden wir dies im Zuge der Projektteilnahme nun ganz bewusst so beibehalten.';
+      }
     }
 
 
@@ -66,6 +77,10 @@ function single_unternehmen_before_content()
     }
 
     $hinweis_zum_sonderfall = get_field("hinweis_zum_sonderfall");
+    $sonderfall_html = '';
+    if($hinweis_zum_sonderfall){
+      $sonderfall_html ='<hr><div class="entry-content">' . $hinweis_zum_sonderfall . '</div>';
+    }
 
     $header_unternehmen =
       '<div class="header_22 ' . $null_content . '">
@@ -78,12 +93,10 @@ function single_unternehmen_before_content()
         <div class="entry_title"><h1>' . get_the_title(get_the_ID()) . '</h1></div>'
       . $fg_gut_additional
       . $adresse
-      . '</div>' .
+      . '</div>'
       // endof header 
-      '<hr>' .
-      '<div class="entry-content">' . $hinweis_zum_sonderfall . '</div>' .
-      '<h2 class="dabei">Deswegen sind wir bei „22 Uhr – Licht aus“ dabei:</h2>
-      </div>';
+      . $sonderfall_html
+      .'<hr><h2 class="dabei">Deswegen sind wir bei „22 Uhr – Licht aus“ dabei:</h2>';
 
     echo $header_unternehmen;
   }
@@ -102,7 +115,8 @@ function after_content()
     $detail_zum_licht_content = '<!-- No Details -->';
   } else {
     $detail_zum_licht_content =
-      '<div class="abschaltung top-border">
+      '<hr>'.
+      '<div class="abschaltung">
 <h2>Infos/Details zur Werbelicht-Abschaltung bzw. sonstigen Außenbeleuchtung:</h2>
   <p>' . $detail_zum_licht_text . '</p>
 </div>
@@ -111,7 +125,7 @@ function after_content()
 
   if (is_singular('unternehmen')) {
 
-    $after = '<div class="zertifikat top-border">
+    $after = '<hr><div class="zertifikat">
   <p class="beitrag-artenschutz">Dieser verantwortungsvolle Umgang mit der Werbebeleuchtung trägt zur Reduzierung der Lichtverschmutzung in ' . get_post_meta(get_the_ID(), 'Ort', true) . ' bei. Dadurch wird ein wertvoller Beitrag zum Artenschutz, Umweltschutz und Klimaschutz geleistet.</p>
   <a target="_blank" href="' . get_post_meta(get_the_ID(), 'PDF Pfad', true) . '">
     <img src="/wp-content/uploads/2022/05/Zertifikat-22-Uhr-Licht-aus-thumb-01.png" alt="Zertifikat 22 Uhr">
@@ -119,7 +133,7 @@ function after_content()
   </a>
 </div>' .
       $detail_zum_licht_content .
-      '<div class="uber-uns top-border">
+      '<hr><div class="uber-uns">
   <h2>Worum geht es bei „22 Uhr – Licht aus?“</h2>
   <p>Das Projekt "22 Uhr – Licht aus" dient der Reduzierung der Lichtverschmutzung. Teilnehmende Firmen haben sich
     freiwillig dazu bereiterklärt, nachts die gesamte im Freien sichtbare Werbebeleuchtung so früh wie möglich,
