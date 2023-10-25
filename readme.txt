@@ -23,4 +23,3 @@ Add comment for the filter ( Nicht vorhanden)
 
 No, there are no settings.
 
-= Does this work with full site editing and block themes? =

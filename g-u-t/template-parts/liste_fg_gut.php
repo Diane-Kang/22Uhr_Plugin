@@ -42,61 +42,97 @@ function liste_fg_gut_fn()
   </div>';
 
 
-  // List of abshaltung tags
-  $abschaltung_tags = get_terms(array(
+  $abschaltung_zeit_all = get_terms(array(
     'taxonomy' => 'abschaltung',
     'hide_empty' => true,
   ));
 
+  $abshaltung_zeit_list = [];
+  if ($fg_slug == "") {
+    foreach ($abschaltung_zeit_all as $tax_obj) {
+      if (!empty($tax_obj->name)) {
+        array_push($abshaltung_zeit_list, $tax_obj->name);
+      }
+    }
+  } else {
+    $arg = array(
+      'post_type'       => 'unternehmen',
+      'posts_per_page'  => -1,
+      'post_parent'     => get_page_by_path($fg_slug, OBJECT, array('unternehmen'))->ID,
+    );
 
-  // Begining of Selector html
-  $string .= '
-    <div class="abschaltung filter">
-        <p>Filtern nach Abschaltzeit:</p>
-        <select  name="uhrzeit" id="abschaltung_uhrzeit">
-            <option data-group="abschaltung_all" value="25.0" selected >Alle Firmen zeigen</option>';
+    $fg = new WP_Query($arg);
 
-  // make a list of option with abschaltung_tags
+    while ($fg->have_posts()) {
+      $fg->the_post();
+      array_push($abshaltung_zeit_list, get_the_terms(get_the_ID(), 'abschaltung')[0]->name);
+    }
+    $abshaltung_zeit_list = array_unique($abshaltung_zeit_list);
+  }
+
+
+  // make a list of option with abschlatungzeit 
   $options_array = [];
+  foreach ($abschaltung_zeit_all as $abschaltung_zeit) {
+    $abschaltung_tax_name = $abschaltung_zeit->name;
+    // extract number from Abschaltung name: ex "22.30 Uhr" to "22.30" 
+    $abschlatung_zeit_number = is_numeric(str_replace(" Uhr", "", $abschaltung_tax_name)) ? str_replace(" Uhr", "", $abschaltung_tax_name) : '';
+    // text for the leaflet marker group ex "22_30"
+    $data_group_format =  'abschaltung_' . str_replace(".", "_", $abschlatung_zeit_number) . '_uhr';
 
-  foreach ($abschaltung_tags as $uhr_tag) {
-
-    $i = 0;
-    // In oder to use slug for a data-group 
-    $abschaltung_slug_without_middle =  str_replace("-", "_", $uhr_tag->slug);
-    $uhr_value = str_replace(["abschaltung_", "-uhr"], "", $uhr_tag->slug);
-    $uhr_value = str_replace("-", ".", $uhr_value);
-
-
-    if ("Nicht vorhanden" != $uhr_tag->name) {
-      $temp_string =
-        '<option data-group="abschaltung_' . $abschaltung_slug_without_middle . '"  
-            value="' . $uhr_tag->term_id . '"
-            uhr_value=' . $uhr_value . ' > Bis spätestens ' .  $uhr_tag->name . '</option>';
+    if ('Nicht vorhanden' == $abschaltung_tax_name) {
+      // this value for sorting later
+      $abschlatung_zeit_number = "1";
+      $text_label = 'Kein Werbelicht vorhanden';
+      $data_group_format = 'abschaltung_' . str_replace("-", "_", $abschaltung_zeit->slug);
+    } else if ('Sonderfall' == $abschaltung_tax_name) {
+      // this value for sorting later
+      $abschlatung_zeit_number = "0";
+      $text_label = 'Sonderfälle';
+      $data_group_format = 'abschaltung_' . str_replace("-", "_", $abschaltung_zeit->slug);
+    } else if (is_numeric($abschlatung_zeit_number)) {
+      $text_label = 'Bis spätestens ' .  $abschaltung_tax_name;
     } else {
-      $uhr_value = "0.1"; //for the last position 
-      $temp_string =
-        '<option data-group="abschaltung_' . $abschaltung_slug_without_middle . '"  
-            value="' . $uhr_tag->term_id . '"
-            uhr_value=' . $uhr_value . ' > Kein Werbelicht vorhanden </option>';
+      $text_label = 'Error: Abschaltung Taxonomy';
     }
 
-    $options_array[$uhr_value] = $temp_string; // define array with key($uhr_value)
-
+    $option_values = 'data-group="' . $data_group_format . '" uhr_value=' . $abschlatung_zeit_number . ' >' . $text_label;
+    if (in_array($abschaltung_tax_name, $abshaltung_zeit_list)) {
+      $option = '<option ' . $option_values . '</option>';
+    } else {
+      $option = '<option style="display: none" ' . $option_values . '</option>';
+    }
+    // define array with key($uhr_value)
+    $options_array[$abschlatung_zeit_number] = $option;
+  }
+  // reverse order, late time to early time
+  krsort($options_array);
+  if ($fg_slug == "") {
+    $options_html = '<option data-group="abschaltung_all" value="25.0" selected >Alle Firmen zeigen</option>';
+  } else {
+    $options_html = '<option data-group="abschaltung_all" value="25.0" selected >Alle Standorte zeigen</option>';
   }
 
-
-  krsort($options_array); // reverse order, late time to early time
-
-  foreach ($options_array as $option_array) {
-    $string .= $option_array;
+  foreach ($options_array as $option) {
+    $options_html .= $option;
   }
 
+  // Addtional Text for 
+  $comment = '
+  <div class = "abschaltung_filter_comment">
+  Diese Firmen verzichten seit jeher auf Werbebeleuchtung und werden dies im Zuge der Teilnahme nun noch bewusster so beibehalten
+  </div>';
 
-  $string .=
-    '</select>
-    </div>';
+  $filter_html = ' 
+    <div class="abschaltung filter">
+      <p>Filtern nach Abschaltzeit:</p>
+      <select  name="uhrzeit" id="abschaltung_uhrzeit">' .
+    $options_html . '
+      </select>' .
+    $comment . '
+      </div>';
 
+  $string .= $filter_html;
 
 
   // Unternehmen List section: 
@@ -170,6 +206,10 @@ function generate_list_entry($post_id, $identity = 'haupt', $n_child = 0)
   $filter_uhr = get_the_terms($post_id, 'abschaltung');
   $filter_value = get_post_meta(get_the_ID(),  'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)', true);
 
+  $abschaltung_tag = get_the_terms($post_id, 'abschaltung', true)[0];
+  $abschaltung_name = $abschaltung_tag->name;
+  $abschaltung_num = is_numeric(str_replace(" Uhr", "", $abschaltung_name)) ? str_replace(" Uhr", "", $abschaltung_name) : "";
+
 
   if (!empty($filter_uhr)) {
     foreach ($filter_uhr as $tag) {
@@ -196,13 +236,13 @@ function generate_list_entry($post_id, $identity = 'haupt', $n_child = 0)
 
   switch ($identity) {
     case 'haupt':
-      $string .= '<div class=" unternehmenseintrag werbebeleuchtung_' . $filter_value . '">';
+      $string .= '<div class=" unternehmenseintrag werbebeleuchtung_' . $filter_value . '" value=' . $abschaltung_num . '>';
       break;
     case 'parent':
-      $string .= '<div class=" parent-unternehmen unternehmenseintrag werbebeleuchtung_' . $filter_value . '">';
+      $string .= '<div class=" parent-unternehmen unternehmenseintrag werbebeleuchtung_' . $filter_value . '" value=' . $abschaltung_num . '>';
       break;
     case 'child':
-      $string .= '<div class="child-unternehmen unternehmenseintrag werbebeleuchtung_' . $filter_value . '">';
+      $string .= '<div class="child-unternehmen unternehmenseintrag werbebeleuchtung_' . $filter_value . '" value=' . $abschaltung_num . '>';
       break;
   }
 
