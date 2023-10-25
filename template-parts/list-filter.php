@@ -77,13 +77,20 @@ function generate_abschlatung_filter($fg_slug = "")
     $options_html .= $option;
   }
 
+  // Addtional Text for 
+  $comment = '
+  <div class = "abschaltung_filter_comment">
+  Diese Firmen verzichten seit jeher auf Werbebeleuchtung und werden dies im Zuge der Teilnahme nun noch bewusster so beibehalten
+  </div>';
+
   $filter_html = ' 
     <div class="abschaltung filter">
       <p>Filtern nach Abschaltzeit:</p>
       <select  name="uhrzeit" id="abschaltung_uhrzeit">' .
     $options_html . '
-      </select>
-    </div>';
+      </select>' .
+    $comment . '
+      </div>';
 
   return $filter_html;
 }

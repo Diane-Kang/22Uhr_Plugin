@@ -4,61 +4,66 @@
 
 /* Abschaltung select filter */
 .abschaltung {
-  font-size:22px;
+  font-size: 22px;
 }
-#abschaltung_uhrzeit{
-  padding:0.5em;
+#abschaltung_uhrzeit {
+  padding: 0.5em;
 }
 .abschaltung_message {
   font-size: 1em;
   line-height: 1.2em;
   padding-bottom: 0.5em;
 }
-.abschaltung_message .hover-icon{
-  padding:0 5px;
+.abschaltung_message .hover-icon {
+  padding: 0 5px;
+}
+.abschaltung_filter_comment {
+  display: none;
+  color: #f9c349;
+  margin-top: 10px;
 }
 
 /******* Sternchen Hover *******/
 
-  .werbebeleuchtung_n .hover-icon,
-  .werbebeleuchtung_n .hover-text{
-    display:none;
-  };
-  
-  .werbebeleuchtung_j .hover-wrapper{
-    display:block;
-  }
-  .hover-icon {
-    font-family: "Font Awesome 5 Free";
-    font-size: 15px;
-    color: #f9c349;
-    display: inline;
-  }
-  .hover-wrapper{
-    position: relative;
-  }
-  .hover-text {
-    visibility: hidden;
-    background: #000;
-    color: #fff;
-    box-shadow: 0 0 3px 1px #fff;
-    font-size: 14px;
-    padding: 0.4em 1em;
-    line-height: 1.5em;
-    position: absolute;
-    bottom: 0;
-    transform: translateY(+110%);
-  }
+.werbebeleuchtung_n .hover-icon,
+.werbebeleuchtung_n .hover-text {
+  display: none;
+}
 
-  /*  hover effect only for Desktop */
-  @media only screen and (min-aspect-ratio: 1/1) and (min-width: 1350px) {
-    .hover-icon:hover .hover-text {
-      visibility: visible;
-    }
-    .hover-wrapper:hover .hover-text {
-      visibility: visible;
-    }
-    .abschaltung_message{
-      display:none;
-    }
+.werbebeleuchtung_j .hover-wrapper {
+  display: block;
+}
+.hover-icon {
+  font-family: "Font Awesome 5 Free";
+  font-size: 15px;
+  color: #f9c349;
+  display: inline;
+}
+.hover-wrapper {
+  position: relative;
+}
+.hover-text {
+  visibility: hidden;
+  background: #000;
+  color: #fff;
+  box-shadow: 0 0 3px 1px #fff;
+  font-size: 14px;
+  padding: 0.4em 1em;
+  line-height: 1.5em;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(+110%);
+}
+
+/*  hover effect only for Desktop */
+@media only screen and (min-aspect-ratio: 1/1) and (min-width: 1350px) {
+  .hover-icon:hover .hover-text {
+    visibility: visible;
   }
+  .hover-wrapper:hover .hover-text {
+    visibility: visible;
+  }
+  .abschaltung_message {
+    display: none;
+  }
+}

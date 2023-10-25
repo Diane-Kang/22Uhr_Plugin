@@ -21,12 +21,13 @@ for (let i = 1; i < options.length; i++) {
 
 // set variable for colletion of html by Name for all Unternehmen
 var all_unternehmen = document.getElementsByClassName("unternehmenseintrag");
-
+var comment = document.querySelector(".abschaltung_filter_comment");
 document
   .getElementById("abschaltung_uhrzeit")
   .addEventListener("change", function () {
     for (i = 0; i < all_unternehmen.length; i++) {
       all_unternehmen[i].style.display = "none";
+      comment.style.display = "none";
     }
     // select somthing
     let uhr_group_text =
@@ -39,6 +40,7 @@ document
       let elements = document.getElementsByClassName(uhr_group_text);
       for (i = 0; i < elements.length; i++) {
         elements[i].style.display = "flex";
+        comment.style.display = "block";
       }
     } else if (uhr_group_text == "abschaltung_sonderfall") {
       let elements = document.getElementsByClassName(uhr_group_text);
@@ -60,23 +62,3 @@ document
 
 //used for some where
 var selection = document.getElementsByTagName("select");
-
-// function sortlist() {
-
-// var my_options = jQuery("#abschaltung_uhrzeit");
-// var selected = jQuery("#abschaltung_uhrzeit").val();
-// console.log(selected);
-
-// my_options.sort(function(a,b) {
-//     console.log(a.uhr_value);
-//     if (a.text > b.text) return 1;
-//     if (a.text < b.text) return -1;
-//     return 0
-// })
-
-// jQuery("#my_select").empty().append( my_options );
-// jQuery("#my_select").val(selected);
-
-// }
-
-// sortlist();
