@@ -29,7 +29,6 @@ async function geojson() {
   let url = "/wp-json/22uhr-plugin/v1/unternehmen/g-u-t";
   const response = await fetch(url);
   const unternehmen = await response.json();
-  //console.log(unternehmen);
   return unternehmen;
 }
 
@@ -114,7 +113,6 @@ async function main() {
           this.options[this.selectedIndex].getAttribute("uhr_value")
         ) {
           let group_name = this.options[j].getAttribute("data-group");
-          console.log(group_name);
           eval("let group = group_" + group_name + ";");
           let temp_string = "group_" + group_name;
           let group = window[temp_string];

@@ -32,7 +32,6 @@ document
     // select somthing
     let uhr_group_text =
       this.options[this.selectedIndex].getAttribute("data-group");
-    console.log(uhr_group_text);
     if (uhr_group_text == "abschaltung_all") {
       for (i = 0; i < all_unternehmen.length; i++)
         all_unternehmen[i].style.display = "flex";
@@ -50,7 +49,6 @@ document
     } else {
       let selected_uhr_value =
         this.options[this.selectedIndex].getAttribute("uhr_value");
-      // console.log(this.options[this.selectedIndex]);
       for (i = 0; i < all_unternehmen.length; i++) {
         let abschaltung = all_unternehmen[i].getAttribute("value");
         if (abschaltung != "" && abschaltung <= selected_uhr_value) {

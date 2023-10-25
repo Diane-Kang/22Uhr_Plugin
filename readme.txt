@@ -14,7 +14,8 @@ Plugin for custom map design of 22Uhr
 == Changelog ==
 
 = 5.1 =
-Add comment for the filter ( Nicht vorhanden)
+Add comment for the filter ( Nicht vorhanden) & bug fix: Filter for G-U-T gruppe 
+
 
 
 == Frequently Asked Questions ==
