@@ -22,9 +22,11 @@ for (let i = 1; i < options.length; i++) {
 // set variable for colletion of html by Name for all Unternehmen
 var all_unternehmen = document.getElementsByClassName("unternehmenseintrag");
 var comment = document.querySelector(".abschaltung_filter_comment");
+var abschaltung_message = document.querySelector(".abschaltung_message");
 document
   .getElementById("abschaltung_uhrzeit")
   .addEventListener("change", function () {
+    abschaltung_message.style.visibility = "visible";
     for (i = 0; i < all_unternehmen.length; i++) {
       all_unternehmen[i].style.display = "none";
       comment.style.display = "none";
@@ -36,6 +38,7 @@ document
       for (i = 0; i < all_unternehmen.length; i++)
         all_unternehmen[i].style.display = "flex";
     } else if (uhr_group_text == "abschaltung_nicht_vorhanden") {
+      abschaltung_message.style.visibility = "hidden";
       let elements = document.getElementsByClassName(uhr_group_text);
       for (i = 0; i < elements.length; i++) {
         elements[i].style.display = "flex";
