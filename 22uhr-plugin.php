@@ -4,7 +4,7 @@
   Plugin Name: 22Uhr Plugin 
   Plugin URI: https://github.com/Diane-Kang/22Uhr_Plugin
   Description: Customized plugin for 22Uhr.net. 
-  Version: 5.1
+  Version: 5.2
   Author: Page-effect
   Author URI: Page-effect.com
 
@@ -54,6 +54,7 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_all.php';
 require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_fg.php';
 new geojsonAPI_generate_fg("hagebaumaerkte-muenchen");
 new geojsonAPI_generate_fg("getraenkemaerkte-wierer");
+new geojsonAPI_generate_fg("dotta-eis");
 
 require_once  PE_22Uhr_Plugin_Path . '/g-u-t/functions.php';
 
