@@ -107,13 +107,13 @@ function map_related_dependency()
 
   if (is_page('firmenverzeichnis') || $post->post_parent == url_to_postid(site_url('firmenverzeichnis'))) {
     // map_javascript for all map except g-u-t
-    if (!is_page('g-u-t-gruppe')) {
-      wp_register_script('map_modify-js',                  plugin_dir_url(__FILE__) . 'js/map.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-helper-fn'), false, true);
-      wp_localize_script('map_modify-js', 'current_page_info', ['slug' => $post->post_name]);
-      wp_enqueue_script('map_modify-js');
-    } else if (is_page('g-u-t-gruppe')) {
-      wp_enqueue_script('map_fg_gut',                      plugin_dir_url(__FILE__) . 'g-u-t/js/map_fg_gut.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-helper-fn'), '3.0', true);
-    }
+    // if (!is_page('g-u-t-gruppe')) {
+    wp_register_script('map_modify-js',                  plugin_dir_url(__FILE__) . 'js/map.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-helper-fn'), false, true);
+    wp_localize_script('map_modify-js', 'current_page_info', ['slug' => $post->post_name]);
+    wp_enqueue_script('map_modify-js');
+    // } else if (is_page('g-u-t-gruppe')) {
+    wp_enqueue_script('map_fg_gut',                      plugin_dir_url(__FILE__) . 'g-u-t/js/map_fg_gut.js', array('leaflet-js', 'leaflet-marker-cluster-js', 'geocoder-js', 'map-helper-fn'), '3.0', true);
+    // }
   }
 
 
