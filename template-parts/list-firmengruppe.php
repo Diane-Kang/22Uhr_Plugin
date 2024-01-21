@@ -27,7 +27,7 @@ function generate_firmengruppe_list($atts = array())
     <div class="zurueck_alle">
       <a href="/firmenverzeichnis/"> Zurück zum Hauptverzeichnis </a> 
     </div>';
-  $title_text = "<h1>Verzeichnis der " .  get_the_title() . ":</h1>";
+  $title_text = "<h1>Verzeichnis | " .  get_the_title() . "</h1>";
   $page_description = '<div class="page-description number">' . $number_of_fg . ' unserer Standorte sind dabei</div>';
   $abschaltung_filter = generate_abschlatung_filter($fg_slug);
   $abschaltung_message = '<div class="abschaltung_message"><div class="hover-icon">&#xf005</div>Werbelicht im Zuge der Teilnahme optimiert</div>';

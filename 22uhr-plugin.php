@@ -55,6 +55,7 @@ require_once  PE_22Uhr_Plugin_Path . 'includes/geojsonAPI_generate_fg.php';
 new geojsonAPI_generate_fg("hagebaumaerkte-muenchen");
 new geojsonAPI_generate_fg("getraenkemaerkte-wierer");
 new geojsonAPI_generate_fg("dotta-eis");
+new geojsonAPI_generate_fg("genoverband-awado-gruppe");
 
 require_once  PE_22Uhr_Plugin_Path . '/g-u-t/functions.php';
 
