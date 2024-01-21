@@ -37,11 +37,11 @@ function generate_unternehmen_list()
         $unternehmen_list_html .= generate_eintrag($postId, 'dropdown');
         // }else if($firmengruppe_hierarchie == 0 && $firmengruppe_has_page == 1) {
       } else if ($firmengruppe_has_page == 1) {
-        if ($firmengruppe == 'G.U.T.') {
-          $unternehmen_list_html .= generate_eintrag($postId, 'fg_page_gut');
-        } else {
-          $unternehmen_list_html .= generate_eintrag($postId, 'fg_page');
-        }
+        // if ($firmengruppe == 'G.U.T.') {
+        //   $unternehmen_list_html .= generate_eintrag($postId, 'fg_page_gut');
+        // } else {
+        $unternehmen_list_html .= generate_eintrag($postId, 'fg_page');
+        // }
       }
       $unternehmenListe = '<div class="unternehmen">' . $unternehmen_list_html . '</div>';
     }

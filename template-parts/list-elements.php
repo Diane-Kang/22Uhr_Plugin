@@ -61,9 +61,9 @@ function generate_eintrag($postId, $type = 'basic')
     case 'fg_page':
       $string = eintrag_fg_Page($unternehme);
       break;
-    case 'fg_page_gut':
-      $string = eintrag_fg_Page_gut($unternehme);
-      break;
+      // case 'fg_page_gut':
+      //   $string = eintrag_fg_Page_gut($unternehme);
+      //   break;
   }
 
   return $string;
@@ -102,7 +102,7 @@ function eintrag_dropdown($unternehme)
   $child_query = new WP_Query($args);
 
   $string =
-    ' <div class="unternehmenseintrag unternehmenseintrag--dropdown ' . $unternehme["has_fg_sternchen"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme['fg_f_abschaltungszeit'] . '>
+    ' <div class="unternehmenseintrag firmengruppen unternehmenseintrag--dropdown ' . $unternehme["has_fg_sternchen"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme['fg_f_abschaltungszeit'] . '>
         <div class="icon-click-area">
           <svg class="ionicon-chevron-down" viewBox="0 0 512 512">
             <title>Chevron Down</title>
@@ -118,7 +118,7 @@ function eintrag_dropdown($unternehme)
           <div class="adresse">(' . $unternehme["fg_adresse_land"] . ')&nbsp;' . $unternehme["fg_adresse_postzahl"] . ' ' . $unternehme["fg_adresse_ort"] . '</div>
           <div class="abschaltung_zeit">
             <div class="hover-wrapper">
-              Werbelicht-Abschaltung: Bis spätestens ' . $unternehme['fg_s_abschaltungszeit'] . ' Uhr
+              Werbelicht-Abschaltung: Um spätestens ' . $unternehme['fg_s_abschaltungszeit'] . ' Uhr
               <div class="hover-icon">&#xf005</div>
               <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
             </div>
@@ -157,45 +157,44 @@ function eintrag_dropdown_child($unternehme)
   return $string;
 }
 
-function eintrag_fg_Page_gut($unternehme)
-{
-  $string =
-    '<div class="unternehmenseintrag firmengruppen ' . $unternehme["werbebeleuchtung"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme["abschaltung_value"] . '>
-      <div class="logo-wrapper">
-        <a href="' . $unternehme["permalink"] . '">' . $unternehme["thumbnail"] . '</a>
-      </div>
-      <div class="text">
-        <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
-        <div class="adresse">(' . $unternehme["adresse-land"] . ')&nbsp;' . $unternehme["adresse-postzahl"] . ' ' . $unternehme["adresse-ort"] . '</div>
-        <div class="alle map_link_text"> <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '"> Alle ' . show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")) . ' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></a> </div>
-        <div class="abschaltung_zeit">
-          <div class="hover-wrapper">
-            Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr
-            <div class="hover-icon">&#xf005</div>
-            <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
-          </div>
-        </div>
-      </div>
-    </div>';
-  return $string;
-}
+// function eintrag_fg_Page_gut($unternehme)
+// {
+//   $string =
+//     '<div class="unternehmenseintrag firmengruppen ' . $unternehme["werbebeleuchtung"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme["abschaltung_value"] . '>
+//       <div class="logo-wrapper">
+//         <a href="' . $unternehme["permalink"] . '">' . $unternehme["thumbnail"] . '</a>
+//       </div>
+//       <div class="text">
+//         <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
+//         <div class="adresse">(' . $unternehme["adresse-land"] . ')&nbsp;' . $unternehme["adresse-postzahl"] . ' ' . $unternehme["adresse-ort"] . '</div>
+//         <div class="alle map_link_text"> <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '"> Alle ' . show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")) . ' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></a> </div>
+//         <div class="abschaltung_zeit">
+//           <div class="hover-wrapper">
+//             Werbelicht-Abschaltung aller Standorte: Um spätestens 21 Uhr
+//             <div class="hover-icon">&#xf005</div>
+//             <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>';
+//   return $string;
+// }
 
 
 function eintrag_fg_Page($unternehme)
 {
   $args = array(
     'post_type' => 'unternehmen',
-    'post_parent' => $unternehme["id"],
-    'posts_per_page' => -1,
   );
-  $child_query = new WP_Query($args);
+  $child_query = get_pages($args);
+  $child_query_array = get_page_children($unternehme["id"], $child_query);
   $string =
-    ' <div class="unternehmenseintrag unternehmenseintrag--fg-Page ' . $unternehme["has_fg_sternchen"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme['fg_f_abschaltungszeit'] . '>
+    ' <div class="unternehmenseintrag firmengruppen unternehmenseintrag--fg-Page ' . $unternehme["has_fg_sternchen"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme['fg_f_abschaltungszeit'] . '>
         <div class="logo-wrapper">
           <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["thumbnail"] . '</a>
         </div>
         <div class="text">
-          <div class="firmengruppe_num">Firmen-Gruppe mit ' . $child_query->post_count . ' Standorten</div>
+          <div class="firmengruppe_num">Firmen-Gruppe mit ' . count($child_query_array) . ' Standorten</div>
           <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
           <div class="adresse">(' . $unternehme["fg_adresse_land"] . ')&nbsp;' . $unternehme["fg_adresse_postzahl"] . ' ' . $unternehme["fg_adresse_ort"] . '</div>
           <div class="alle map_link_text"> 
@@ -209,7 +208,7 @@ function eintrag_fg_Page($unternehme)
           </div>
           <div class="abschaltung_zeit">
             <div class="hover-wrapper">
-              Werbelicht-Abschaltung: Bis spätestens ' . $unternehme['fg_s_abschaltungszeit'] . ' Uhr
+              Werbelicht-Abschaltung: Um spätestens ' . $unternehme['fg_s_abschaltungszeit'] . ' Uhr
               <div class="hover-icon">&#xf005</div>
               <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
             </div>
@@ -217,4 +216,24 @@ function eintrag_fg_Page($unternehme)
          </div>
       </div>';
   return $string;
+}
+
+
+function get_posts_children($parent_id)
+{
+  $children = array();
+  // grab the posts children
+  $posts = get_posts(array('numberposts' => -1, 'post_status' => 'publish', 'post_type' => 'microsite', 'post_parent' => $parent_id, 'suppress_filters' => false));
+  // now grab the grand children
+  foreach ($posts as $child) {
+    // recursion!! hurrah
+    $gchildren = get_posts_children($child->ID);
+    // merge the grand children into the children array
+    if (!empty($gchildren)) {
+      $children = array_merge($children, $gchildren);
+    }
+  }
+  // merge in the direct descendants we found earlier
+  $children = array_merge($children, $posts);
+  return $children;
 }

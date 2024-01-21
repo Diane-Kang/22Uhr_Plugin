@@ -158,8 +158,7 @@
 }
 
 .page .map_link_text:not(.alle)::before,
-.page .fa-map::before,
-.firmengruppen .alle a::before {
+.page .fa-map::before {
   font-family: "Font Awesome 5 Free";
   padding: 5px;
   font-size: 18px;
@@ -210,7 +209,6 @@
   line-height: 1.2em;
   padding-bottom: 1em;
 }
-
 
 .icon-click-area {
   position: absolute;
