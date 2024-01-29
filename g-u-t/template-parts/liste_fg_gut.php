@@ -9,6 +9,7 @@ function liste_fg_gut_fn()
   // find Hauptverantwwortung
 
   $firmengruppen_name = 'G.U.T.';
+  $fg_slug = "g-u-t-gruppe";
 
 
   $arg = array(
@@ -58,7 +59,7 @@ function liste_fg_gut_fn()
     $arg = array(
       'post_type'       => 'unternehmen',
       'posts_per_page'  => -1,
-      'post_parent'     => get_page_by_path($fg_slug, OBJECT, array('unternehmen'))->ID,
+      'post_parent'     => 3730,
     );
 
     $fg = new WP_Query($arg);
