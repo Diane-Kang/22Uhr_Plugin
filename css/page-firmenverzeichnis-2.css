@@ -92,6 +92,12 @@
   display: flex;
 }
 
+.firmengruppe_num {
+  background-color: #f9c349;
+  color: black;
+  display: inline-block;
+}
+
 /* 
 ** Style for Firmengruppen : z.B. G-U-T gruppen Beitrag block
  */

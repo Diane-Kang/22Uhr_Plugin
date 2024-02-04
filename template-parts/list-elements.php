@@ -113,7 +113,7 @@ function eintrag_dropdown($unternehme)
           ' . $unternehme["thumbnail"] . '
         </div>
         <div class="text">
-          <div class="firmengruppe_num">Firmen-Gruppe mit ' . $child_query->post_count . ' Standorten</div>
+          <div class="firmengruppe_num">&nbsp;Firmen-Gruppe mit ' . $child_query->post_count . ' Standorten&nbsp;</div>
           <h3>' . $unternehme["title"] . '</h3>
           <div class="adresse">(' . $unternehme["fg_adresse_land"] . ')&nbsp;' . $unternehme["fg_adresse_postzahl"] . ' ' . $unternehme["fg_adresse_ort"] . '</div>
           <div class="abschaltung_zeit">
@@ -195,7 +195,7 @@ function eintrag_fg_Page($unternehme)
           <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["thumbnail"] . '</a>
         </div>
         <div class="text">
-          <div class="firmengruppe_num">Firmen-Gruppe mit ' . $child_query->post_count . ' Standorten</div>
+          <div class="firmengruppe_num">&nbsp;Firmen-Gruppe mit ' . $child_query->post_count . ' Standorten&nbsp;</div>
           <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
           <div class="adresse">(' . $unternehme["fg_adresse_land"] . ')&nbsp;' . $unternehme["fg_adresse_postzahl"] . ' ' . $unternehme["fg_adresse_ort"] . '</div>
           <div class="alle map_link_text"> 
