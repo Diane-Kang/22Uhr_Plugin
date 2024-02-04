@@ -1,4 +1,4 @@
-<?php 
+<?php
 ////////////// Only for G.U.T Gruppe shortcodes & functions 
 ///////Class for Register own Endpoint for API - /wp-json/22uhr-plugin/v1/unternehmen/g-u-t
 require_once  PE_22Uhr_Plugin_Path . 'g-u-t/geojsonAPI_generate_fg_gut.php';

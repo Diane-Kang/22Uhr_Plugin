@@ -9,7 +9,7 @@ function liste_fg_gut_fn()
   // find Hauptverantwwortung
 
   $firmengruppen_name = 'G.U.T.';
-  $fg_slug = "g-u-t-gruppe";
+  $fg_slug = "g-u-t";
 
 
   $arg = array(
@@ -59,7 +59,7 @@ function liste_fg_gut_fn()
     $arg = array(
       'post_type'       => 'unternehmen',
       'posts_per_page'  => -1,
-      'post_parent'     => 3730,
+      'post_parent'     => 4001,
     );
 
     $fg = new WP_Query($arg);
@@ -166,7 +166,7 @@ function liste_fg_gut_fn()
         $child_query = new WP_Query($args);
 
         $neben = "";
-        $neben .= '<div class="here unternehme ' . $i . '">';
+        $neben .= '<div class="unternehme">';
 
         $child_n = $child_query->found_posts;
         $neben .= generate_list_entry(get_the_ID(), "parent", $child_n);
@@ -225,14 +225,7 @@ function generate_list_entry($post_id, $identity = 'haupt', $n_child = 0)
   $string = "";
   $string .= '<div class=" unternehmenseintrag-filter abschaltung_' . $zeit . '">';
 
-  if ($n_child) {
-    $string .= '<div class = icon-click-area>
-                        <svg class="ionicon-chevron-down" viewBox="0 0 512 512">
-                            <title>Chevron Down</title>
-                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/>
-                        </svg>
-                    </div>';
-  }
+
 
 
   switch ($identity) {
@@ -247,6 +240,14 @@ function generate_list_entry($post_id, $identity = 'haupt', $n_child = 0)
       break;
   }
 
+  if ($n_child) {
+    $string .= '<div class = icon-click-area>
+                        <svg class="ionicon-chevron-down" viewBox="0 0 512 512">
+                            <title>Chevron Down</title>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/>
+                        </svg>
+                    </div>';
+  }
   $abschaltung_zeit_text = "";
   if ($zeit_num == "") {
     $abschaltung_zeit_text = "Seit jeher kein Werbelicht vorhanden";

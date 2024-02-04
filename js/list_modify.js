@@ -26,7 +26,9 @@ var abschaltung_message = document.querySelector(".abschaltung_message");
 document
   .getElementById("abschaltung_uhrzeit")
   .addEventListener("change", function () {
-    abschaltung_message.style.visibility = "visible";
+    if (abschaltung_message) {
+      abschaltung_message.style.visibility = "visible";
+    }
     for (i = 0; i < all_unternehmen.length; i++) {
       all_unternehmen[i].style.display = "none";
       comment.style.display = "none";

@@ -190,7 +190,7 @@ function eintrag_fg_Page($unternehme)
   );
   $child_query = new WP_Query($args);
   $string =
-    ' <div class="unternehmenseintrag unternehmenseintrag--fg-Page ' . $unternehme["has_fg_sternchen"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme['fg_f_abschaltungszeit'] . '>
+    ' <div class="unternehmenseintrag fg-page ' . $unternehme["has_fg_sternchen"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme['fg_f_abschaltungszeit'] . '>
         <div class="logo-wrapper">
           <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["thumbnail"] . '</a>
         </div>
