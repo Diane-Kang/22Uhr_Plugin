@@ -118,7 +118,7 @@ function eintrag_dropdown($unternehme)
           <div class="adresse">(' . $unternehme["fg_adresse_land"] . ')&nbsp;' . $unternehme["fg_adresse_postzahl"] . ' ' . $unternehme["fg_adresse_ort"] . '</div>
           <div class="abschaltung_zeit">
             <div class="hover-wrapper">
-              Werbelicht-Abschaltung: Bis spätestens ' . $unternehme['fg_s_abschaltungszeit'] . ' Uhr
+              Werbelicht-Abschaltung: Um spätestens ' . $unternehme['fg_s_abschaltungszeit'] . ' Uhr
               <div class="hover-icon">&#xf005</div>
               <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
             </div>
@@ -170,7 +170,7 @@ function eintrag_fg_Page_gut($unternehme)
         <div class="alle map_link_text"> <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '"> Alle ' . show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")) . ' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></a> </div>
         <div class="abschaltung_zeit">
           <div class="hover-wrapper">
-            Werbelicht-Abschaltung aller Standorte: Bis spätestens 21 Uhr
+            Werbelicht-Abschaltung aller Standorte: Um spätestens 21 Uhr
             <div class="hover-icon">&#xf005</div>
             <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
           </div>
@@ -209,7 +209,7 @@ function eintrag_fg_Page($unternehme)
           </div>
           <div class="abschaltung_zeit">
             <div class="hover-wrapper">
-              Werbelicht-Abschaltung: Bis spätestens ' . $unternehme['fg_s_abschaltungszeit'] . ' Uhr
+              Werbelicht-Abschaltung: Um spätestens ' . $unternehme['fg_s_abschaltungszeit'] . ' Uhr
               <div class="hover-icon">&#xf005</div>
               <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
             </div>

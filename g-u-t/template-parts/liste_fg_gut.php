@@ -92,7 +92,7 @@ function liste_fg_gut_fn()
       $text_label = 'Sonderfälle';
       $data_group_format = 'abschaltung_' . str_replace("-", "_", $abschaltung_zeit->slug);
     } else if (is_numeric($abschlatung_zeit_number)) {
-      $text_label = 'Bis spätestens ' .  $abschaltung_tax_name;
+      $text_label = 'Um spätestens ' .  $abschaltung_tax_name;
     } else {
       $text_label = 'Error: Abschaltung Taxonomy';
     }
