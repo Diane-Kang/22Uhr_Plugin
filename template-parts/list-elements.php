@@ -62,7 +62,7 @@ function generate_eintrag($postId, $type = 'basic')
       $string = eintrag_fg_Page($unternehme);
       break;
     case 'fg_page_gut':
-      $string = eintrag_fg_Page_gut($unternehme);
+      $string = eintrag_fg_Page($unternehme);
       break;
   }
 
@@ -157,28 +157,28 @@ function eintrag_dropdown_child($unternehme)
   return $string;
 }
 
-function eintrag_fg_Page_gut($unternehme)
-{
-  $string =
-    '<div class="unternehmenseintrag firmengruppen ' . $unternehme["werbebeleuchtung"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme["abschaltung_value"] . '>
-      <div class="logo-wrapper">
-        <a href="' . $unternehme["permalink"] . '">' . $unternehme["thumbnail"] . '</a>
-      </div>
-      <div class="text">
-        <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
-        <div class="adresse">(' . $unternehme["adresse-land"] . ')&nbsp;' . $unternehme["adresse-postzahl"] . ' ' . $unternehme["adresse-ort"] . '</div>
-        <div class="alle map_link_text"> <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '"> Alle ' . show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")) . ' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></a> </div>
-        <div class="abschaltung_zeit">
-          <div class="hover-wrapper">
-            Werbelicht-Abschaltung aller Standorte: Um spätestens 21 Uhr
-            <div class="hover-icon">&#xf005</div>
-            <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
-          </div>
-        </div>
-      </div>
-    </div>';
-  return $string;
-}
+// function eintrag_fg_Page_gut($unternehme)
+// {
+//   $string =
+//     '<div class="unternehmenseintrag firmengruppen ' . $unternehme["werbebeleuchtung"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme["abschaltung_value"] . '>
+//       <div class="logo-wrapper">
+//         <a href="' . $unternehme["permalink"] . '">' . $unternehme["thumbnail"] . '</a>
+//       </div>
+//       <div class="text">
+//         <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
+//         <div class="adresse">(' . $unternehme["adresse-land"] . ')&nbsp;' . $unternehme["adresse-postzahl"] . ' ' . $unternehme["adresse-ort"] . '</div>
+//         <div class="alle map_link_text"> <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '"> Alle ' . show_child_unternehmen_nummer(array('firmenname' => "G.U.T.")) . ' Standorte mit Abschaltzeit anzeigen<i class="fas fa-external-link-alt"></i></a> </div>
+//         <div class="abschaltung_zeit">
+//           <div class="hover-wrapper">
+//             Werbelicht-Abschaltung aller Standorte: Um spätestens 21 Uhr
+//             <div class="hover-icon">&#xf005</div>
+//             <div class="hover-text">Werbelicht im Zuge der Teilnahme optimiert</div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>';
+//   return $string;
+// }
 
 
 function eintrag_fg_Page($unternehme)
