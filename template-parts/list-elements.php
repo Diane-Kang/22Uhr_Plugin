@@ -74,10 +74,10 @@ function eintrag_basic($unternehme)
   $string =
     '<div class="unternehmenseintrag ' . $unternehme["werbebeleuchtung"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme["abschaltung_value"] . '>
       <div class="logo-wrapper">
-        <a href="' . $unternehme["permalink"] . '">' . $unternehme["thumbnail"] . '</a>
+        <a href="' . $unternehme["permalink"] . '" target="_blank" rel="noopener noreferrer">' . $unternehme["thumbnail"] . '</a>
       </div>
       <div class="text">
-        <h3><a href="' . $unternehme["permalink"] . '">' . $unternehme["title"] . '</a></h3>
+        <h3><a href="' . $unternehme["permalink"] . '" target="_blank" rel="noopener noreferrer">' . $unternehme["title"] . '</a></h3>
         <div class="adresse">(' . $unternehme["adresse-land"] . ')&nbsp;' . $unternehme["adresse-postzahl"] . ' ' . $unternehme["adresse-ort"] . '</div>
         <div class="map_link_point map_link_text" id="map_id_' . $unternehme["id"] . '">Auf Karte zeigen </div>
         <div class="abschaltung_zeit">
@@ -142,7 +142,7 @@ function eintrag_dropdown_child($unternehme)
   $string =
     '<div class="unternehmenseintrag ' . $unternehme["werbebeleuchtung"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme["abschaltung_value"] . '>
       <div class="text">
-        <h3><a href="' . $unternehme["permalink"] . '">' . $unternehme["title"] . '</a></h3>
+        <h3><a href="' . $unternehme["permalink"] . '" target="_blank" rel="noopener noreferrer">' . $unternehme["title"] . '</a></h3>
         <div class="adresse">(' . $unternehme["adresse-land"] . ')&nbsp;' . $unternehme["adresse-postzahl"] . ' ' . $unternehme["adresse-ort"] . '</div>
         <div class="map_link_point map_link_text" id="map_id_' . $unternehme["id"] . '">Auf Karte zeigen </div>
         <div class="abschaltung_zeit">
@@ -194,14 +194,14 @@ function eintrag_fg_Page($unternehme)
   $string =
     ' <div class="unternehmenseintrag fg-page ' . $unternehme["has_fg_sternchen"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme['fg_f_abschaltungszeit'] . '>
         <div class="logo-wrapper">
-          <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["thumbnail"] . '</a>
+          <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '" target="_blank" rel="noopener noreferrer">' . $unternehme["thumbnail"] . '</a>
         </div>
         <div class="text">
           <div class="firmengruppe_num">&nbsp;Firmen-Gruppe mit ' . count($child_query_array) . ' Standorten&nbsp;</div>
-          <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
+          <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '" target="_blank" rel="noopener noreferrer">' . $unternehme["title"] . '</a></h3>
           <div class="adresse">(' . $unternehme["fg_adresse_land"] . ')&nbsp;' . $unternehme["fg_adresse_postzahl"] . ' ' . $unternehme["fg_adresse_ort"] . '</div>
           <div class="alle map_link_text"> 
-            <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">
+            <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '" target="_blank" rel="noopener noreferrer">
               <div> 
                 <i class="fas fa-solid fa-map"></i>
                 Alle Standorte auf Karte anzeigen
