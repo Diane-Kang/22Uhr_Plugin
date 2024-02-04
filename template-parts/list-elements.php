@@ -185,17 +185,19 @@ function eintrag_fg_Page($unternehme)
 {
   $args = array(
     'post_type' => 'unternehmen',
-    'post_parent' => $unternehme["id"],
-    'posts_per_page' => -1,
   );
   $child_query = new WP_Query($args);
+
+  $child_query = get_pages($args);
+  $child_query_array = get_page_children($unternehme["id"], $child_query);
+
   $string =
     ' <div class="unternehmenseintrag fg-page ' . $unternehme["has_fg_sternchen"] . ' ' . $unternehme["abschaltung_data_group"] . '" value=' . $unternehme['fg_f_abschaltungszeit'] . '>
         <div class="logo-wrapper">
           <a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["thumbnail"] . '</a>
         </div>
         <div class="text">
-          <div class="firmengruppe_num">&nbsp;Firmen-Gruppe mit ' . $child_query->post_count . ' Standorten&nbsp;</div>
+          <div class="firmengruppe_num">&nbsp;Firmen-Gruppe mit ' . count($child_query_array) . ' Standorten&nbsp;</div>
           <h3><a href="/firmenverzeichnis/' . get_post_meta($unternehme["id"], "firmengruppen-seite", true) . '">' . $unternehme["title"] . '</a></h3>
           <div class="adresse">(' . $unternehme["fg_adresse_land"] . ')&nbsp;' . $unternehme["fg_adresse_postzahl"] . ' ' . $unternehme["fg_adresse_ort"] . '</div>
           <div class="alle map_link_text"> 
@@ -217,4 +219,23 @@ function eintrag_fg_Page($unternehme)
          </div>
       </div>';
   return $string;
+}
+
+function get_posts_children($parent_id)
+{
+  $children = array();
+  // grab the posts children
+  $posts = get_posts(array('numberposts' => -1, 'post_status' => 'publish', 'post_type' => 'microsite', 'post_parent' => $parent_id, 'suppress_filters' => false));
+  // now grab the grand children
+  foreach ($posts as $child) {
+    // recursion!! hurrah
+    $gchildren = get_posts_children($child->ID);
+    // merge the grand children into the children array
+    if (!empty($gchildren)) {
+      $children = array_merge($children, $gchildren);
+    }
+  }
+  // merge in the direct descendants we found earlier
+  $children = array_merge($children, $posts);
+  return $children;
 }
